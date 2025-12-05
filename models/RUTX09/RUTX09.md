@@ -1,0 +1,4414 @@
+# RUTX09 firmware changelog
+
+## Overview
+
+- Stable firmware: `RUTX_R_00.07.18.3`
+- Latest firmware: `RUTX_R_00.07.19.4`
+
+---
+
+## RUTX_R_00.07.19.4 | 2025.12.05
+
+### Fix
+#### Network
+* Mobile: fixed operator selection under specific conditions
+
+---
+
+## RUTX_R_00.07.19.2 | 2025.11.26
+
+### Fix
+#### System
+* Update Firmware: fixed firmware download cancellation
+
+---
+
+## RUTX_R_00.07.19.1 | 2025.11.12
+
+### Fix
+#### System
+* WebUI: fixed unresponsive navigation after password change
+
+---
+
+## RUTX_R_00.07.19 | 2025.11.06
+
+### New
+#### Network
+* Mobile: added "web.unomobile.it" APN for "1Mobile" operator to APN database
+### Improvements
+#### Network
+* DHCP server: added message to Events Log when there are no available DHCP addresses
+* Firewall: added status to Traffic Rule page
+* Firewall: added status to Port Forwards page
+* Firewall: added status to NAT page
+* Firewall: added status to DMZ page
+* Firewall: updated status page to have chain and rule tables for better searchability
+* Firewall: added shortcuts from firewall rules in status page to firewall configurations that created them
+* HTTPS DNS Proxy: disabled field requirements when service is disabled
+* Mobile: improved mobile operator parsing for connection establishment
+* Mobile: added support for eSIM to Mobile Usage page
+* Mobile: updated default SIM selection in Mobile General page
+* Mobile: added switch to disable local DHCPv4 leases when operating in bridge mode
+* Mobile: added more information about SIM state changes in logs
+* Mobile: improved error handling during mobile data connection bringup
+* NAT64: added status to NAT64 page
+* Network: improved DHCP client and server related fields
+* VLAN: improved VLAN configuration save and apply speed in some cases
+#### Services
+* Cloud of Things: changed communication from HTTP to MQTT
+* Cumulocity: changed communication from HTTP to MQTT
+* Data to Server: added new parameters (Custom name and pin value) in I/O input plugin
+* EoIP: added IPv6 support
+* Event juggler: added `io_reset` option
+* GRE: added IPv6 support
+* Impulse Counter: increased status loading speed
+* MQTT Modbus Gateway: added validation to discard responses with invalid ID or function code
+* NTRIP: added IPv6 support
+* OpenVPN: improved page load speed by removing duplicate data request
+* SNMP: added SET support for universal gateway tag value table
+* Stunnel: added support for using IPv6 addresses in the connect IPs field
+* Wireguard: added wireguard watchdog support
+* cURL: updated version to 8.16.0
+* OpenVPN: updated version to 2.6.14
+#### System
+* Custom Scripts: added page loading spinner
+* Speed Test: added support for custom server url
+* Update Firmware: improved FOTA communication and caching logic
+* WebUI: improved usability on small screens
+* Kernel: updated version to 6.6.108
+* PAM: updated version to 1.7.1
+### Fix
+#### Network
+* DHCP server: fixed DHCPv6 server reload when changing VLAN
+* DNS: fixed "Static addresses" and "Custom redirect" field required validation
+* Dynamic routes: fixed services other than EIGRP restarting on network change
+* Firewall: added IPsec and OpenConnect configurations as possible networks
+* Firewall: fixed NAT extra custom rules not applying after FW upgrade
+* HTTPS DNS Proxy: fixed DNS requests failing after obtaining new IP
+* Mobile: fixed informational messages when SIM configuration is not found
+* Mobile: fixed configuration files after ESIM deletion
+* Mobile: fixed IPv4/IPv6 type mobile reconnection loop if one type has unsuccessful connection
+* Mobile: fixed updating modem firmware when custom root CA is configured
+* Mobile: fixed eSIM profile display for profiles without provider value
+* Mobile: fixed missing modem firmware version after modem firmware update
+* Multi WAN: fixed Multi WAN interface creation
+* Ports Settings: fixed ports re-enabling themselves after changing certain settings
+#### Services
+* DLMS: fixed access error when reading an empty sort object attribute on a generic profile object
+* DLMS: fixed "Entries" not being clamped for "Profile generic" COSEM type
+* DMVPN: fixed custom changes in IPsec, GRE and NHRP pages being reverted when saving DMVPN instance
+* DNP3 Client: fixed dnp3 test function printing analog values in wrong format
+* DNP3 Client: fixed always shown warning notification by displaying status hints for affected requests
+* Dynamic DNS: fixed "Check interval" and "Force interval" validation issues
+* Email to SMS: fixed process hang during email handling
+* Impulse Counter: fixed duplicate values in 'GPIO pin' dropdown
+* Impulse Counter: fixed deleting impulse counter data records
+* IPsec: fixed an issue where connections could be re-initiated even while being active
+* IPsec: fixed authentication issue when using multiple instances with the PSK authentication method
+* IPsec: fixed Xauth connections not establishing when identifiers are set
+* IPsec: fixed wrong active client information when using certificates
+* IPsec: fixed incorrect uptime display when using multiple responder instances
+* L2TP: fixed L2TP over IPsec connection issue
+* L2TPv3: fixed parameter validation for IPv6 addresses in configuration
+* Modbus Client: fixed email and MQTT alarm actions running longer than intended
+* Modbus Client: fixed always shown warning notification by displaying status hints for affected requests
+* Modbus Client: fixed test request endpoints failing if 'broadcast' option is not provided
+* MQTT Broker: fixed TLSv1.1 configuration
+* OpenConnect: fixed 'Get server fingerprint' feature on IPv6 servers
+* OpenConnect: fixed displaying IPv6 address under Tunnel IP address
+* OpenVPN: fixed parsing uploaded custom OpenVPN configuration
+* OpenVPN: fixed issues with parsed fields being displayed after config deletion
+* OpenVPN: fixed configuration parsing issues related to security options
+* SMS Forwarding: fixed certificate verification disabling
+* Wireguard: fixed creation of routes to endpoint host when default route is not set
+#### System
+* Access Control: fixed displaying certificates in "HTTPS" edit modal after page refresh
+* Administration: fixed incorrect creation date of user's default configuration
+* API Core: fixed API error on 'DELETE' request with bad payload structure
+* Events Log: fixed sorting reset functionality of table columns and "Event group" column issues
+* Setup Wizard: fixed redirect of "RMS" step
+* System Users: fixed multiple network pages working improperly with non-root users
+* WebUI: fixed "visible columns" button to be clickable for users without "write" permissions
+* WebUI: removed bell notifications from modals
+* WebUI: fixed length validation for custom input values in select lists
+* WebUI: fixed active state of filters on tables
+### CVE Patches
+* CVE-2025-4373 - 4.8 (MEDIUM)
+* CVE-2025-6020 - 7.8 (HIGH)
+* CVE-2025-6052 - 7.5 (HIGH)
+
+---
+
+## RUTX_R_00.07.18.3 | 2025.10.30
+
+### Improvements
+#### System
+* ubus: updated version to 2025-10-19
+### Fix
+#### System
+* Backup: fixed issues uploading older backup files
+
+---
+
+## RUTX_R_00.07.18.2 | 2025.10.22
+
+### Fix
+#### Services
+* IPsec: fixed issue where IPsec connections failed during WAN failover
+* OpenVPN: fixed status issue after firmware upgrade
+
+---
+
+## RUTX_R_00.07.18.1 | 2025.10.13
+
+### Fix
+#### Network
+* Mobile: fixed operator selection under specific conditions
+
+---
+
+## RUTX_R_00.07.18 | 2025.10.01
+
+> ⚠️
+> Note: This firmware version has been withdrawn due to an issue with incorrect mobile operator selection under specific conditions.
+
+### New
+#### Network
+* Mobile: added historical signal information display
+* Mobile: added "internet" APN for "Telenor" operator to APN database
+* Starlink: added Starlink management support
+### Improvements
+#### Network
+* DHCP server: added option 82 support to DHCP relay
+* Mobile: added SIM switch historical data
+* Mobile: improved SIM switch status information
+* SSHFS: updated mount point location
+* Dnsmasq: updated version to 2.90
+* Iperf3: updated version to 3.19.1
+#### Services
+* DLMS: improved COSEM value reading speed
+* DNP3 Client: added DNP3 client support for universal gateway
+* DNP3 Outstation: increased status report responsiveness
+* Event juggler: added new GPS operator 'Enter/Exit' for geofencing trigger
+* GPS: added warnings to NMEA sentence API endpoints
+* GPS: improved map loading logic to load modules only when needed
+* Input/Output: added "time" and "delay" options to I/O state change API endpoint
+* IPsec: added requirement for local certificate and key fields when X.509 authentication method is selected
+* IPsec: added improvements for IPv6 support
+* Modbus Client: increased test button and status report responsiveness
+* Modbus Client: made number zero as valid server ID
+* Modbus Client: added broadcast support
+* Modbus Server: increased status report responsiveness
+* Modbus Server: added broadcast support
+* MQTT Modbus Gateway: added broadcast support
+* OpenVPN: removed disabled state from "logs" and "active clients" when user has no write permissions
+* OpenVPN: improved error messages
+* OpenVPN: added user and password options for export client configuration
+* SMS Utilities: added a warning about enabled SMS limit
+#### System
+* Access Control: added JSON-RPC enable toggle
+* JSON-RPC: moved to Package Manager
+* Update Firmware: added event log item about modem firmware update
+* WebUI: added indicators when a form input inside an inactive tab was changed or invalid
+* WebUI: added "Skip to main content" accessibility feature
+* WebUI: improved multi select design
+* WebUI: improved styles of drag hint on smaller screens
+* WebUI: improved consistent formatting across all hints
+### Fix
+#### Network
+* Mobile: fixed excessive SIM switching after changing configuration
+* Mobile: fixed segmentation fault during SIM switching
+* Mobile: fixed APN database backup and restore functionality
+* Multi WAN: fixed incorrect log trigger
+* Network usage: fixed table columns visual bugs
+#### Services
+* Call Utilities: fixed answer action not triggering on second call
+* Data to Server: fixed Modbus input raw data sending when data type is Modbus PDU
+* GPS: fixed an issue where GNSS location would not be updated due to unsynchronized GGA and RMC sentences
+* Hotspot: fixed console errors that occurred in certain scenarios when enabling or disabling an instance
+* IPsec: fixed field validation to support % in custom options
+* Modbus Client: fixed PDU data type data collection
+* OpenVPN: fixed permissions for using IP Block
+* RMS: fixed RMS authentication under poor internet conditions
+* SMS Utilities: fixed mobile data usage display when mobile data is turned off
+* SMS Utilities: fixed incorrect 'Firmware on server' status message shown without internet connection
+* Stunnel: fixed disabled state of "enable" switch in overview page
+* Zerotier: fixed excessive ARP flooding on Zerotier interfaces
+#### System
+* Administration: fixed "User group" input validation
+* API Core: fixed double quoted boundary parsing
+* Kernel: fixed compilation of 'fs-cifs' kernel module package
+* Profiles: fixed endpoint response when calling from internal API
+* UI Core: fixed 'Save & Apply' button reachability on mobile devices
+* Update Firmware: fixed incorrect FOTA address in SDK
+* WebUI: fixed text-area width issues on small screen devices
+### CVE Patches
+* CVE-2025-6021
+* CVE-2025-6069
+* CVE-2025-8194
+* CVE-2025-32415
+* CVE-2025-49794
+* CVE-2025-49796
+
+---
+
+## RUTX_R_00.07.17.5 | 2025.09.30
+
+### Improvements
+#### Network
+* Mobile: added ability to download eSIM profiles via Setup Wizard
+### Fix
+#### Network
+* Mobile: fixed possible hang when downloading eSIM profile
+* Network: fixed assigning interface to incorrect firewall zone when changing its settings
+
+---
+
+## RUTX_R_00.07.17.4 | 2025.09.17
+
+### Fix
+#### System
+* Profiles: fixed keep-settings execution for older profiles
+
+---
+
+## RUTX_R_00.07.17.3 | 2025.09.05
+
+### Improvements
+#### Services
+* Tailscale: updated version to 1.86.2
+### Fix
+#### Services
+* Web Filter: fixed host blocking with hotspot interfaces
+
+---
+
+## RUTX_R_00.07.17.2 | 2025.09.02
+
+### Fix
+#### Network
+* DNS: fixed saving of DNS server IPs
+* Mobile: fixed SIM switch rule triggering unexpectedly due to NTP time adjustments
+#### Services
+* Tailscale: fixed dns resolution errors caused by enabling MagicDNS
+#### System
+* Backup: fixed keep-settings execution for older backups
+* WebUI: fixed missing "Port Mirroring" page
+
+---
+
+## RUTX_R_00.07.17.1 | 2025.08.19
+
+### Fix
+#### Network
+* Multi WAN: fixed failover startup after reboot
+
+---
+
+## RUTX_R_00.07.17 | 2025.08.12
+
+> ⚠️
+> Note: This firmware was removed due an issue with Failover functionality.
+
+### New
+#### Network
+* Mobile: added "du.soracom.io" APN for "Soracom" carrier to APN database
+* Mobile: added "m2m" APN for "Cellhire IoT" operator to APN database
+* Mobile: added "internet" APN for "Cellhire" operator to APN database
+* Mobile: added "tis.com" APN for "Sparkle" operator to APN database
+#### System
+* RutOS: added instructions for creating a simple package using the SDK
+### Improvements
+#### Network
+* Mobile: added IPv4 or IPv6 data connection information in event log
+* Mobile: added signal data collection
+* Multi WAN: added drag & drop operation for the "Failover" mode
+* Realtime Traffic: added ability to see up to 1 hour of live data
+* VRF: added VPN selection support in the WebUI
+* Iperf3: updated version to 3.19
+#### Services
+* Auto Reply: increased SMS text length from 3 to 8 messages
+* Call Utilities: increased SMS text length from 3 to 8 messages
+* Email Relay: simplified new instance creation
+* Event juggler: added call action functionality to hang up the call after a specified time
+* Event juggler: increased SMS text length from 3 to 8 messages
+* Event juggler: added live character counter for SMS messages
+* Mobile Utilities: added WebUI notifications for received messages and triggered SMS rules
+* Mobile Utilities: added UCI ACL rules
+* Package Manager: added confirmation modal when removing multiple packages
+* SMS Utilities: increased SMS text length from 3 to 8 messages
+* Traffic Logging: improved Hotspot data stream retrieval
+#### System
+* Administration: added notifications and alerts display toggles
+* Administration: updated certificates page
+* Package Manager: added WebUI notifications for successful and failed package installations
+* UI Core: changed all chart styles
+* WebUI: updated brand color palette
+* WebUI: added sensitive information hiding feature for 'IMSI', 'ICCID' and 'IP address' fields for lower privilege users
+* WebUI: added truncation and hover tooltips for long side widget card titles
+* WebUI: unified the "Change Password" page title
+* Kernel: updated version to 6.6.96
+### Fix
+#### Network
+* Data limit: fixed interface data limit not being reset when interface is down
+* DHCP server: fixed DHCPv6 server reload when changing VLAN
+* DHCP server: fixed wrong DHCPv4 server conflict message being displayed when both interfaces have no device assigned
+* HTTPS DNS Proxy: fixed typo in the configuration page
+* Mobile: fixed issue where auto subnet selection used incorrect subnet mask in Bridge or Passthrough modes
+* Mobile: fixed modem driver network stats cleanup on modem restart
+* Mobile: fixed mobile connection loop on unsuccessful ping
+* VLAN: fixed a missing validation message in the WebUI when VLAN migration is restricted
+#### Services
+* Data to Server: fixed configuration clearing when plugin packages are deleted
+* DLMS: fixed missing API validation message for 'server_addr' option
+* DLMS: fixed service crashing when using "Register activation", "Activity calendar" and "Profile generic" COSEM types
+* DNP3 Client: fixed 'index' option API error in the 'requests' endpoints
+* GPS: fixed reconnection to NMEA forwarding hosts when at least one of them is not reachable
+* Hotspot: fixed redirect to custom success url with the same domain as landing page
+* Hotspot: fixed 'reset' button functionality and template input styles in 'Landing pages' page
+* I/O Juggler: fixed minor validation bugs
+* I/O Juggler: fixed log generation on reboot action
+* Impulse Counter: fixed duplicate query parameter validation
+* Impulse Counter: fixed input re-initiation
+* Input/Output: fixed incorrect assigning of input/output pins
+* IPsec: fixed intermittent errors when checking IPsec status
+* Modbus Client: fixed timeout behavior to not include serial device acquisition time
+* Modbus Server: fixed custom register block not working if count is more than 128 registers
+* NTRIP: fixed ntrip hangup on modem restart or on error conditions
+* Over IP: fixed API error when 'address_connect' option is missing
+* Over IP: fixed 'echo_enabled' option not being set
+* SMS Utilities: fixed incorrect status in 5G operation mode
+* Tailscale: fixed routing issue with failover enabled
+* Wireguard: fixed incorrect route towards other peer being added
+* Wireguard: fixed Wireguard not re-adding default routes after deleting instance
+#### System
+* Access Control: fixed duplicate query parameter validation
+* Access Control: fixed HTTP WAN remote switch is shown as disabled after the "WAN to LAN" action
+* Administration: fixed device usage duplicate query parameter validation
+* Administration: fixed issue of "delete" button not being disabled on "System users" page when user has no write permissions
+* Events Log: fixed duplicate query parameter validation
+* IP Block: fixed MAC blocking interface validation
+* NTP Client: fixed fail count when operator synchronization is enabled
+* Package Manager: updated "View packages repository" link
+* Profiles: fixed issue that allowed deletion of profiles in use by the scheduler
+* Setup Wizard: fixed  "Setup Wizard" access issues with lower privilege users
+* WebUI: fixed notifications disappearing on page navigation
+* WebUI: fixed validation for fields using "url" rule
+### CVE Patches
+* CVE-2023-53154
+* CVE-2024-12718
+* CVE-2024-31578
+* CVE-2024-52533
+* CVE-2025-4138
+* CVE-2025-4330
+* CVE-2025-4516
+* CVE-2025-4517
+
+---
+
+## RUTX_R_00.07.16.6 | 2025.09.17
+
+### Fix
+#### System
+* Profiles: fixed keep-settings execution for older profiles
+
+---
+
+## RUTX_R_00.07.16.3 | 2025.07.28
+
+### Fix
+#### System
+* System Status: fixed SIM 1 and SIM 2 LEDs not working
+
+---
+
+## RUTX_R_00.07.16.2 | 2025.07.24
+
+### New
+#### Services
+* SNMP: added LAN clients' table OID
+### Fix
+#### Services
+* OpenVPN: fixed connectivity issues when using WAN failover
+
+---
+
+## RUTX_R_00.07.16.1 | 2025.07.17
+
+### New
+#### Services
+* DNP3 Outstation: added support for data conversion from other industrial protocols
+* FreeRADIUS: added package
+* SNMP: added Universal Gateway support for Modbus and M-Bus protocols
+### Improvements
+#### Network
+* DHCP server: added excluded address count to Leased IPs status
+* Firewall: added attack prevention option to log detected flood events
+* Mobile: improved provider name parsing when it is not returned by the module
+* Mobile: changed "telstra.wap" APN for "Telstra" operator to "telstra.internet" in APN database
+* Mobile: improved validation to prevent SMS sending when SIM is removed
+* libpcap: updated version to 1.10.5
+* tcpdump: updated version to 4.99.5
+#### Services
+* Data to Server: updated collection and input card design
+* Data to Server: added support for specifying multiple minute values in one row for the "Scheduler"
+* Data to Server: added support for Base64 data encoding
+* Data to Server: added warning message for Lua format example script
+* Data to Server: improved example format Lua script
+* DLMS: added filtering query parameters to database API endpoint
+* DNP3 Client: added filtering query parameters to database API endpoint
+* Event juggler: updated event and action card design
+* Event juggler: updated modem selection to include external modems
+* Event juggler: updated "Key-value arguments" to allow duplicates in "Script" and "HTTP" actions
+* Event juggler: increased maximum "Key-value arguments" count in "Script" and "HTTP" actions
+* Event juggler: improved configuration creation in WebUI
+* GPS: updated to use all available constellations when determining the current position
+* L2TP: added support for custom ports
+* L2TPv3: improved validation for multiple fields
+* Messages: increased allowed SMS length from 3 to 8 messages
+* Mobile Utilities: added explanatory message to disabled "Storage" options
+* Modbus Client: added filtering query parameters to database API endpoint
+* Modbus Server: added multi value support in data source selection
+* OPC UA Client: added filtering query parameters to database API endpoint
+* OpenConnect: added certificate authentication support
+* OpenConnect: added support for storing keys in TPM2.0
+* Stunnel: added TPM2.0 key support
+* libtasn1: updated version to 4.20.0
+#### System
+* Troubleshoot: added support for capturing packets via the NFLOG interface
+* WebUI: updated icon sizes
+* WebUI: added long hold to drag on mobile for draggable cards
+* WebUI: improved layout and functionality of log modals
+* WebUI: added indication to 'System' status page if modem is unreachable
+* WebUI: added information about 'Branch' to 'System' page
+* dropbear: updated version to 2025.88
+* Kernel: updated version to 6.6.92
+* tpm2-openssl: updated version to 1.3.0
+### Fix
+#### Network
+* DHCP server: fixed calculating DHCP address range when changing subnet mask
+* DHCP server: fixed the incorrectly displayed error for server status
+* Mobile: fixed IPv6 prefix delegation option to stop delegating prefix when option is disabled
+* Mobile: fixed an issue of data connection failure after many interface reloads
+* Network: fixed incorrect IP address netmask validation
+* Ports Settings: fixed page refresh button
+* Ports Settings: fixed advertisement not required when auto-negotiation is enabled in API
+* Realtime Traffic: fixed data usage show for interfaces with PPPoE protocol
+* Topology: fixed issue where scan buttons were not clickable on mobile devices
+#### Services
+* Data to Server: fixed dnp3 package offline installation bug
+* Data to Server: fixed GPS data formatting
+* Data to Server: fixed SIM card support count in Mobile Usage
+* DLMS: fixed COSEM attribute filtering
+* DMVPN: fixed DMVPN routes not showing up in Static Routes
+* DNP3 Client: fixed requests API error when incorrect 'index' option value was provided
+* Dynamic DNS: fixed Cloudflare authentication type, username saving errors
+* Event juggler: added missing I/O pins for "Copy pin state" option
+* Event juggler: fixed minor I/O validation bugs
+* GPS: fixed NMEA host_info option data type error
+* Hotspot: added SNMP Hotspot trap removal when Hotspot package is removed
+* Hotspot: fixed some LAN traffic being forwarded to Hotspot interface when using VLANs
+* Hotspot: fixed purple.ai configuration profile
+* IPsec: fixed incorrect IPsec restarts when used with Multi WAN
+* Modbus Server: fixed issue where data sources with write permission would not work
+* Modbus Server: fixed regfile uniqueness validation between instances
+* Modbus Server: fixed regression of writing single coil/register always failing
+* OpenVPN: fixed connection checking when using IPv6
+* Tailscale: fixed DNS configuration acceptance from the Tailscale console
+* TR-069: fixed device name generation
+#### System
+* NTP: adjusted modem time synchronization to handle daylight saving time correctly
+
+---
+
+## RUTX_R_00.07.15.4 | 2025.07.11
+
+### Improvements
+#### Network
+* Mobile: improved handling of ESM reject causes #33, #50, #51, and #52
+### Fix
+#### System
+* Backup: fixed internal firmware metadata not updating after applying backup
+
+---
+
+## RUTX_R_00.07.15.2 | 2025.06.27
+
+### Improvements
+#### System
+* Update Firmware: optimized firmware validation through caching
+### Fix
+#### Services
+* Data to Server: fixed MBus database path bug
+* L2TP: fixed memory leak issue with invalid packets
+#### System
+* Package Manager: fixed possible config migration issues on the PM installed packages
+* System Status: fixed display of MAC address
+* WebUI: fixed subscribe processes not exiting when UHTTPD is killed
+
+---
+
+## RUTX_R_00.07.15.1 | 2025.06.17
+
+### Fix
+#### Network
+* Realtime Traffic: fixed data collection in rare cases
+#### Services
+* Event juggler: fixed the execution of user scripts
+* Hotspot: fixed users scripts execution
+* Hotspot: fixed user scripts migration after upgrade with keep settings
+* SMS Utilities: fixed the execution of user scripts
+#### System
+* Backup: fixed missing root and admin user restoration during backup apply
+
+---
+
+## RUTX_R_00.07.15 | 2025.06.06
+
+### New
+#### Network
+* Mobile: added "iot.t-mobile.com" APN for "T-Mobile" operator to APN database
+#### System
+* WebUI: added default HTTP redirect to HTTPS
+### Improvements
+#### Network
+* DHCP server: included static leases to "Leased IPs" status that are outside of DHCP pool range but are inside interface subnet range
+* Dynamic routes: improved mobile interface handling
+* Dynamic routes: added support for selecting VPN interfaces
+* Firewall: removed "Hardware flow offloading" feature due to configuration issues. Performance in most scenarios is unaffected if using "Software flow offloading"
+* Firewall: disabled Allow-ICMPv6-Forward rule
+* IGMP Proxy: added VPN interface support
+* Mobile: improved SIM switch behavior when its configuration is changed
+* Mobile: added ability to change measurement units in "Mobile Usage" page
+* Mobile: added ability to export mobile usage data to CSV file
+* Mobile: added more statistical parameters to "Mobile Usage" page
+* Mobile: changed "fast.t-mobile.com" APN PDP type from IPv6 to IPv4v6
+* Multi WAN: updated configuration interface
+* Multi WAN: added manual member configuration
+* Multi WAN: added expanded Multi WAN interface statuses
+* Network: updated network interface statuses to be more detailed and easier to understand
+* Network: improved 802.1p priority configuration fields
+* iw: updated version to 6.9
+* mac80211: updated version to 6.12.6
+#### Services
+* AWS IoT Core: updated "AWS provisioning" configuration parameter list
+* BACnet: added support for devices with USB adapters and devices with no rs485 interface
+* Call Utilities: updated "Get status" action "Text message" parameter list
+* Data to Server: added support for receiving and sending data via SMS
+* Data to Server: added support for receiving I/O data
+* Data to Server: added support for receiving GPS data
+* Data to Server: added FTP, SMTP, Socket, and Lua script support for data transmission
+* Data to Server: updated "Collection configuration" edit, "Input configuration" edit, "Format string" and "Tag expansion" parameter lists
+* Data to Server: added support for ISO 8601 date format
+* DLMS: added API endpoints to get the current value of a configured group or group value
+* DNP3 Client: added API endpoints to get the current value of a configured request
+* Dynamic DNS: added DNS server field
+* Dynamic DNS: reduced service restarts when mobile is used
+* Email to SMS: improved email handling by deleting emails over 61440 bytes
+* Event juggler: added call action support
+* Event juggler: implemented a retry mechanism for actions in case of failure
+* Event juggler: updated "Send email", "Send SMS", "MQTT", "Script" and "HTTP" action "Text message" parameter list
+* Event juggler: added delete icon on "Remove action" button
+* Event juggler: removed "Startup" event type from event configuration due to duplication
+* Events Reporting: updated "Message text on event" parameter list
+* I/O Juggler: updated "Send SMS", "MQTT" and "Script" action "Text message" parameter list
+* Modbus Client: updated "Modbus TCP Client" and "Modbus Serial Client" configuration "MQTT message" and "Email" action "JSON format" parameter list
+* OPC UA Client: added API endpoints to get the current value of a configured group, group value or server node
+* SMS Forwarding: updated enable option help messages
+* SMS Gateway: updated "Auto reply" "Message text" parameter list
+* SMS Utilities: updated "Reboot", "Send status" action, "Text message" parameter and "SMS rule description" lists
+* Mosquitto: updated version to 2.0.21
+* ovpn-dco: updated version to 0.2.20241216
+#### System
+* Access Control: added ability to specify WAN port
+* Access Control: improved HTTPS certificate validation
+* API Core: added preflight OPTIONS method support
+* Certificates: changed certificate signing to use RSA-PSS padding scheme
+* RutOS: moved the /mnt mount point to /usr/local for persistent storage
+* Speed Test: added functionality to find any country servers by using search
+* TCP dump: added suggestions for host and port filters
+* Troubleshoot: separated troubleshooting into individual configuration tabs
+* Troubleshoot: improved logging size configuration and log size limits
+* WebUI: reduced size of the navigation menu and some form elements
+* WebUI: updated table selected rows actions design
+* WebUI: added HTTPS certificate expiration warning and renew functionality
+* WebUI: unified styles of first login and renew expired password modals
+* WebUI: updated Japanese translations
+* Linux: updated version to 6.6.87
+### Fix
+#### Network
+* 802.1X Client: fixed warning message of different port configurations sometimes appearing when closing modal
+* 802.1X Client: fixed 802.1X (client) page access not being controlled by the "Network > Ports" entry
+* DHCP server: fixed DHCPv4 server shutdown when multiple LANs use the same interface and one of them disables DHCPv4
+* Firewall: fixed duplicate VPN zone creation
+* Firewall: fixed HTTP and HTTPS ports migration for DMZ port forwards rules
+* Firewall: removed redundant "Internal zone" field from port forward configuration
+* Mobile: fixed issue where neighbor IP address was not reachable in Bridge/Passthrough modes
+* Mobile: fixed SMS grouping error when old SMS are never deleted
+* Network: fixed incorrect network type shown for LAN with only WiFi interface
+* Network: fixed system crash when using modem data under low memory conditions
+* Static Routes: fixed GRE tunnel name display when its name has special symbols
+* Topology: fixed issue of duplicated WAN interface being displayed under certain configurations
+#### Services
+* Data to Server: fixed "SIM Card" option select list in "Mobile usage" data input
+* DLMS: fixed COSEM attribute filtering
+* DLNA: fixed option list of "Interfaces"
+* DMVPN: fixed displaying NAT rules
+* Dynamic DNS: fixed IPv6 support in bind-nsupdate
+* Dynamic DNS: fixed logs showing IPv6 expansion errors when no IP is found
+* Event juggler: fixed "SIM Card" option select list in "SIM switch" and "Connection" actions
+* Event juggler: fixed Reboot via SMS Log event
+* Event juggler: fixed duplicated names validation
+* Event juggler: fixed an issue affecting GSM event stability
+* Event juggler: fixed inability to select all available pins in the I/O condition configuration
+* Event juggler: fixed HTTP action when secure connection is chosen
+* Event juggler: fixed condition deletion not working in some edge cases
+* Hotspot: fixed SSL certificates permissions
+* IPsec: fixed connection issues with %any as identifier
+* L2TP: fixed authentication credentials validation
+* Modbus Client: fixed label for 'no_bracket' option in requests
+* MQTT Broker: fixed incorrect "Local port" hint
+* NTRIP: fixed latitude option name and description
+* RMS: fixed 'Next connection after' timer display
+* RMS: fixed transition from 'Standby' to 'Enabled' mode
+* SMPP: fixed sequence number in DELIVER_SM packets
+* SMS Gateway: fixed connecting to Gmail with TLS certificate validity verification in Email to SMS
+* SMS Utilities: fixed "SIM Card" option select list in "Change mobile settings" rule
+* Stunnel: fixed issue of global settings sometimes not being displayed
+* Stunnel: made "Certificate File" and "Private Key" fields required when server mode is configured
+* Tailscale: fixed tailscale logging out after a reboot when using an authentication key
+* Wireguard: fixed peer allowed IPs select dropdown to show IPv6 options and added the ability to include custom values
+* Wireguard: fixed MTU issues when default route is used
+* Wireguard: fixed tunnel not re-establishing when failover is used
+#### System
+* Access Control: fixed HTTPS certificates validation to not allow RSA key length less than 1024 bits and ECC key length less than 160 bits
+* API Core: fixed session validation issues
+* Certificates: fixed SCEP certificate enrollment compatibility issues with certain servers
+* Kernel: fixed integrated watchdog functionality issues
+* System Status: removed bootloader version information if it does not exist
+* WebUI: fixed inconsistent spacing between page elements
+* WebUI: fixed warnings still being displayed after removing uploaded certificates
+* WebUI: fixed issues with SDK API path recognition
+
+---
+
+## RUTX_R_00.07.14.3 | 2025.05.26
+
+### Fix
+#### Services
+* L2TP: fixed a connection problem when using an L2TP over IPsec configuration
+#### System
+* Custom Scripts: fixed execution of custom scripts after upgrade
+
+---
+
+## RUTX_R_00.07.14.2 | 2025.05.09
+
+> ⚠️
+> Note: If a system upgrade with keep settings is performed from R_00.07.14 or R_00.07.14.1 to this version, follow the instructions described under those firmware versions below to resolve Data Limit and traffic monitoring issues.
+
+### Fix
+#### Network
+* Firewall: fixed HTTP and HTTPS ports migration for DMZ port forwards rules
+* Firewall: fixed DMZ port forward rule for mobile DHCP lease renew
+* Network: fixed data limit database save when upgrading with keep settings
+#### System
+* Memory Expansion: fixed long ext4 formatting times on some usb drives
+
+---
+
+## RUTX_R_00.07.14.1 | 2025.05.06
+
+> ⚠️
+> Note: This firmware version has been withdrawn due to an issue affecting the Data Limit, traffic monitoring functionalities.
+Note: If a system upgrade with keep settings was already performed from R_00.07.14 to this version, previous Data Limit tracking and traffic monitoring information cannot be restored. However, to keep current traffic monitoring history after next update, the command found in the Note below must be executed in CLI.
+Note: If a system upgrade with keep settings is performed from this firmware version to newer and R_00.07.14 was never used, following command must be executed in CLI before upgrade to resolve Data Limit and traffic monitoring issues.
+
+mkdir -p /usr/local/lib/upgrade/keep.d && echo /usr/local/usr/lib/mdcollectd/mdcollectd.db_new.gz > /usr/local/lib/upgrade/keep.d/mdcollect
+
+### Fix
+#### System
+* Memory Expansion: fixed long ext4 formatting times on some usb drives
+* RutOS: fixed curl compilation in SDK
+### CVE Patches
+* CVE-2025-2704
+
+---
+
+## RUTX_R_00.07.14 | 2025.04.24
+
+> ⚠️
+> Note: This firmware version has been withdrawn due to an issue affecting the Data Limit, traffic monitoring functionalities.
+Note: If a system upgrade with keep settings is performed from this firmware version to newer, following command must be executed in CLI before upgrade to resolve Data Limit and traffic monitoring issues.
+
+mkdir -p /usr/local/lib/upgrade/keep.d && echo /usr/local/usr/lib/mdcollectd/mdcollectd.db_new.gz > /usr/local/lib/upgrade/keep.d/mdcollect
+
+### New
+#### Network
+* Mobile: added support for DHCP relay mode to devices with EG060K-EA module
+* Mobile: added SIM switch rule "On SIM not inserted"
+* Network usage: added feature
+#### Services
+* AWS IoT Core: added Device Provisioning
+* L2TP: added L2TP over IPv6 support
+* MQTT Broker Bridge: added v5.0 bridge protocol support
+#### System
+* RutOS: enabled a read-only root filesystem to ensure system integrity and security
+* WebUI: added Ukrainian language support
+### Improvements
+#### Network
+* DHCP: added title for action column in custom DHCP option table
+* DHCP: added a warning message when multiple interfaces share the same device and have DHCPv4 enabled
+* DNS: updated the "Custom Redirect" option to support domain wildcard (*) pattern matching
+* DNS: made the "DNS Server" field optional for the "Custom Redirect" option
+* Firewall: improved "intra" zone column names for clarity
+* Mobile: added UCS2 conversion for service provider name
+* Mobile: improved non default SIM card unlock procedure after PIN/PUK is entered
+* Ports Settings: reordered network > ports sub-menu and made port settings page first
+* SSHFS: updated mount point location
+* SSHFS: added connection and mount point status
+* Topology: removed Mobile WAN interfaces from topology scan
+* Topology: improved network scanning
+* Topology: added port number to topology scan results
+* Topology: added IPv6 support
+* VRF: added section name generation and changing ability
+* Curl: updated version to 8.12.0
+* wireless-regdb: updated version to 2024.10.07
+#### Services
+* Call Utilities: added the ability to update authorization settings for multiple rules via the "Actions" drop-down in the "Call rules" table
+* Call Utilities: moved multiple rule enabling to the "Actions" drop-down in the "Call rules" table
+* Call Utilities: added filtering option for "Action name" column in the "Call rules" table
+* Data to Server: changed new instance to be turned off by default
+* Dynamic DNS: made WebUI show IP updates earlier than the configured DDNS service check interval
+* EoIP: added improvements to avoid packet loops
+* Events juggler: removed Reboot after Input/Output option
+* Events juggler: changed new instance to be turned off by default
+* Events juggler: removed Custom HTTP headers space validation
+* GPS: hid currently unavailable NMEA sentences from NMEA sentence rules table in WebUI
+* GreenGrass: removed package
+* IPsec: enabled dead peer detection by default
+* Post/Get - I/O: removed package
+* Post/Get - Mobile: removed package
+* PPTP: added options for 'MPPE' configuration to WebUI
+* PPTP: added 'Custom options' field to configure custom pppd options
+* SMS Utilities: added rule description hints on "Action" table column values
+* SMS Utilities: added the ability to update authorization settings for multiple rules via the "Actions" drop-down in the "SMS rules" table
+* SMS Utilities: moved multiple rule enabling to the "Actions" drop-down in the "SMS rules" table
+* SMS Utilities: added filtering options for "Action name" and "Authorization method" columns, and sorting for "SMS text" column in the "SMS rules" table
+* SMS Utilities: added default rule response messages
+#### System
+* Events Log: added events log file export
+* Profiles: improved table data UI
+* Recipients: changed email maximum password length to 128 characters
+* Recipients: improved "phone groups" page to support unlimited phone numbers additions
+* Setup Wizard: removed host, port options and proxy settings section from RMS setup wizard
+* WebUI: added measurement units for "data limit" cards in overview page
+* WebUI: removed default password icons on "Internet Explorer" and "Microsoft Edge" browsers
+* Kernel: updated version to 5.10.234
+* Time Zone Database: updated version to 2025a
+### Fix
+#### Network
+* Dynamic routes: fixed OSPF issues of not displaying instances of 'area' and 'networks' sections
+* Firewall: fixed certain "Attack prevention" limits making device unreachable
+* Firewall: fixed attack prevention page with missing traffic rules
+* Mobile: fixed mobile disconnections when DMZ is enabled
+* Mobile: fixed APN selecting from a database with IPv4v6 PDP data type
+* Multi WAN: fixed incorrect WAN state being displayed when using failover
+* Network: fixed Ethernet interfaces incorrectly accepting packets with invalid checksum on protocols other than IPv4/IPv6+TCP/UDP
+* Ports Settings: fixed port status speed badge for Ethernet(10mbps)
+* Static Routes: fixed API incorrectly returning mobile interfaces
+* VXLAN: fixed package installation not starting service properly
+#### Services
+* Data to Server: fixed GSM IP and IPV6 retrieval when used SIM slot is changed
+* Data to Server: disallowed enabling Azure plugin without required options
+* Data to Server: fixed editing Azure plugin configuration when "Device Provisioning Service" option is selected
+* DNP3 Client: fixed an issue where application would terminate on startup
+* Email Relay: fixed service crash when server tls certificate is used
+* Events juggler: fixed GPS speed option validation
+* Events juggler: fixed broken port link speed reporting
+* Events juggler: fixed Mobile data limit event type validation
+* Events juggler: fixed condition bug on some plugins
+* Events juggler: fixed LUA condition script support to correctly handle return values
+* GPS: fixed NMEA serial forwarding stopping at half the configured cache limit
+* Messages: fixed "Date" row displayed values on smaller screens
+* Mobile Utilities: fixed Manage OpenVPN rule
+* Modem Control: fixed RX and TX abnormal rise in status field
+* RMS: fixed serial code copy button not being displayed
+* SMS Gateway: fixed the duplicate SMS issue in "Email to SMS"
+* SMS Utilities: fixed "SMS text" option validation when enabling rules in "SMS rules" table
+* SSTP: fixed the issue of the instance starting after upgrading the firmware
+* Wireguard: fixed connection issues when peer is on the same network
+#### System
+* API Core: fixed file upload issue which sometimes made WebUI unresponsive
+* NTP: fixed time servers limit validation
+* Package Manager: fixed displaying multiple same functionality buttons when package update fails
+* Password Policy: fixed special characters validation
+* Profiles: fixed loading screen reappearing after profile change fails
+* Recipients: fixed email address validation
+* Side Widget: fixed port icons overlapping on mobile in port status card
+* WebUI: fixed enabled button being removed in some cards on medium sized screens
+### CVE Patches
+* CVE-2022-42721
+* CVE-2023-7104
+* CVE-2023-31489
+* CVE-2024-0938
+* CVE-2024-9143
+* CVE-2024-13176
+* CVE-2025-0167
+* CVE-2025-0665
+* CVE-2025-0725
+
+---
+
+## RUTX_R_00.07.13.4 | 2025.04.04
+
+### Improvements
+#### System
+* RutOS: updated libubox
+### Fix
+#### Network
+* Mobile: fixed handling of 18 character long ICCID for eSIM
+* Network: fixed Ethernet lockups when sending certain malformed IPv4/IPv6 packets
+#### System
+* RutOS: fixed occasional ubus page fault after package install
+* RutOS: fixed user group duplicate entries after applying backup
+
+---
+
+## RUTX_R_00.07.13.3 | 2025.03.21
+
+### Fix
+#### Network
+* Multi WAN: fixed internet not being reachable from device when main WAN is down
+#### Services
+* RMS: fixed connection retry interval count
+
+---
+
+## RUTX_R_00.07.13.2 | 2025.03.18
+
+### Fix
+#### Network
+* 802.1X Client: fixed 802.1x client not working when upgrading from an older firmware
+* Multi WAN: fixed occasional IPsec startup issue after reboot with Multi WAN enabled
+
+---
+
+## RUTX_R_00.07.13.1 | 2025.03.06
+
+### Fix
+#### System
+* Auto Reboot: fixed an issue causing the device to reboot immediately
+
+---
+
+## RUTX_R_00.07.13 | 2025.03.03
+
+> ⚠️
+> Note: This firmware was removed due an issue with Auto Reboot functionality performing unnecessary device reboot.
+
+### New
+#### Network
+* BFD: added service
+* Mobile: added bandwidth rate limiting control when a specified data usage threshold is reached
+* Mobile: added "internet.telia.iot" APN for Telia carrier
+* Mobile: added "mobile.iot" APN for Elisa carrier
+* Mobile: added "dm.jplat.net" APN for HIS carrier
+#### Services
+* EoIP: added service
+* Events juggler: added service
+* OpenConnect: added service
+#### System
+* Update Firmware: added link to FW & SDK download page
+### Improvements
+#### Network
+* Dynamic routes: added validation for NHRP to prevent using same interface on multiple instances
+* Firewall: added possibility to manually specify conntrack helper for a port forward rule
+* Firewall: moved IPtables NAT extra to package manager
+* Mobile: improved data limit and SMS limit SIM switch rule behavior
+* Mobile: improved SIM switch service behavior when changing configuration
+* Mobile: improved handling for the maximum number of active interfaces
+* Mobile: improved operator name parsing from SPN file
+* Mobile: improved SIM detection and SIM switching
+* Static Routes: improved descriptions for routing rules
+* VRF: moved page from Network sub-menu to Network > Routing
+* iperf3: updated version to 3.17.1
+#### Services
+* Dynamic DNS: added support for using local openvpn interface ip address
+* Hotspot: added support for multiple instances
+* Hotspot: added MAC address delimiter and case setting for Radius MAC authentication
+* Hotspot: improved API validations
+* Input/Output: updated pin block naming
+* IPsec: added ChaCha20-Poly1305 encryption algorithm
+* IPsec: improved performance
+* IPsec: added periodic connection check
+* Modbus Client: added store on data change mode
+* Modbus Client: added ability to choose where to save database
+* MQTT Modbus Gateway: improved constant $$NAME that can be defined in system configuration
+* OpenVPN: improved statuses for instances
+* OpenVPN: removed 'persist-tun' and 'persist-key' options from default configuration
+* OpenVPN: enabled DCO support for CHACHA20-POLY1305 cipher
+* OpenVPN: improved performance when using DCO-supported ciphers
+* SD & USB Tools: renamed "USB Tools" service to "SD & USB Tools" in WebUI for more accurate description
+* SMS Utilities: changed format of ADC and ACL status
+* SMS Utilities: added a new option "Send response SMS" which allows receiving action response message
+* Tailscale: optimized starting and stopping functions
+* Zerotier: added ability to upload a custom planet file
+#### System
+* Access Control: improved UX when disabling HTTP and HTTPS local access settings
+* Administration: added confirmation prompt when changing profiles
+* Administration: updated hostname validation to allow numeric-only hostname
+* Package Manager: added confirmation prompt when closing uploaded package modal
+* Security: changed password policy to require at least one special character
+* System Users: changed username validation to allow dots and underscores
+* Update Firmware: added link to changelog page
+* WebUI: removed basic/advanced mode
+* WebUI: updated Teltonika logo
+* Kernel: updated version to 5.10.233
+### Fix
+#### Network
+* Devices: fixed error handling for deleting non-existent bridge sections
+* DHCP: fixed an issue where DHCP Relay mode did not work with an active IPv4 mobile connection
+* Firewall: fixed automatic conntrack helper not being assigned for port forward rules in some cases
+* Firewall: fixed traffic rules "start_date" and "stop_date" option validations failing due to incorrect format
+* Firewall: fixed incorrectly restricted AF23 value for traffic rule's DSCP option
+* Mobile: fixed parsing of large data from the module's serial port
+* Multi WAN: fixed pings being lost for backup wired wan interfaces
+* Network: fixed interfaces being displayed in the wrong page after updating with keep settings
+* Network: fixed a name duplication validation error that occurred between the network interface and the VRF instance
+* Network: fixed API failing to sort specific network interface configurations
+* Network: fixed possible Ethernet port hang after network reload
+* Network: fixed interface remove button disable state being shown only after status is loaded
+* Network: fixed LAN interfaces sometimes not getting IPv6 prefix assigned on creation
+* Network: fixed DHCP lease sometimes not updating when changing mobile mode
+* Static Routes: fixed missing route type validation for API
+* VXLAN: made "Remote address" field required
+#### Services
+* Data to Server: fixed the OPC UA, DLMS, MBUS, and impulse counter inverted filtering logic
+* Data to Server: fixed "Invert filter" option to be hidden when using "DLMS" type and "Data filtering" option is selected to "All"
+* DLMS: fixed DLMS endpoint parameter validation
+* DLMS: fixed device option data type validation for connections endpoints
+* DLMS: fixed an issue where DLMS service could not read extended register type COSEM objects and display incorrect scaler value
+* DLMS: fixed an issue where non-persistent connections did not close properly
+* GPS: fixed 'Add TAVL rule' section visibility when there is nothing left to add
+* GPS: fixed error display for din_status option
+* GPS: fixed Save & Apply issue after AVL secondary rule deletion
+* Hotspot: fixed bandwidth limits setting with "chilli_query" command
+* Impulse Counter: fixed pin name display
+* IPsec: fixed status display when compatibility mode is used
+* IPsec: fixed connections not terminating if instance is disabled
+* L2TP: fixed occasional device hangs when routing L2TP traffic with "Software flow offload" enabled
+* Modbus Client: fixed API error when 'function' option is not present in alarms/requests configuration POST request
+* Modbus Client: fixed reusing connection in Modbus client Modbus request alarm action
+* Modbus Client: fixed email alarm action when TLS is enabled
+* Modbus Client: fixed alarm issues related to modem
+* MQTT Modbus Gateway: fixed client ID validation
+* Network Shares: fixed deleting of multiple users in one request
+* NHRP: fixed missing dependencies
+* OpenVPN: fixed issues related to warnings when using external services
+* RMS: fixed the "Connection state" status displayed as JSON when device language was set to anything other than English
+* SMPP: fixed the "TLS/SSL" option to be visible even when the configuration is not enabled
+* Tailscale: fixed the issue of keeping the instance connection after a firmware upgrade
+#### System
+* Access Control: fixed "redirect_https" option reset after device reboot
+* Access Control: fixed default HTTPS CA certificate generation
+* Date & Time: fixed time synchronization with the browser when using Europe/Kyiv timezone
+* Package Manager: fixed spinner position in package table
+* Package Manager: fixed possible config migration issues for installed packages
+* Update Firmware: fixed unnecessary FOTA requests when FOTA is disabled
+### CVE Patches
+* CVE-2022-49043
+* CVE-2024-5290
+* CVE-2024-9287
+* CVE-2024-11053
+* CVE-2024-34459
+* CVE-2024-36618
+* CVE-2024-53580
+* CVE-2024-56171
+* CVE-2025-24928
+* CVE-2025-27113
+
+---
+
+## RUTX_R_00.07.12.3 | 2025.02.14
+
+### New
+#### Services
+* Modbus Client: added an endpoint that returns status for a single Modbus request
+### Fix
+#### Network
+* Mobile: fixed provider name parsing from SPN file
+#### Services
+* IPsec: fixed kernel warnings when custom NAT rules are used with "IPsec Software Flow Offload" enabled
+* OpenVPN: fixed an issue with config file parsing when carriage return characters were present
+* OpenVPN: fixed parsing of the 'Protocol','Port' and 'LZO' options from the config file
+
+---
+
+## RUTX_R_00.07.12 | 2025.01.20
+
+### New
+#### Network
+* Mobile: added "global" APN for "Jersey Telecom" operator to APN database
+* Mobile: added "datasim.com" APN for "BT" operator to APN database
+* Mobile: added "datasim.com" APN for "Vodafone" operator to APN database
+* Mobile: added "datasim.com" APN for "Vodafone" operator to APN database
+* Mobile: added "datasim.global" APN for "Telefonica" operator to APN database
+* Mobile: added "soracom.io" APN for "Soracom" carrier to APN database
+#### Services
+* Dynamic DNS: added IPv6 support
+* Tailscale: added removal of firewall rules when the package is deleted
+#### System
+* WebUI: added default HTTP redirect to HTTPS
+### Improvements
+#### Network
+* DHCP: added leased IP status in DHCP server page
+* DNS: added DNS strict order option
+* Firewall: moved target field to the bottom of NAT rule edit and renamed it to "Action" to match traffic rules
+* Firewall: moved all traffic rule fields related to action to be below action field
+* Firewall: removed ability for any firewall rules to have port selection if protocol is set to "all"
+* Firewall: separated zone and global firewall settings into different pages
+* Firewall: improved "Conntrack helpers" field in zone edit by making it disabled with explanation instead of hiding it
+* Mobile: improved deny data roaming to prevent connection issues after re-enabling roaming
+* Mobile: improved error messages for eSIM profile downloads
+* Mobile: improved active SIM display in tabs and status pages
+* Mobile: improved modem signal value filtering
+* Mobile: improved DNS checking across different interface PDP types
+* Network: fixed configuration viewing in the WAN page when user has only read permission
+* UDP Relay: moved service menu item from Network > Other > UDP Relay to Network > UDP Relay
+* VRF: added additional validations to address used device cases
+* VXLAN: separated edit form options into general and advanced tabs
+* Curl: updated version to 8.11.0
+#### Services
+* DLMS: added ability to view COSEM objects for each scanned physical device in overview page
+* GPS: added WWAN connection warnings for devices that have GNSS WWAN conflict
+* GPS: added broadcast and multicast support to NMEA forwarding
+* Modbus TCP over Serial Gateway: added option for serial device reply timeout
+* Modbus TCP over Serial Gateway: improved performance
+* Modbus TCP over Serial Gateway: added multiple connections support for up to 10 clients
+* NTP Client: updated 'Count of failed NTP requests' option to permanently synchronize with mobile operator when NTP servers fail
+* Overview: added IP type status to network interface cards
+* SMS Utilities: changed format of ADC and ACL status
+* azure-iot-sdk-c: updated version to LTS_08_2024
+#### System
+* API Core: added query parameter for configuration GET endpoints to receive all options, even if unset
+* Package Manager: removed "Installed Version" and "Available Version" columns from the package table
+* Kernel: updated version to 5.10.229
+### Fix
+#### Network
+* Dynamic routes: fixed dynamic routes not starting after installation on rare occasions
+* Firewall: deprecated invalid dest_local option in traffic rules API
+* Firewall: fixed zone placement in NAT rule description
+* Mobile: fixed cell ID parsing on 2G networks
+* Mobile: fixed modem information collection after firmware installation
+* Mobile: fixed repetitive mobile band configuration on startup
+* Mobile: improved operator name parsing when information is unavailable on the SIM card
+* Mobile: fixed SMS limit displaying incorrect reset date
+* Mobile: fixed an issue where duplicate APN could be configured
+* Mobile: fixed LAC/TAC display in mobile status page
+* Mobile: fixed an issue where incorrect SIM was selected
+* Mobile: fixed an issue where SIM card pin code would be stored as "N/A"
+* Network: fixed missing PPPoE username and password validations
+* Ports Settings: fixed incorrect warning message for identical port configurations
+* Ports Settings: fixed an occasional infinite spinner issue when changing port settings
+* Ports Settings: fixed an issue where incorrect port index was used
+* QOS: fixed source and destination host field validation to allow subnet in CIDR notation
+* QOS: fixed starting SQM after reboot when QoS package is installed
+* Static Routes: fixed interface select not showing SSTP instances
+* VRF: fixed an issue that prevented saving the configuration when an inactive VLAN was selected
+#### Services
+* DLMS: fixed parameters table not always refreshing when selecting devices
+* DLMS: fixed mismatched name validations between API and WebUI
+* DLMS: fixed an issue where uptime becomes incorrect when system time changes
+* DNP3 Client: fixed API error when non existent parent id is provided in requests endpoint URL
+* DNP3 Client: fixed an issue where uptime becomes incorrect when system time changes
+* DNP3 Outstation: fixed an issue where uptime becomes incorrect when system time changes
+* GPS: fixed NMEA prefix dropdowns by simplifying their displayed values
+* GPS: fixed an issue where uptime becomes incorrect when system time changes
+* IPsec: increased maximum length of local / remote identifiers and selector ID to 255 characters
+* IPsec: fixed deleting global secrets when more than one ipsec instances are configured
+* IPsec: fixed IPsec not reloading after DMVPN uninstall
+* IPsec: fixed showing empty error messages after instance deletion
+* IPsec: fixed excessive logging
+* IPsec: fixed firewall rules migration and identifier setting when certificate authentication is used
+* Modbus Client: fixed configuration files not being removed after package removal
+* Modbus Client: fixed an issue where uptime becomes incorrect when system time changes
+* Modbus Server: fixed configuration files not being removed after package removal
+* Modbus Server: fixed an issue where uptime becomes incorrect when system time changes
+* Modbus TCP over Serial Gateway: fixed gateway forwarding unrequested data from serial device
+* Modem Control: fixed modem control duplicating configuration option
+* MQTT Modbus Gateway: fixed configuration files not being removed after package removal
+* MQTT Modbus Gateway: fixed an issue where uptime becomes incorrect when system time changes
+* NTP Client: fixed Count of time synchronizations that was not working properly
+* NTRIP: fixed an issue where uptime becomes incorrect when system time changes
+* OPC UA Client: fixed URL validation
+* OPC UA Client: fixed configuration files not being removed after package removal
+* OPC UA Client: fixed API security mode option require validation
+* OPC UA Client: fixed an issue where uptime becomes incorrect when system time changes
+* OPC UA Client: fixed validation for prefix, midfix, postfix options
+* OPC UA Server: fixed configuration files not being removed after package removal
+* OPC UA Server: fixed API encryption option require validation
+* OPC UA Server: fixed an issue where uptime becomes incorrect when system time changes
+* OpenVPN: fixed the problem related to the 'netlink reports object not found' warning when using the DCO configuration
+* Over IP: fixed an issue where uptime becomes incorrect when system time changes
+* Over IP: fixed API error when incorrect device option value was sent
+* SNMP: fixed mwan3Ip to display 'N/A' if no IPs are present
+* TR-069: fixed ConnectionRequestURL node to return VPN IP address if VPN is used
+* Web Filter: fixed site blocking rules affecting router itself when selecting specific network interface
+* Web Filter: added exception to FOTA server blocking
+* Web Filter: fixed site blocking not working with Hotspot
+* Web Filter: fixed whitelist not working with domains that have forwards to other domains
+#### System
+* Certificates: fixed issue where the API allowed the deletion of root certificate
+* Certificates: fixed uploading of certificates that are 4096 bits or longer
+* Package Manager: added protection against zip bombs when uploading a package
+* PAM: fixed creating new instance
+* WebUI: fixed SDK example app validation mismatch between UI and API
+* WebUI: fixed default value display on instances for multiple services
+### CVE Patches
+* CVE-2024-5594
+* CVE-2024-9681
+* CVE-2024-29195
+
+---
+
+## RUTX_R_00.07.11.3 | 2024.12.17
+
+### Fix
+#### Services
+* Input/Output: fixed issues causing fault messages on service close
+* Wireguard: fixed field validation after firmware upgrade
+* OpenVPN: fixed the certificate file selection issue in the server configuration
+
+---
+
+## RUTX_R_00.07.11.2 | 2024.12.09
+
+### Fix
+#### Services
+* IPsec: fixed loading connections using AEAD algorithms
+* IPsec: fixed connection status display
+* IPsec: fixed Local source IP option
+* IPsec: fixed issue with multiple global secrets of same type
+
+---
+
+## RUTX_R_00.07.11.1 | 2024.12.02
+
+### Fix
+#### Services
+* Ledman: fixed issue when network type LEDs are blinking when data connection is established
+* Tailscale: fixed the segmentation fault that occurred after installing the package
+
+---
+
+## RUTX_R_00.07.11 | 2024.11.25
+
+### New
+#### Network
+* Firewall: added "IPsec software flow offload" feature
+* NAT64: added NAT64 WebUI configuration support
+#### Services
+* Data to Server: added LUA format support
+* DLMS: added option to configure which COSEM class attributes to read from the meter
+* GPS: added NMEA to serial functionality
+* Impulse Counter: added feature
+* Wireguard: added QR code configuration generator
+#### System
+* Administration: added capability of displaying a configurable banner before login
+* Password Policy: added ability to modify the password policy
+* System Users: added sensitive option toggle for user groups
+### Improvements
+#### Network
+* Firewall: added TCPMSS action to traffic rules
+* Mobile: improved mobile connection checking according to serving cell connection
+* Mobile: improved manual operator selection logic to prevent unintended operator changes
+* Mobile: added 'telenor.smart' APN for 'Telenor' operator to APN database
+* Mobile: added 'telenor.fwa' APN for 'Telenor' operator to APN database
+* Mobile: removed 'internet.ventelo.no' APN for 'Telenor' operator from APN database
+* Mobile: removed 'telenor' APN for 'Telenor' operator from APN database
+* Mobile: standardized operator names on the APN database
+* Topology: added sorting functionality for "IP address" and "MAC address" table columns
+#### Services
+* Bluetooth: added support for ELA Blue Puck DI devices
+* Data to Server: added scheduler support
+* DLMS: added default values for table name columns
+* IPsec: updated 'Custom option' field validation
+* IPsec: migrated to swanctl
+* Modbus Client: added phone group selection
+* Modbus Client: added email alarm action
+* OPC UA Client: changed validation, allowing to add certificates when channel encryption is not used
+* OpenVPN: improved WebUI page for creating and modifying instances
+* OpenVPN: added custom configuration file parsing
+* OpenVPN: added option to configure virtual addressing topology and support for TLS clients
+* OpenVPN: added 'adaptive' selection for the LZO parameter
+* OpenVPN: added support for multiple remote network values
+* OpenVPN: improved the selection of allowed data ciphers in the WebUI
+* OpenVPN: improved private key decryption
+* OpenVPN: removed dependency on the protocol value for configuring tunnel IPv6 addresses
+* OpenVPN: added the possibility to use multiple remote host/IP address values
+* OpenVPN: added support for exporting configuration
+* Mosquitto: updated version to 2.0.20
+#### System
+* Access Control: added ability to bind HTTP and HTTPS to specific IPs and ports
+* Events Log: improved event log messages format
+* Logging: added a log ID to each log entry for easier tracking and identification
+* Security: enabled ASLR and PIE security hardening features for improved memory protection
+* Setup Wizard: added SIM card and modem statuses in Mobile page
+* WebUI: updated design of tables
+* Kernel: updated version to 5.10.226
+* libffi: updated version to 3.4.6
+* readline: updated version to 8.2
+### Fix
+#### Network
+* Mobile: fixed duplicate of "wap66" APN for "SFR" operator in APN database
+* Mobile: fixed duplicate of "wap68" APN for "SFR" operator in APN database
+* Mobile: fixed duplicate of "internet" APN for "TDC" operator in APN database
+* Mobile: fixed duplicate of "orangeweb" APN for "Orange" operator in APN database
+* Mobile: fixed duplicate of "wap.digicelbvi.com" APN for "Digicel" operator in APN database
+* Mobile: fixed duplicate of "wap.digicelha.com" APN for "Digicel" operator in APN database
+* Mobile: fixed duplicate of "indosatgprs" APN for "Indostat" operator in APN database
+* Mobile: fixed duplicate of "3gprs" APN for "3" operator in APN database
+* Mobile: fixed duplicate of "VZWINTERNET" APN for "Verizon" operator in APN database
+* Mobile: fixed duplicate of "soracom.io" APN for "FL1" operator in APN database
+* Mobile: fixed the USSD message when the network is not responding
+* Mobile: removed voice features for EC25-AFFD module
+* Network: fixed duplicate of "pps" APN for "Zain KW" operator in APN database
+* Network: fixed MTU get from API
+* Ports Settings: fixed devices sometimes becoming unreachable after network reload
+* Static Routes: fixed IPv6 route target validation to accept IPv6 subnet
+#### Services
+* Bluetooth: fixed service crash when trying to unpair devices
+* Bluetooth: fixed sections collapse not hiding buttons
+* DLMS: fixed name validation when adding physical devices
+* GPS: fixed NMEA Sentences table search
+* IPsec: fixed incorrect status display when multiple instances are configured
+* IPsec: fixed flushing of connection tracking table when compatibility mode is used
+* L2TP: fixed disappearing default route when using mobile interface as the default WAN
+* Ledman: fixed the LED animation during factory reset
+* Mobile Utilities: fixed password validation when enabling SMS rule
+* Modbus Client: fixed rpc crash when calling serial.test method
+* Modbus Server: fixed firewall rule creation
+* Python3: fixed out-of-tree package compilation issue with the SDK
+* SMS Gateway: fixed long HTTP URL formatting in SMS Forwarding to HTTP
+* SMS Utilities: fixed sending messages to short numbers
+* Zerotier: fixed saving configuration when LAN interface has no associated physical interface
+#### System
+* Access Control: fixed unauthorized errors on interface endpoints
+* Access Control: fixed IP Block configuration when upgrading from previous firmware versions
+* Package Manager: fixed VXLAN package not having link to configuration page
+* Package Manager: fixed restoring packages after firmware upgrade
+* Troubleshoot: fixed scenarios where TCPdump field was not displayed
+* WebUI: fixed issue when sometimes hidden sections with created instances were not displayed
+### CVE Patches
+* CVE-2021-38291
+* CVE-2024-6232
+* CVE-2024-44070
+
+---
+
+## RUTX_R_00.07.10.2 | 2024.11.04
+
+### New
+#### Network
+* Mobile: added "kajeet.gw12.vzwentp" APN for "Verizon" operator to APN database
+* Mobile: added "V5GA01INTERNET" APN for "Verizon" operator to APN database
+* Mobile: added "kajeet.fw5g.vzwentp" APN for "Verizon" operator to APN database
+* Mobile: added "iot.kajeet" APN for "T-Mobile" operator to APN database
+* Mobile: added "iot.tmowholesale.static" APN for "T-Mobile" operator to APN database
+* Mobile: added "iot.tmowholesale" APN for "T-Mobile" operator to APN database
+* Mobile: added "sentinel01.com.attz" APN for "AT&T" operator to APN database
+* Mobile: added "sentinelent01.com.attz" APN for "AT&T" operator to APN database
+* Mobile: added "sentinelnb01.com.attz" APN for "AT&T" operator to APN database
+* Mobile: added "213x.sentinel01.com.attz" APN for "AT&T" operator to APN database
+* Mobile: added "213x.sentinelent01.com.attz" APN for "AT&T" operator to APN database
+* Mobile: added "sentinel-static.mcs" APN for "AT&T" operator to APN database
+* Mobile: added "uscc05016.enterprise3.usc-cdp" APN for "US Cellular" operator to APN database
+* Mobile: added "uscc07009.enterprise3.usc-cdp" APN for "US Cellular" operator to APN database
+* Mobile: added "sentinel.crs.bell.ca.ioe" APN for "Bell Mobility" operator to APN database
+* Mobile: added "kajeet.crs.bell.ca.ioe" APN for "Bell Mobility" operator to APN database
+* Mobile: added "sentinel.apn" APN for "Rogers" operator to APN database
+* Mobile: added "sentinel.vf" APN for "Vodafone" operator to APN database
+* Mobile: added "sentinel.lpwa.vf" APN for "LPWA" operator to APN database
+### Improvements
+#### Network
+* Mobile: improved carrier aggregation signal value parsing
+### Fix
+#### Network
+* Firewall: fixed bug in NAT rule migration script that would overwrite Port Forwarding rule options
+* Mobile: fixed eSIM profile loading from servers with unusual response
+* Network: fixed unnecessary RX packet drop in Ethernet driver
+
+---
+
+## RUTX_R_00.07.10 | 2024.10.10
+
+### New
+#### Network
+* Mobile: added ability to export modem debug and USSD responses to CSV file
+* Mobile: added "hologram" APN for "Hologram" operator
+* Mobile: added "wbdata" APN for "Granite" operator
+* Mobile: added "netw.vp" and "netw2.vp" APNs for "Networth" operator to APN database
+* NAT64: added "jool" package for NAT64 support
+#### Services
+* AWS IoT Core: added service
+* BACnet: added ability to configure several BIP interfaces, to set network numbers and preconfigure BDT entries for BBMD
+* Console: added service status information display
+* DLMS: added service status information display
+* DNP3 Client: added service status information display
+* DNP3 Outstation: added service status information display
+* GPS: added service status information display
+* Modbus Client: added service status information display
+* Modbus Server: added service status information display
+* Modbus TCP over Serial Gateway: added service status information display
+* Modem Control: added service status information display
+* MQTT Modbus Gateway: added service status information display
+* NTRIP: added service status information display
+* OPC UA Client: added service status information display
+* OPC UA Server: added variable "rut_wan_type" which shows if WAN is on a wired or a mobile network
+* OPC UA Server: added service status information display
+* RMS: added SOCKS5 proxy support
+#### System
+* Certificates: added SCEP certificate generation method
+### Improvements
+#### Network
+* Curl: added unix socket support
+* Firewall: added most options to basic mode for all firewall pages
+* Firewall: added all firewall pages to basic mode
+* Interfaces: increased interface metric maximum value from 10000 to 4294967295
+* Mobile: added "flolive.net" APN for "Telecom Italia", "Telefonica O2" and "Telefonica Movistar" operators to APN database
+* Mobile: changed the default APN for IMS protocol from "VZWIMS" to "IMS" for "Verizon" operator
+* Mobile: fixed an issue where the ICCID was not returned correctly when the SIM card's ICCID ended with letters
+* Mobile: improved 5G NSA CA information display
+* Mobile: improved SIM and eSIM management via LPAC service
+* Multi WAN: added rules table to basic mode
+* Network: improved performance under stateless single-directional traffic (RFC2544)
+* Network: improved throughput stability of "Hardware flow offloading"
+* Static Routes: added page to basic mode
+* VRRP: added page to basic mode
+#### Services
+* DLMS: added meter COSEM object scanning
+* DNP3 Client: made menu names more consistent
+* IPsec: improved 'Remote endpoint' validation to allow '%any', '%any4', '%any6' values and netmask
+* IPsec: added ability to use certificates from Certificate Manager
+* L2TPv3: added Tunnel ID and Session ID validation to avoid creating multiple tunnels with the same parameters
+* Modbus Client: updated Modbus Client menu position
+* Modbus Server: updated Modbus Server menu position
+* Python3: changed python3-light package libraries
+* SMS Utilities: added an option to enable or disable the return of status code message
+* Tailscale: improved status information by including health messages
+* Tinc: added options to set the tunnel's IP address
+* Tinc: added a port option to listen for incoming connections and the ability to specify a port for outgoing connections
+* Wireguard: added tunnel source mode selection
+* Python3: updated version to 3.11.7
+* Strongswan: updated version to 5.9.14
+* Tailscale: updated version to 1.70.0
+#### System
+* Access Control: refactored 'General', 'Security' and 'PAM' Web pages
+* Auto Reboot: added support for multiple hosts/URLs in Ping/Wget Reboot
+* Backup: encrypting backup does not require 7zip package anymore
+* Certificates: split "Let's Encrypt" certificates into multiple files
+* Troubleshoot: added dynamic routes debugging information
+* WebUI: added ability to open new page in new tab without entering user credentials
+* WebUI: improved SDK example application
+* Glib2: updated version to 2.80.5
+* Kernel: updated version to 5.10.224
+* Ncurses: updated version to 6.5
+### Fix
+#### Network
+* Firewall: fixed automatic priority option change
+* Mobile: fixed hang up of QMI WDS service
+* Mobile: fixed QMI errors when multi APN is configured
+* Mobile: fixed typo in "m2m.airinternet.eu" APN for "Airinternet" operator in APN database
+* Network: fixed mobile Bridge/Passthrough mode not working after changing LAN interface settings
+#### Services
+* BACnet: fixed communication issues between the ports
+* BACnet: added all available default baud rates
+* BGP: fixed AS field to allow duplicate values
+* BGP: fixed Access list filters not applying fully
+* DLMS: added all available default baud rates
+* DMVPN: fixed DMVPN GRE instance disappearing when creating new IPsec instance
+* DNP3 Client: removed unnecessary max length display for test response field
+* DNP3 Client: renamed TCP Station to TCP Client in the API documentation
+* DNP3 Client: added all available default baud rates
+* DNP3 Outstation: added all available default baud rates
+* GPS: fixed NMEA collecting and cache file path validations
+* GPS: added validation for missing required AVL options
+* GPS: fixed an issue where a firmware update with keep settings would remove existing hosts
+* GPS: fixed HTTPS hostname validation
+* GRE: fixed interface not showing up in OSPF and RIP selections if it is off
+* IPsec: fixed IP rule not appearing after network restart
+* IPsec: fixed duplicate port values in IPsec firewall rules
+* Ledman: fixed issue when power LED turns off when rebooting device
+* Modbus Client: added all available default baud rates
+* Modbus Client: added missing API docs for Modbus test request
+* Modbus Server: added all available default baud rates
+* Modbus Server: fixed firewall rule staying enabled when app is disabled
+* Modbus Server: fixed firewall rule creation
+* Modem Control: added all available default baud rates
+* NTRIP: added all available default baud rates
+* OpenVPN: fixed the configuration after disabling the use of external services
+* OpenVPN: fixed OpenVPN restarting when mobile interface comes up
+* Over IP: added all available default baud rates
+* SNMP: fixed Hotspot OIDs' hssID and hssUsername display
+* Tinc: fixed adding routes to remote subnets
+* Tinc: fixed configuration generation issues when creating multiple network and host instances
+* Tinc: fixed issues with route creation when using IPv6 addresses in tunnel configuration
+* Tinc: fixed validation for uploading key files
+#### System
+* Backup: fixed uploading backup with memory expansion enabled
+* CLI: fixed some private IPs being incorrectly determined as public
+* JSON-RPC: fixed login "Access Denied" error
+* Memory Expansion: fixed input element alignment issues
+* WebUI: added API required values validation when enabling BACnet, DLMS, DNP3, Modbus, MQTT, NTRIP services
+* WebUI: fixed 'Memory' status card progress bars visuals
+* WebUI: fixed search bar suggestions after removing packages
+* WebUI: fixed showing data in modals for users with only read permissions
+* WebUI: fixed custom SDK pages not loading correctly
+### CVE Patches
+* CVE-2021-3520
+* CVE-2021-44540
+* CVE-2021-44541
+* CVE-2024-4032
+* CVE-2024-6119
+* CVE-2024-6232
+* CVE-2024-6923
+* CVE-2024-7264
+
+---
+
+## RUTX_R_00.07.09.4 | 2024.10.02
+
+### Improvements
+#### Services
+* NTP Client: changed default NTP servers
+### Fix
+#### Services
+* NTP Client: fixed NTP server usage to work with next in line server if current server does not respond
+
+---
+
+## RUTX_R_00.07.09.3 | 2024.09.27
+
+### Fix
+#### Network
+* Multi WAN: fixed ipsets not getting deleted correctly when Multi WAN gets restarted
+
+---
+
+## RUTX_R_00.07.09.1 | 2024.09.13
+
+### Improvements
+#### Services
+* Python3: updated version to 3.11.7
+### Fix
+#### Network
+* Mobile: fixed eSIM profile config generation
+
+---
+
+## RUTX_R_00.07.09 | 2024.09.03
+
+### New
+#### Network
+* Devices: added VXLAN support
+* Firewall: added ability to configure NAT rule action
+* Firewall: added additional TTL target for firewall rules
+* Mobile: added "datamobile.ag" APN for "Datamobile.ag" operator to APN database
+* Mobile: added "m2m.ajrinternet.eu" APN for "Airinternet" operator to APN database
+* Mobile: added "wbdata" APN for "Webbing" operator to APN database
+* Mobile: added "inetd.vodafone.iot" APN for "Vodafone" operator to APN database
+* Mobile: added "asm" APN for "ASM" operator to APN database
+* Realtime Traffic: added historical traffic charts
+#### Services
+* Events Reporting: added new firmware version notification event
+* SNMP: added Multiwan data module
+#### System
+* WebUI: added notifications menu
+### Improvements
+#### Network
+* Mobile: improved network bring up after operator scan
+* Mobile: updated bands selection to include band number and frequency
+* Mobile: improved SIM card notifications to get removed when SIM card state or active SIM changes
+* Mobile: improved modem update notifications to show modem name
+* Mobile: removed the USSD feature from the data-only modems
+* Ports Settings: added more PoE state symbols, colored disabled port differently and improved port status hint
+* Realtime Traffic: improved chart styles
+#### Services
+* Call Utilities: added check if the number is blocked before doing action
+* Data to Server: added warning messages about insecure certificates for http_certfile and mqtt_certfile options in API and WebUI
+* DLMS: added SHA256 authentication
+* DLMS: improved COSEM group enable validation
+* GRE: reduced GRE keepalive packet buffer size
+* IPsec: added support for route based tunnel
+* L2TP: added field for custom options
+* SMPP: added timeout option
+* Web Filter: added hostname count message after successful file upload
+#### System
+* Access Control: improved system user's access control rules logic
+* Access Control: added option to disable password auth for the root user
+* Administration: improved write/read access control options display to match meniu path style
+* Backup: improved backup page by splitting it into backup and reset settings page
+* Side Widget: added port status widget
+* Update Firmware: changed firmware update log to include firmware version
+* WebUI: updated firmware and backup verification pages design
+* WebUI: improved global alerts display
+* WebUI: added confirmation prompt for disabling service in side widget
+* Kernel: updated version to 5.10.221
+### Fix
+#### Network
+* Devices: fixed configured VLAN 0 device cannot be selected in interface physical settings configuration
+* Mobile: fixed data limit widget to show used data for inactive interface
+* Mobile: fixed Bridge/Passthrough modes for routed networks
+* Mobile: fixed incorrect date values when setting SMS limit
+* Mobile: fixed SINR display for EG060K module
+* Mobile: fixed SMS used data header counter
+* Mobile: fixed the issue where the PUK event was not displayed when the SIM PIN was blocked
+* Mobile: fixed uqmi start-network authentication issue
+* Mobile: fixed modem info not being filled on devices with more than one modem
+* Mobile: fixed mobile data limit to calculate correct used limits when using ipv4 and ipv6 simultaneously
+* Mobile: fixed USSD over IMS error handling
+* Mobile: fixed an issue where the interface could hang if the modem was busy
+* Network: fixed incorrect date values when setting data limit
+* Network: fixed switch hardware MTU being set incorrectly when changing MTU on any network interface
+#### Services
+* Azure IoT Hub: fixed the Azure IoT Hub deprecated endpoint to create Data to Server sections
+* Azure IoT Hub: fixed the Azure IoT Hub deprecated endpoint so that it does not create sections in GET request
+* Azure IoT Hub: fixed the deletion of Data to Server sections when an Azure IoT Hub section is deleted through the deprecated endpoint
+* DLMS: fixed OBIS code validation
+* GPS: fixed an issue where a firmware update with keep settings would remove existing hosts
+* GPS: fixed NMEA forwarding when RMC/GGA were not synchronized when using same interval
+* Input/Output: added I/O juggler reload when I/O pin direction is changed
+* OPC UA Client: fixed TCL file upload
+* OPC UA Server: fixed TCL file upload
+* OPC UA Server: fixed configuration migration
+* OpenVPN: fixed default firewall zone for tap interfaces
+* SNMP: fixed negative GPS latitude display
+* SNMP: fixed TELTONIKA-MIB wireless module crash
+* SNMP: fixed mobile network state display
+* SNMP: fixed default hssDwLimit, hssUpLimit, hssDwBandwidth and hssUpBandwidth values
+#### System
+* API Core: fixed file deletion
+* Package Restore: fixed automatic package re-installation after firmware upgrade
+* Troubleshoot: fixed troubleshoot not including all the log files when log to flash is enabled
+* User Settings: fixed page to show groups and users if the user has been granted access
+* WebUI: fixed overview page to display active wireless (WLAN) clients
+### CVE Patches
+* CVE-2021-32292
+* CVE-2022-40617
+* CVE-2023-49441
+* CVE-2024-0397
+* CVE-2024-3596
+* CVE-2024-5535
+* CVE-2024-8088
+* CVE-2024-26669
+* CVE-2024-26739
+* CVE-2024-26740
+* CVE-2024-36901
+
+---
+
+## RUTX_R_00.07.08.3 | 2024.08.23
+
+### Fix
+#### System
+* Modem Firmware: Added firmware downgrade protection to EG060K modules
+
+---
+
+## RUTX_R_00.07.08.2 | 2024.08.12
+
+### Fix
+#### System
+* Update Firmware: fixed inconsistent firmware download from FOTA
+
+---
+
+## RUTX_R_00.07.08.1 | 2024.08.06
+
+> ⚠️
+> Note: This firmware version was removed due to an issue with FOTA firmware download.
+
+### Improvements
+#### Network
+* Mobile: improved firmware downgrade validation for Quectel modules
+#### Services
+* Zerotier: updated version to 1.14.0
+### Fix
+#### Network
+* Mobile: fixed an issue where in some cases mobile network interfaces would not be brought down properly
+* Mobile: fixed memory fault while allowlist and denied data roaming enabled
+* Mobile: fixed illegal instruction fault on modem control services
+* Network: fixed default route not being added for PPPoE connections
+#### Services
+* Modbus TCP over Serial Gateway: fixed serial connection not working after reboot
+* OPC UA Client: fixed connections not being closed after using testing functionality
+#### System
+* WebUI: fixed SDK WebUI package compilation
+
+---
+
+## RUTX_R_00.07.08 | 2024.07.18
+
+> ⚠️
+> Note: This firmware version was removed due to an issue with FOTA firmware download.
+
+### New
+#### Network
+* 802.1X: added client support
+* DNS: added inherited server status to configuration page
+* HTTPS DNS Proxy: added new HTTPS DNS Proxy package to package manager
+* Mobile: added SIM card lock/unlock functionality in Mobile->Utilities page
+* Mobile: added SIM card PIN change functionality in Mobile->Utilities page
+* Mobile: added new Mobile->Limits page which shows information and allows to configure Data and SMS limits
+* Mobile: added DFOTA support for RG520N modems
+* Mobile: added nr-arfcn display to mobile status page
+* Mobile: added dfota support for devices with RG520N-EB modem
+#### Services
+* Data to Server: added 'Lua script' data input
+* Input/Output: added ability to configure gpio debounce timer and changed default gpio debounce timer value from 200 ms to 10 ms
+* IPsec: added initial XFRM support
+* MQTT Modbus Gateway: added JSON message type format
+* OpenVPN: added DCO support
+#### System
+* API Core: added option to configure api session timeout
+* Certificates: added "Let's encrypt" certificate generation
+* PAM: added RADIUS external user support
+* UI Core: added data analytics support
+* Update Firmware: added warning message about device being temporarily unreachable on firmware update
+### Improvements
+#### Network
+* DNS: separated field "DNS forwardings" into two: one for simple server forwarding other for domain-specific
+* DNS: moved "DNS Forwardings", "Listen interfaces", "Exclude interfaces", "Local service only", options to advanced tab
+* Firewall: improved protocol field in all firewall pages by making that "All" value would be mutually exclusive with any other value
+* Mobile: improved IMS context initialization
+* Mobile: updated SMS memory management for multipart SMS
+* Mobile: added error message when attempting to enable the SIM switch without any criteria set
+* Mobile: added informative message in SIM switch page when Data/SMS limit criteria are enabled but the limits themselves are not set up
+* Mobile: moved operator list allowlist/blocklist selection to Network selection page
+* Mobile: refactored Scanned operators modal, added repeat scan button
+* Mobile: added ability to view previously scanned operators in Network selection and Operator lists pages
+* Mobile: added ability to edit operator list name and initiate scans for operators in Operator lists page
+* Mobile: updated operator code field list to include APNs from the APN database in Operator lists page
+* Mobile: split Mobile->General page into three pages: General, Connection and Utilities pages
+* Mobile: added mobile interface with highest priority APN configuration in Mobile->General page
+* Mobile: added icons with hints which show SIM card, operator, data connection statuses in Mobile->General page
+* Mobile: moved Mobile data limit section to a tab in WAN page
+* Mobile: added informative message in WAN page to indicate whether the connection will be made using APN from APN database, empty or custom APN
+* Mobile: improved logging of ping error messages
+* Mobile: added 5G SA/NSA mode selection
+* Mobile: improved modem updater to stop ping reboot service while update is in progress
+* Mobile: improved the handling of denied messages upon SIM switch
+* Mobile: added notification when a multi-IMSI SIM card is using Auto APN
+* Mobile: added validation to not allow passthrough and bridge mode when one already exists
+* Mobile: improved safeguards for modem services startup
+* Mobile: improved modem update status display
+* Mobile: added corrupted mobile statistics database restoration functionallity
+* Mobile: improved setting of IPv4 and IPv6 types inside the modules
+* Mobile: improved provider name parsing for SLM750 modem
+* Multi WAN: improved interface status representation when using load balancing
+* Network: added more options for "IPv6 assignment length" field
+#### Services
+* Azure IoT Hub: added DPS symmetric key attestation support
+* Azure IoT Hub: added Direct Method support
+* Azure IoT Hub: added Plug and Play integration
+* Azure IoT Hub: added link to "Data to Server" page
+* Data to Server: added support for multiple filters
+* Data to Server: improved HTTP output hostname definition with automatic protocol specification in URL
+* Data to Server: improved MQTT input connection handling
+* DNP3 Client: added option to enable/disable service
+* GPS: added send empty feature, which sends zeroed location data after specified GNSS loss timeout
+* GRE: increased Inbound and Outbound key limit to 4294967295
+* Input/Output: added custom name support in I/O status page
+* IPsec: added certificate warning message
+* Mobile Utilities: added interface option to sms_utils cellular command
+* Mobile Utilities: improved error log message
+* Mobile Utilities: improved naming of I/O pins in initial I/O status rule
+* Mobile Utilities: sms utilities authentication brute force prevention
+* Modbus Server: added mobile last month and last week usage registers
+* Modem Control: disabled canonical mode by default for partial mode. Now full/partial mode input from serial port works the same way
+* Mosquitto: added large package size check for MQTT clients
+* MQTT Modbus Gateway: improved mosquitto reconnect time and service will try to recover few times before exiting
+* MQTT Publisher: improved MQTT connection handling
+* OPC UA Client: added security modes
+* OPC UA Server: added security modes
+* OPC UA Server: added service status display
+* OpenVPN: added support for decrypting private key when uploading a configuration file
+* OpenVPN: improved instance status state
+* OpenVPN: added options to specify an IP address pool for dynamic assignment to clients
+* Over IP: added label to show how many servers a client is connected to
+* Over IP: connect on data feature will not disconnect immediately after data transfer but wait for inactivity timeout
+* Over IP: increased TLS handshake timeout to 10 seconds
+* SMPP: added brute-force prevention
+* SMPP: added TLS/SSL support
+* SMS Utilities: added security warning in "Authorization method" configuration
+* SNMP: changed interface module OID structure
+* SNMP: improved User-based Security Model (USM) brute force attack prevention measures
+* Stunnel: improved global instance settings dependencies
+* emailrelay: updated version to 2.4.1
+* OpenVPN: updated version to 2.6.9
+* stunnel: updated version to 5.72
+* Tailscale: updated version to 1.68.1
+#### System
+* Access Control: added certificate key length warnings
+* Access Control: adjusted access control when all pages are blocked
+* Access Control: added certificate file download for CLI to work on all browsers
+* API Core: implemented functionality to include warning messages for vulnerable certificates
+* Boot: improved modem startup reliability
+* Package Manager: added multi package actions
+* Package Manager: added status filter
+* Package Manager: moved package upload action to main page
+* Package Manager: added links to installed packages pages
+* Package Manager: refactored "Packages" page
+* Package Manager: updated opkg repository link to use https
+* RutOS: improved GPL example page to align with new software architecture
+* Troubleshoot: refactored Modem debug section to display responses in single field, added clear button to remove received responses
+* Troubleshoot: added support for multiple syslog servers
+* UI Core: added additional message with IP address to loading screen for scenarios when redirect to different IP address happens
+* UI Core: added toast message hiding when text is too long
+* Update Firmware: added 'Firmware version' data in screen after firmware upload
+* WebUI: added functionality to cancel loading screen if it takes 30 or more seconds
+* WebUI: removed all ubus method calls from webui
+* WebUI: improved language caching
+* WebUI: added password generator for first login modal
+* WebUI: added sticky position to side menu
+* WebUI: added default password hint to login error message
+* WebUI: added warning messages for low-security certificates
+* Kernel: updated version to 5.10.217
+* libexpat: updated version to 2.6.2
+* SSL/TLS: updated version to 3.0.14
+* vue: updated version to 3.4
+### Fix
+#### Network
+* Devices: fixed missing API devices status endpoint permission
+* DHCP: fixed "DHCP option" allow empty input value
+* DHCP: fixed IPv4 leases being not correctly shown when NTP synchronizes time
+* DHCP: fixed DHCP error that occurred after changing the subnet of the LAN IP address in the setup wizard
+* Dynamic routes: fixed duplicated external routes cards
+* Firewall: fixed firewall zone validation when adding interfaces
+* Mobile: fixed low signal reconnect being available on modems where it is not supported
+* Mobile: fixed gsmctl -E output to return only json values
+* Mobile: fixed Carrier Aggregation signal strength info
+* Mobile: fixed wrong mobile data limit used data format for sms messages
+* Mobile: fixed duplicate data connection event reporting
+* Mobile: fixed an issue where low signal notifications were displayed without a SIM card
+* Mobile: fixed modem serial number acquisition after modem reboot
+* Mobile: fixed an issue when 4G-only network type selection may have resulted in a slower connection to the operator
+* Mobile: fixed issue where USSD responses were returned in HEX format instead of text format for EC200A module
+* Mobile: fixed issue where DHCP filter was not set correctly for RG501Q
+* Mobile: fixed an issue where the wrong IP address was used after a DFOTA upgrade
+* Network: fixed overriding MAC address for interfaces that are bridged
+* Network: fixed instances of device dropping packets when configured with masquerading disabled and 'Hardware flow offload' enabled
+* Realtime Traffic: fixed mobile usage by week day translation by device language
+* SQM: fixed missing PPP mobile device selection in SQM configuration
+#### Services
+* BACnet: fixed incorrect BACnet IP port used for sending responses
+* BGP: fixed route map sequence going out of range
+* BGP: fixed listen range field allowing multiple entries
+* Call Utilities: fixed table header switch to be disabled if no rules were created
+* DLMS: fixed DLMS test response format
+* DLMS: fixed COSEM group validation
+* DLMS: fixed API POST error for /dlms/devices/config endpoint
+* DLMS: fixed serial connection not working after reboot
+* DNP3 Client: fixed to allow reading objects past 255 index
+* DNP3 Client: fixed incorrect hints
+* DNP3 Outstation: fixed serial outstation starting issues
+* GPS: fixed GPS start constellations issue
+* GPS: fixed an issue where NMEA sentences were parsed incorrectly at midnight, resulting in a 24-hour time discrepancy
+* GPS: fixed gpsctl datetime parameter
+* GPS: fixed issue where DPO would not get disabled if GPS is started without DPO
+* GPS: fixed AVL TAVL rule signal value issue
+* GPS: fixed default AVL rule issue where I/O would be ignored by default
+* GPS: fixed BeiDou and QZSS seperation in PQGSV sentences
+* GPS: fixed NMEA sentences reading in NMEA collecting
+* I/O Juggler: fixed improper dout action config handling
+* I/O Juggler: updated profile change action
+* Input/Output: allow unselecting all Post/Get access methods
+* IPsec: fixed connectivity issues when using WAN failover
+* IPsec: fixed the instance status when the local firewall option is disabled
+* Ledman: fixed issue when after some time network type LED starts blinking
+* Modbus Client: fixed test request option validation
+* Modbus Client: fixed alarm output action display values
+* Modbus Client: fixed incorrect period hint
+* Modbus Server: fixed APN register not clearing APN
+* Modbus Server: fixed 148 and 164 modbus registers
+* Modbus Server: fixed incorrect hints
+* Modem Control: fixed API POST request validation
+* NTRIP: fixed NTRIP NMEA generation timestamp and coordinates errors
+* NTRIP: fixed configuration reading with several instances added
+* OPC UA Server: fixed not starting while modem is down
+* OpenVPN: fixed displaying imported files from device
+* OpenVPN: fixed the private key decryption for cases when a password is used
+* OpenVPN: fixed data cipher migration
+* Over IP: fixed issue where serial device does not recover after modem reboot
+* Over IP: fixed connect on data initiating TCP connection after few data transfers
+* Overview: fixed issue when devices without WiFi send additional request without data
+* SMPP: fixed username bypass problem
+* SMPP: fixed password validation
+* SMS Gateway: fixed SMS to Email recipient formatting according to RFC5322
+* SNMP: fixed GSM mSignal OID value type
+* SNMP: fixed GSM module memory leaks
+* SSTP: fixed functionality when the default route option is not enabled
+* Web Filter: fixed whitelist not working for some hosts when using IPv6
+#### System
+* Administration: fixed repeated validation on cleared inputs and added validation when new password matches the old one
+* API Core: fixed API method validation during upload action
+* API Core: fixed error messages for POST method
+* API Core: fixed option list validation
+* Boot: fixed factory settings restore (firstboot) not deleting hidden files
+* Events Log: fixed refresh button in event log table
+* IP Block: fixed adding MAC addresses back to whitelist when unblocking all of them
+* Memory Expansion: fixed enable validation
+* Recipients: made phone number field required
+* Setup Wizard: fixed lan ip step not changing ip address
+* Troubleshoot: fixed system log and kernel log buttons to be enabled with read only rights
+* Update Firmware: fixed misleading "Firmware version" status of "N/A" to "FOTA service is disabled" when FOTA is disabled
+* Update Firmware: fixed issue when infinite spinner appears after updating device firmware from server without having internet connection
+### CVE Patches
+* Patched CVE-2023-52425
+* Patched CVE-2023-52530
+* Patched CVE-2024-25629
+* Patched CVE-2024-28757
+
+---
+
+## RUTX_R_00.07.07.3 | 2024.06.25
+
+### Fix
+#### Network
+* WebUI: fixed port advertisement change
+#### System
+* FOTA: fixed config when upgrading from older firmware with keep settings
+### CVE Patches
+* CVE-2024-31950
+* CVE-2024-31951
+
+---
+
+## RUTX_R_00.07.07.2 | 2024.06.12
+
+### Improvements
+#### Network
+* Zerotier: added backup WAN interface blacklisting if WAN failover is enabled
+* Mobile: improved communication stability with eSIM
+#### Services
+* SNMP: added bruteforce attack prevention when using SNMP v3 user
+* L2TP: improved reconnect attempt logic
+#### System
+* SSH: removed weak SSH algorithms
+* Telnet: moved to Package Manager
+### Fix
+#### Network
+* BGP: fixed instance migration issues
+* HNAT: fixed cases of unintended forwarding when LAN and WAN subnets overlap
+* HNAT: fixed instances of device misrouting packets to wired LAN when 'Hardware Flow Offloading' was enabled
+* Mobile: fixed forced APN configuration
+#### Services
+* DMVPN: fixed duplicate NHRP map entries creation
+* OpenVPN: added fixes for the insecure tls-cert-profile option usage
+#### System
+* IP Block: fixed blocking of UDP traffic
+### CVE Patches
+* CVE-2024-31948
+
+---
+
+## RUTX_R_00.07.07.1 | 2024.05.03
+
+### New
+#### Network
+* WebUI: added ESM/EMM message notifications
+* WebUI: added internet status tracking configuration and overview widget
+* LAN: added a new IPv6 LAN status page
+* Static Leases: added a new IPv6 Static Leases page
+* WebUI: added custom domain name resolve option in “DNS” configuration page
+* Modem – Auto APN: added “uno.au-net.ne.jp” APN for “KDDI” operator
+* Modem – Auto APN: added 'eprivate010.tisparkle.com' APN for “Sparkle” operator
+* QoS: added mobile interface select option
+* Mobile: improved connection establish time for uqmi protocol
+* Failover: added additional connection flush options
+* VRF: added initial Virtual Routing and Forwarding support
+#### Services
+* Post/Get: added I/O invert support
+* DLMS Client: added persistent TCP connections
+* Events Reporting: added unexpected shutdown event
+* Modbus Client: added 64bit data types
+* IPerf3: added iPerf3 to Package Manager
+* DNP3 Outstation: added I/O objects
+* Modbus Serial Server: added option 'Mobile data type'
+* TR-069: added PCI, LAC, TAC, EARFCN and Neighbour cells data to Device.MobileInfo node
+* Hotspot: added domain and subdomain options for external landing page
+* Over IP: added option 'Keep alive enable'
+#### System
+* WebUI: added the ability to generate random passwords for password input fields
+* WebUI: added reset to “Factory defaults” option
+* System: changed firmware certificate verification tool
+* IP Block: added time-based login attempt blocking
+* WebUI: added firmware update notification support
+* PAM: added the ability to set port for TACACS+
+* Logging: added multiple remote syslog servers support
+### Improvements
+#### Network
+* Static Leases: added possibility to use MAC with wildcard
+* WebUI: added ability to disable modem update notifications
+* Topology: changed network devices scanning application
+* WebUI: improved design of Status - LAN page
+* DHCP: simplified DHCP configurations in other pages and moved full DHCP configuration to a separate page
+* DHCP: removed default disabled server configuration for WAN interface
+* WebUI: simplified data entry of DNS forwardings by separating hostname and IP address fields
+* BGP: added Virtual Routing and Forwarding (VRF) support
+* BGP: added multiple BGP instance support
+* WebUI: adjusted responsive design breakpoints
+* HNAT: improved WAN->LAN packet offloading
+* WebUI: added additional field for warning threshold to allow entering value as percentage in Mobile Data Limit section
+* Mobile: improved mobile services stability when SIM card is lost during SMS sending
+* Mobile: updated bridge/passthrough mode logic to flush ARP and add static ARP entry if MAC is specified
+* Mobile: improved SIM switch logging and protection on failure to acquire data
+* WebUI: added partial data loading to APN database page
+* Mobile: improved SMS sending timeouts during network issues
+* Mobile: improved connection handling when data limit is reached
+* Mobile: added metric to default gateway when using passthrough mode
+* WebUI: added validation for 2 same APNs
+* WebUI: updated Band selection field to show duplex modes in Mobile General page
+* Dnsmasq: updated dnsmasq to version 2.89
+#### Services
+* Wireguard: added option to bind tunnel to a specific interface
+* OPC UA Client: added limits (10 servers, 20 groups, 50 nodes per server, 50 values per group)
+* DLMS Client: increased maximum count of connection sections to 30
+* DLMS Client: added short name referencing
+* SNMP: set strict default community access when IPv6 address is used
+* SNMP: improved sysName OID to set device's hostname
+* Network Shares: moved to Package Manager
+* Auto Reply: added available SMS message parameters to "Message text" input
+* Modbus Client: allow using diacritics in SMS alarms
+* Hotspot: moved MAC blocking option from Access Control to Hotspot page
+* WebUI: added MAC authentication support when using RADIUS authentication mode
+* WebUI: moved licenses to footer
+* AVL: added HDOP in TAVL settings
+* AVL: added ADC and ACL I/O types for secondary AVL rules
+* NTRIP: added a limit of 20 configurations
+* OpenVPN: added the bridge option for selecting the network device to be bridged with
+* OpenVPN: added possibility to create more than one TAP client
+* SSTP: updated package version to 1.0.19
+* Mosquitto: updated package version to 2.0.17
+* Tailscale: updated package version to 1.62.1
+#### System
+* WebUI: added more strict password requirements for restoring backup
+* SMTP: added option to either not verify SMTP server or upload SMTP server's CA file to verify authenticity
+* WebUI: Added the ability to choose the ROOT CA when using certificates from the device
+* WebUI: unified time format to ISO8601 across the entire WebUI
+* WebUI: added ability to choose imported certificate and key as 'Server certificate' and 'Server key' in 'Access Control'
+* WebUI: added 'Hosts' and 'IP Addresses' options for 'Simple' certificate generation and certificate signing
+* WebUI: changed firmware update option to server as a default option
+* WebUI: improved first login password change logic
+* Certificates: updated Root CA certificates
+* GPL: added offline package preparation command for GPL builds
+* Speedtest: added multiple connections support to improve accuracy
+* Libcap: updated package version to 2.69
+### Fix
+#### Network
+* Topology: fixed showing interfaces with assigned VLAN
+* WebUI: fixed static routing creation for GRE instance
+* Network: fixed DHCPv4 relay mode enabling
+* Mobile: fixed PIN code set after modem restart
+* Mobile: fixed an issue where using SIM change command on one SIM slot modems would reset connection
+* Mobile: fixed an issue where message storage would not be checked correctly
+* Mobile: fixed temperature value sometimes returning 0
+* Mobile: fixed denied roaming flag set
+* SIM Switch: fixed an issue when low "Check interval" was causing connection to fail
+* SIM Idle Protection: fixed problem when the SIM slot remained unchanged
+* Mobile: fixed an issue where SIM switch would fail when switching to PUK blocked SIM
+* Mobile: fixed an issue where sim switch would be executed twice immediately causing sim to not be switched
+* Mobile: fixed SIM PIN saving for non primary SIM cards
+* Failover: fixed Failover missing active rules when using multiple source and destination IP addresses
+* Failover: fixed an issue where failover would not function correctly while using a mobile interface
+* WebUI: fixed network and failover interface metric sorting synchronization issue
+* WebUI: fixed failover rule policy save issue with newly added WAN interface
+* Interfaces: fixed failover value for new WAN being taken from WAN that was just deleted
+* HNAT: fixed multicast packet leakage when 'Hardware flow offloading' is enabled
+#### Services
+* Modbus Client: allow using negative floating point values in requests
+* Azure IoT Hub: fixed Data to Server minor WebUI dependency bugs
+* Data to Server: fixed DLMS data formating
+* Data to Server: fixed Network link state data display
+* DLMS Client: fixed segfault while reading profile generic COSEM object
+* DLMS Client: fixed profile generic entries reading
+* DLMS Client: fixed application memory allocation issues
+* SSTP: fixed route adding when default route is enabled
+* SNMP: fixed VLAN OID naming
+* OpenVPN: added fixes for instance status tracking functionality
+* OpenVPN: resolved uptime counting issues
+* PPTP: fixed PPTP instance deletion problem
+* Azure IoT Hub: fixed 'contentType' telemetry message parameter
+* Hotspot: fixed password validation for locally created users and signed-up users
+* Hotspot: fixed session invalidation after deleting registered user
+* Hotspot: fixed SMS OTP password reuse
+* Hotspot: fixed firewall rule creation
+* PPTP: fixed problem related with routes when failover is enabled
+* USB Tools: fixed to not display a non-existent MSD
+* Modbus Client: fixed issue where service freezes when SMS alarm is sent
+* Modem over serial: improved robustness against modem reboots
+* Modbus TCP Over Serial Gateway: fixed gateway returning corrupted data with larger baud rates
+* Modbus Server: updated 'GPS fix time' register to store the UTC date and time of GPS position
+* WebUI: fixed data loading error in Input/Output > Post/Get page
+* UPnP: updated package version to 2.3.4
+#### System
+* NTP Client: fixed ‘Count of time synchronizations’ execution when synchronization to mobile operator is chosen
+* Package Manager: fixed spinner message when restarting network after package upload or download
+* Package Manager: fixed supported devices check when installing a package from server
+* WebUI: fixed language install from uploaded package after upgrade with keep settings
+* WebUI: fixed an issue when a user was not logged out after changing profiles
+* Telnet: fixed segmentation fault during concurrent connections
+* CLI: fixed enter key issue on mobile chromium based browsers
+* System Users: fixed SSH session close after deleting user or disabling SSH access
+* Profiles: fixed profile migration with installed packages
+* PAM: updated libpam to version 1.6.0
+* JavaVM: fixed package installation
+* WebUI: fixed Hotspot log page table search functionality
+* Speedtest: fix missing download speed on some servers
+### CVE Patches
+* CVE-2022-4603
+* CVE-2022-23308
+* CVE 2022-45061
+* CVE-2023-0466
+* CVE-2023-6129
+* CVE-2023-7042
+* CVE 2023-24329
+* CVE 2023-27043
+* CVE-2023-42366
+* CVE-2023-46218
+* CVE-2023-46219
+* CVE-2023-46752
+* CVE-2023-46753
+* CVE-2023-48795
+* CVE-2024-2397
+* CVE-2024-25062
+* CVE-2024-27913
+* CVE-2024-22365
+
+---
+
+## RUTX_R_00.07.06.10 | 2024.04.04
+
+### Fix
+#### System
+* Ledman: fixed memory leak
+
+---
+
+## RUTX_R_00.07.06.8 | 2024.03.25
+
+* Firmware R_00.07.06.8 was removed due to an issue with inefficient memory allocation for LED control.
+### Improvements
+#### Services
+* IPSec: disabled libgmp in favor of openssl
+* IPSec: updated Strongswan to 5.9.6
+### Fix
+#### Services
+* IPSec: increased charon load timeout
+* IPSec: fixed loading of large private keys
+
+---
+
+## RUTX_R_00.07.06.6 | 2024.03.04
+
+### New
+#### Services
+* Added domain and subdomain options for external landing page in Hotspot
+### Improvements
+#### System
+* Minified *.svg WebUI files to save space on the device
+* Removed unused easy-rsa package to increase free space
+### Fix
+#### Network
+* Fixed mobile daily data usage representation
+#### Services
+* Fixed OverIP serial utility issue where after some time server mode can't accept incoming connections anymore
+
+---
+
+## RUTX_R_00.07.06.5 | 2024.02.21
+
+### New
+#### Network
+* Added support for multi line USSD
+### Improvements
+#### Network
+* Improved DMZ to use its source zone on port forwards creation
+#### System
+* Updated netifd version to 2024-01-04
+* Updated PPP package version to 2.4.9
+* Updated E2fsprogs package version to 1.47.0
+* Updated Musl package version to 1.2.4
+### Fix
+#### Network
+* Fixed possible packet corruption
+#### Services
+* Fixed Modbus TCP Over Serial Gateway crash occurring at start up in some edge cases
+* Fixed tailscale VPN firewall zone creation issue
+* Fixed custom GPS NMEA prefix
+#### WebUI
+* Fixed action descriptions in the traffic rules table
+#### System
+* Fixed year 2038 problem with time counter overflow
+
+---
+
+## RUTX_R_00.07.06.3 | 2024.01.17
+
+### Improvements
+#### Services
+* Added multiple hosts support for GPS HTTPS, NMEA and AVL services
+* Increased DLMS Client connection timeout for TCP sockets
+### Fix
+#### Services
+* Fixed DLMS Client memory leak with profile generic COSEM class
+* Fixed function 5 not working with high register numbers in MQTT Modbus Gateway service
+#### WebUI
+* Fixed Events Log sorting and search features
+#### System
+* Patched CVE-2024-0193 vulnerability
+* Patched CVE-2023-51779 vulnerability
+* Updated OpenSSH to 9.6p1 version, fixed CVE-2023-51385 and CVE-2023-51384
+* Fixed profile migrations, added error handling when trying to change profile while it is still applying
+
+---
+
+## RUTX_R_00.07.06.1 | 2024.01.04
+
+### Fix
+#### Services
+* Fixed issue with NTPclient zombie processes
+
+---
+
+## RUTX_R_00.07.06 | 2023.12.20
+
+### New
+#### Network
+* Enabled IPv6 by default for mobile interfaces
+* Added operator blacklisting and whitelisting based on mobile country code
+* Added SIM card not inserted event in Events Log
+#### Services
+* Added OPC UA Server
+* Added the ability to set port for TACACS+ in PAM service
+* Added switch to enable using root certificate authority for MQTT alarms in Modbus Client services
+* Added new alarm action "Ubus event" in Modbus Client services
+* Added new input "Modbus alarms" in Data to Server service
+* Added wget ping subtype support in Events Reporting service
+* Added new I/O SNMP OID that returns numeric I/O state
+* Added new Post/Get service action "mobile_sim_pin" for changing used SIM PIN code on the device
+* Added TLS support for OverIP serial functionality
+#### WebUI
+* Added Tailscale VPN support
+* Renewed user interface design
+* Added network interface name change functionality
+* Added last resort configuration option for multiwan policy rules
+* Mobile: Added indication when new modem firmware is available
+* Mobile: Added mobile connection establishment display in mobile status page
+* Mobile: Added defaEG06ult value for "Reset threshold" field in Low Signal Reconnect feature
+#### System
+* Added ability to enable/disable SSH access for specific users in System Users
+* API support
+### Improvements
+#### Network
+* Disabled operator scan when SIM card is not inserted
+* Updated carrier aggregation value to be shown as active/inactive
+* Changed default MTU to 1500 for Mobile interfaces
+#### Services
+* Expanded GRE VPN keep alive functionality to disable routes from unreachable tunnel
+* Added PKCS#12 certificate container authentication method in IPsec VPN
+* Added TLV message_payload support for SNMP service
+* Added Purple.ai configuration profile
+* Replaced option "No leading zeros" with "Remove all zeros" in Over IP serial functionality
+* Added possibility to assign mobile interface in SQM service
+* Added reboot on storage device disappearance and re-appearance
+* Added additional anonymous phone number validation in Mobile Utilities service
+* Added "N/A" signal strength response in DNP3 service if SIM card is not inserted
+#### WebUI
+* Improved Events Log page loading by adding asynchronous pagination
+* Removed requirement for Diffie-Hellman parameters in OpenVPN service
+* Added improvements for creating OpenVPN IPv6 configurations
+* Added auto redirect after changing router's IP address or port
+* Added "Interface" dropdown for interfaces selection in Wake on LAN service
+* Increased Data to Server service MQTT topic length limit to 65535 characters
+* Added OSPF external routes section to Status page
+* Moved device menu entry “Reboot” to header menu
+* Added indication in Overview, Status -> Mobile and WAN pages when mobile data limit is reached
+* Updated Operator state field to show if modem is in limited service
+* Combined Mobile Usage day, week, month and total pages into one
+* Updated Realtime data -> Mobile signal page design to show all available modems and their bands data in one graph
+* Added message when SIM card requires PIN/PUK code in Status -> Mobile page
+#### System
+* Added Mosquitto CVE patch 2023-28366
+* Added Mosquitto CVE patch 2023-3592
+* Updated hostapd version to 2023-09-08
+* Updated cURL version to 8.4.0
+* Updated kernel version to 5.10.199
+* Updated Mac80211 version to 6.1.24
+* Added RMS data display to generated troubleshoot
+* Added downloaded Package Manager packages list to generated troubleshoot
+* Added process activity load list to generated troubleshoot
+* Changed default OPKG feed to use Teltonika's URL
+### Fix
+#### Network
+* Fixed DMVPN firewall rule creation issues
+* Fixed RUTX VLAN keep settings issue when WAN port configuration are overwritten with 1st vlan
+* Fixed Failover missing active rules when using multiple source and destination IP addresses
+* Fixed mobile service crash due to buffer overflow while reading partially overwritten SMS
+* Fixed an issue with Manual APN connection making attempts too rapidly
+* Fixed deny data roaming functionality when transitioning between roaming and home operator network
+* Fixed network disconnection on mobile network detach and DHCP lease loss situations
+* Fixed VoLTE configuration after modem reboot
+* Fixed Mobile interface bridge and passthrough mode connectivity loss
+* Fixed an issue where rarely PIN code would get removed after SIM switch
+* Fixed mobile operator list being not updated after changes in WebUI
+* Fixed issue where mobile interface was unreachable after device reboot or interface restart while using Failover service
+#### Services
+* Fixed SSH module enable in PAM service
+* Added minimum free space check when saving logs to flash in Logging service
+* Fixed "Set multiple coils" function sending too many bytes in Modbus Client services
+* Fixed multiple Events Reporting messages being sent when Firewall configuration is changed
+* Fixed VRRP instances advertising wrong virtual IPs
+* Added Hotspot information in SNMP MIB file
+* Fixed registered Hotspot Local Users showing random username
+* Fixed selection of MAC Auth for LAN interfaces in Hotspot service
+* Fixed inconsistent Hotspot login behaviour when using MAC Auth with Password
+* Fixed instance shutdown after last local user deletion
+* Fixed RMS Hotspot data display for devices without WiFi support
+* Fixed Call Utilities failure when caller id is hidden during a call
+* Fixed AVL with poor mobile connections
+* Fixed default profile SMS Utilities I/O status rule configuration in Profiles functionality
+* Fixed serial timeout not working in Over IP serial functionality
+* Removed "Echo" option in Modbus TCP over Serial functionality
+* Fixed CRC verification failing when CRC is correct in Modbus TCP over Serial functionality
+* Fixed crash when getting unexpected messages from RTU in Modbus TCP over Serial functionality
+#### WebUI
+* Fixed side menu style issues when Japanese language is used
+* Fixed displaying of vendor names in Topology page
+* Fixed language packs being selectable when still in Package Manager queue
+* Added ability to configure IPv6 BGP peer
+* Fixed realtime graphs responsive design issues
+* Fixed Network Shares users deletion
+* Fixed not all LAN interfaces shown in dropdown in Hotspot service page
+* Fixed modem updater legacy firmware flashing
+#### System
+* Patched FRR CVE-2023-38406
+* Patched FRR CVE-2023-38407
+* Patched FRR CVE-2023-41358
+* Patched FRR CVE-2023-41360
+* Patched FRR CVE-2023-41909
+* Patched FRR CVE-2023-47234
+* Patched FRR CVE-2023-47235
+* Patched OpenSSL CVE-2023-3446
+* Patched OpenSSL CVE-2023-3817
+* Patched LibXML2 CVE-2023-39615
+* Patched LibXML2 CVE-2023-45322
+* Patched FFMPEG CVE-2021-28429
+* Patched FFMPEG CVE-2022-48434
+* Patched dnsmasq CVE-2023-28450
+* Fixed running out of space when SSHFS is mounted in /tmp while generating troubleshoot
+* Fixed WebUI access after upgrading from legacy RutOS version
+
+---
+
+## RUTX_R_00.07.05.4 | 2023.11.09
+
+### Improvements
+#### WebUI
+* Improved asynchronous pagination in events log pages
+* Optimized Overview page load
+* Added resource loading cancellation after switching to different page
+
+---
+
+## RUTX_R_00.07.05.3 | 2023.10.30
+
+### New
+#### System
+* Added support for GD5F2GM7 and GD5F2GQ5 GigaDevice NAND flashes
+### Fix
+#### Network
+* Improved device stability when using IPv6 for modem connections
+
+---
+
+## RUTX_R_00.07.05 | 2023.10.19
+
+### New
+#### Network
+* Added "shared.m2m.ch" APN for Swisscom IoT operator to APN database
+* Added "gamma" APN to auto-APN database
+* Added "soracom.io" APN for Soracom operator to APN database
+* Added "simbase" APN to auto-APN database
+* Added "pnd" APN for Pond IoT to auto-APN database
+* Added "spitfire1" APN for Spitfire operator to APN database
+* New argument in "gsmctl" CLI command for Carrier aggregation
+* Numeric mode support for modem AT commands
+* Enabled dynamic MTU configuration on mobile interfaces by default
+#### Services
+* DLMS Client package
+* 7zip package
+* TincVPN package
+* Added router uptime and mobile connection uptime data parameters to SNMP
+* Custom MQTT publisher/subscriber topics definition support
+* Alternative configuration file upload support for MQTT Broker service
+* Device Provisioning Service support for Azure IoT Hub service
+* Added DPO configuration support in GPS
+* Added more mobile usage parameters to SNMP
+* SIM Idle Protection package
+* AVL collection based on minimum accuracy for GPS service
+#### WebUI
+* Firewall status page
+* Page search feature
+* Network Topology page
+* "Allow insecure connection" option for MQTT TLS protocol in Data to Server service
+* Package Restore feature Enable/Disable option
+* Hotspot client connection/disconnection trap option for SNMP service
+* Added Events log trap option for SNMP service
+* Confirm dialog when cancelling a verified package in Package Manager
+* "Bridge ALPN" option for Bridge configuration in MQTT Broker service
+* New subtypes of events that specify a specific port on "Events Reporting" and "SNMP Trap rules" pages
+* Specific firmware packages repository link in Package Manager page
+* Ability to enter decryption passphrase for encrypted private keys
+* "Reconnect" button in RMS page
+* New event "Device startup completed" in Events Reporting service
+* Port status and configuration page
+* IP6 table configuration option for DHCPv6 protocol in Network -> WAN page
+* "Write to config" option for SIM Switch action in I/O Juggler service
+* Configurable GPS NMEA prefix
+* Modem Debug page
+* APN database management page added to package manager
+* Added "Message forwarding" option in SMS Rules page when rule type is "Execute custom script"
+* Ability to unblock SIM card and insert SIM PIN in Overview page
+* New SMS rules "Reset mobile connection" and "Reload config"
+* "SMS limit clear due" display in Overview page
+* Added modem temperature to System -> Status page
+#### System
+* Mechanism to rebrand WebUI using GPL
+* Possiblity to create web applications with closed-source GPL
+### Improvements
+#### Network
+* Moved FRR VTYSH package to package manager
+* Made newly created Firewall Traffic, NAT rules and Port Forwards disabled by default
+* Improved Interfaces to enable IPv6 DHCP server when mobile v6 or v4v6 PDP type is set
+* Improved IPSec performance throughput
+* Improved auto APN selection
+* SMS sending event is now logged into events log
+* Improved roaming control
+* Removed unused APN usernames and passwords from auto-APN database
+* Added connection to the operator when no mobile interfaces are active
+* Improved VoLTE management functions
+* Improved cases where Low Signal Reconnect sometimes executed prematurely
+* Improved wrong SIM PIN remove logic
+#### Services
+* New reworked Data to Server
+* UPNP moved to package manager
+* Added IPv6 support for Modbus TCP Server/Client services
+* Refactored Azure IoT Hub service
+* Improved resiliency to timeouts in Modbus Client service
+* Added PDU data type to Modbus read requests
+* Added new formatters for MQTT alarms in Modbus Client service
+* Added main section to make test functions independent in Modbus Client service
+* Improved WAN IP register reading time in Modbus service
+* Sped up default profile and profile template generation for Profiles functionality
+* Optimized profile change time for Profiles functionality
+* Added IPv6 support for Stunnel VPN
+* Added MAC blocking for client connections after set amount of failed login attempts in Hotspot service
+* Improved TCPdump by allowing to capture packets from any interface
+* Added OSPF support for DMVPN
+* Updated Hotspot password hashing to sha512
+* A single SMS message with multiple PDUs is sent instead of multiple SMS messages in Email to SMS service
+* Allowed connection to SMPP server using IPv6 address
+* Extended IP unblock action functionality in SMS Utilities
+* Increased allowed Email to SMS service message size to 61440 bytes
+* Added parameter "%gs" that sends GPS data in formatted info message
+* Updated AVL to prefer checking network status through Failover if configured
+* Added I/O pin name to trap notification message
+#### WebUI
+* Reorganized menu
+* Updated header design
+* Split Interfaces configuration in Advanced mode into two pages: WAN and LAN, identically as in Basic WebUI mode
+* Moved Interfaces IPv6 configuration into seperate tab
+* Added client/server status information in OpenVPN instance overview page
+* Added more IPv6 information to interface status in Interfaces page
+* Removed "Custom delegated IPv6-prefix" field from DHCPv6 configuration in Interfaces page
+* Disabled DHCPv6 interface editing while in basic mode
+* Refactored custom DHCP options into seperate modal
+* Added automatic start and end IP allocation for DHCP server configuration in Interfaces
+* Added client/server status information in L2TP VPN page
+* Added "MTU" field to L2TP client configuration page
+* Added CHAP, PAP and MSCHAP-v2 authentication fields to L2TP instance configuration
+* Added more detailed IPsec VPN status information
+* Encryption AES-256-CBC added as default in OpenVPN
+* Added "Authentication algorithm" support to OpenVPN configuration with static key mode
+* Added GRE (DMVPN) VPN tunnel source support to any instead of specific interface
+* Improved Hotspot landing page theme package removal
+* Added upload and download theme functionality to Hotspot Landing page
+* Improved ZeroTier VPN bridge configuration
+* Added ability to adjust order of rules in Firewall page
+* Added IPv6 RAW table to be displayed in Status -> Firewall
+* Improved file upload component's visual appearance
+* Change "Allow anonymous" option default value to 0 in MQTT Broker
+* Added option to specify "Client ID" in MQTT Publisher
+* Added functionality to select specific interface in Web Filter service
+* Allowed to select  FTP server subfolder in Traffic Logging service
+* Renamed various service master/slave naming convention in config files, package names and webUI to client/server
+* Added "Create static" button in Status -> Network -> LAN which bind DHCP lease for device
+* Updated Status -> Network -> Mobile page layout
+* Added bandwidth, provider in Status -> Network -> Mobile page
+* Added colors for signal strength values in Status -> Network -> Mobile page
+* Added frequency, pcid, mcc, mnc and LAC values in Status->Network->Mobile page
+* Refactored network type selection in Network -> Mobile -> General page
+* Serving cell information is not returned anymore when SIM card is not inserted
+* Changed default "Check interval" option value in Network -> Mobile -> SIM Switch page
+* Added button in a Scanned operators table which allows to add an operator to the operator list
+* Added search bar in Mobile Utilities -> SMS Utilities page
+* Added SMS sent and limit count to Network -> Mobile -> General page
+* Added GPS longitude and latitude data in TR069
+* Updated Mobile Signal graphs to show EC/IO and RSCP values when network type is 3G
+* Updated "Change SIM" action type to display configured SIM target in I/O Juggler -> Actions overview page
+#### System
+* Updated kernel version to 5.10.188
+* Updated UCI version to 2021-10-22
+* Updated SSHFS version to 3.7.1
+* Updated FRR suite to 8.4.2
+* Updated cURL version to 8.2.0
+* Updated TCPdump version to 4.99.4
+* Updated C-ares version to 1.19.1
+* Updated iproute2 version to 5.19.0
+* Updated libubox package version to 2021-08-19
+* Added CVE patch CVE-2023-2650
+* Added additional firmware information in CLI prompt banner
+* Connection mode LED now blinks on data transfer
+* Changed "routername" to "devicename" in system config file
+* Made all clients get disconnected out once dropbear service is disabled
+* Improved firmware downgrade restrictions for certain regions
+* Device name is now displayed in browser tab when in WebUI login page
+* Added NF conntrack information in generated troubleshoot archive
+### Fix
+#### Network
+* Fixed UDP Broadcast Relay service crashing on start without physical network device
+* Fixed wrong or empty WAN state info
+* Fixed connection tracking for main interface in Failover
+* Fixed SMS limit period migration
+* Fixed SMS limit size breaking various functionality
+* Fixed custom IPv6 DNS option not overriding default DNS from operator
+* Fixed an issue with blacklist and whitelist connection
+* Fixed multipart SMS handling
+* Fixed wrong SIM state display when SIM is fully blocked
+* Fixed incorrect virginmobile APN MNC
+* Fixed mobile operator scanning fault when no mobile interfaces are active
+* Fixed mobile interfaces generating multiple events on mobile connection
+* Fixed PDU SMS parsing when operator provides user data header in single part SMS
+* Added scheduled data limit clear for inactive mobile interfaces
+#### Services
+* Fixed reconnecting to inactive connections for Modbus Server service
+* Fixed Modbus Client response after reboot write request
+* Fixed Modbus Server to show error when trying to get operator name without SIM
+* Updated Modbus Client to handle large numbers of schedule rules, when frequency is set to schedule (Daini
+* Fixed “Input” rule displaying incorrect and missing ports in Network -> Firewall -> Traffic Rules
+* Fixed WireGuard VPN endpoint resolving problem
+* Peer cache is no longer deleted when ZeroTier service is restarted
+* Fixed RMS data collection about the list of devices connected to WiFi
+* Fixed showing incorrect Internet state in RMS
+* Fixed WiFi client info display in RMS
+* Implemented error handling when device is blocked or unrecognized by RMS
+* Fixed L2TP client sometimes not adding routes on successful connection
+* Fixed NTP time sync with browser functionality in some edge cases
+* Fixed reinstalled packages" verification when device name is changed
+* Fixed an issue where signal query would return invalid value instead of error in case of no signal in MQTT Publisher service
+* Fixed OpenVPN firewall rule creation for both IPv4 and IPv6
+* Fixed OpenVPN server crash loop after changing authentification from TLS to Static Key
+* Fixed IPsec VPN connection problem with small lifetime values
+* Fixed IPsec "Default Route" not working when Flow Offloading is enabled
+* Fixed an issue where system directory could be used as a mount point in SSHFS service
+* Fixed IP block feature to unblock an OpenVPN IP address on successful authentification
+* Fixed package installation process bug when packages have different architecture names
+* Added "bearer token" authentication functionality in Dynamic DNS
+* Fixed MQTT Broker "local_port" option keep settings migration
+* Remove public keys when key-based authentication is disabled in Access Control
+* Fixed "Parity" field "Mark" and "Space" options being ignored in DNP3 Serial services
+* Corrected SNMP MIB file syntax according to standards
+* Fixed returned port count in SNMP
+* Fixed disabled CLI remote access taking up a session slot
+* Fixed user deletion in Network Shares service
+* Fixed router reboot inconsistencies after Storage Memory Expansion
+* Fixed received SMS messages parsing with trailing whitespaces
+* Fixed VPN status rule message text in SMS Utilities
+* Fixed UDP payload size in GPS AVL
+#### WebUI
+* Fixed empty events cards in Overview page when no content is available
+* Fixed modal form inputs not clearing upon closing after nested modal is saved
+* Fixed select menu closing when selecting custom option
+* Fixed multi select expanding table row when adding new values
+* Fixed global section caching after deleting a section in a table
+* Fixed unpredictable search logic in tables
+* Fixed interfaces reordering by metrics in Failover page
+* Removed ability to select ports on ICMP and ESP protocol in Failover page
+* Fixed wrong status when interface is disabled in Failover page
+* Fixed firewall zone and rule creation/deletion on VPN configuration creation/deletion
+* Fixed STP enabling issue in Interfaces
+* Fixed EIGRP status info in Dynamic Routes
+* Fixed issue with custom DHCP options where you could not have multiple values per rule
+* Fixed Routing/NAT Offloading section display in Network -> Firewall -> General Settings when device is not supported
+* Fixed SSH/HTTP/HTTPS/ICMP setting in Network -> Firewall -> Attack Prevention page
+* Fixed failing Firewall rules with united protocol formats
+* Fixed zone select component not closing options menu when selecting an option in Firewall pages
+* Fixed memory leak when cancelling file uploads on Chromium-based browser
+* Fixed group settings saving by removing deprecated ":section" routes in Administration -> User Settings -> System Users
+* Fixed allowing IDs above 247 in Modbus Client service
+* Fixed selecting SIM in Modbus Client service Alarms
+* Fixed Modbus Alarm telephone number limit
+* Fixed to show available options for test requests on error in Modbus Client service
+* Fixed Modbus Alarm I/O pin display values
+* Fixed issue when creating instance named "gre" does not show in GRE VPN
+* Remote endpoint field now allows underscore character in IPsec VPN
+* Fixed ZeroTier wrong service status display in Status -> Services
+* Fixed problems with L2TP/PPTP VPN firewall rules automatic creation
+* Fixed problem related to the enable/disable toggle in OpenVPN instance overview page
+* Added fixes for key-direction missing problem when uploading OpenVPN config file
+* Fixed login page read-only inputs after custom user logout
+* Fixed issue when double clicking firmware upgrade cancel button returned error
+* Fixed Package Manager prompt message to appear when package requires network restart
+* Fixed showing in queue packages when they contained special symbols in the Package Manager page
+* Fixed various visual Side Widget bugs
+* Fixed Data to Server DNP3 filter from flash display
+* Fixed incorrect source data displayed in Realtime Data -> Connections table
+* Fixed memory expansion confirmation prompt title
+* Fixed incorrect configuration saving in Hotspot 2.0 service
+* Disabled password hashing for new user creation in Hotspot service
+* Fixed Hotspot landing page themes saving bug
+* Fixed test email sending to more than one recipient in Events Reporting page
+* Fixed VLAN OID values in SNMP service
+* Output proper error message in case of hardware not being supported in Firmware Upgrade
+* Fixed being able to open side widget when user does not have read access
+* Fixed profile creation when current configuration is not present
+* Fixed wrong protocol data display in "Access control" page
+* Fixed LAN interfaces not showing up before WAN interfaces in Status -> Realtime Data -> Traffic
+* Fixed incorrect Bluetooth details modal size
+* Updated to display "MAC address" on device details page
+* Fixed disabling DLNA service when USB drive is removed
+* Fixed error when user has no write permissions in Speed Test page
+* Fixed "Clear Collect Data" button logic to not clear overall mobile usage info
+* Fixed "Used data" showing large negative numbers for disabled mobile interfaces with Data Limit enabled
+* Fixed carrier aggregation information when no connection is made or SIM card is not inserted
+* Changed representation of mobile cell ID from hexadecimal to integer type
+* Fixed Mobile Utilities "SMS forwarding to HTTP" URL generation
+* Fixed an issue where sometimes bands were not represented correctly on certain modems
+* Fixed provider information and IMSI value representation when SIM and modem cannot provide this information
+* Fixed mobile pages throwing 404 error when modem disconnects
+* Fixed WebUI showing mobile connection when no SIM card is inserted
+* Fixed GPS AVL I/O trigger option filtering
+#### System
+* Patched CVE-2023-0386 vulnerability
+* Patched CVE-2023-0464 vulnerability
+* Patched CVE-2023-0465 vulnerability
+* Patched CVE-2023-2602 vulnerability
+* Patched CVE-2023-3772 vulnerability
+* Patched CVE-2023-3773 vulnerability
+* Patched CVE-2023-4128 vulnerability
+* Patched CVE-2023-33476 vulnerability
+* Patched CVE-2023-28484 vulnerability
+* Patched CVE-2023-29469 vulnerability
+* Patched CVE-2023-31490 vulnerability
+* Patched CVE-2021-36369 vulnerability
+* Patched CVE-2023-40283 vulnerability
+* Patched CVE-2023-48174 vulnerability
+* Delayed Custom Scripts execution on boot, after storage devices are mounted
+* Fixed Custom Scripts permissions after save
+* Changed certificate expiry calculation mechanism to fix Y2K38 bug
+* Fixed downloading of certificates that have a space in their name in Administration -> Certificates -> Certificates Manager
+* Fixed Events Log database rotation to prevent log partition space exhaustion
+* Fixed duplication and sorting of all events IDs in Events Log
+* Fixed FOTA crash when current hours is with leading 0
+* Fixed crontab job removal after disabling FOTA
+* Changed Mosquitto build options to not include cJSON library
+* Fixed device name resetting to default upon refresh in Administration
+* Fixed backup upload validation with memory expansion
+
+---
+
+## RUTX_R_00.07.04.5 | 2023.07.24
+
+### Improvements
+#### Network
+* Improved MBN reselection algorithm when switching SIM
+* Improved SIM card change detection algorithm
+* Improved connection establishment speeds after sim switch
+* Added metric field support in BGP Route-maps page
+#### WebUI
+* Updated SIM slot labeling in modem card Overview page
+### Fix
+#### Network
+* Fixed an issue with MBN selection when device is started for the first time
+* Fixed an issue where MBN activation would not be successful
+* Fixed service provider parsing when operator does not provide all fields for Quectel modems
+* Fixed a condition where mobile connection would not get established after a SIM switch
+* Fixed an issue with SIM switch causing connection problems
+
+---
+
+## RUTX_R_00.07.04.4 | 2023.06.26
+
+### Improvements
+#### Services
+* Improved UPNP lease file validation
+* Improved DLNA 'Database directory' field validation to not allow ', ` and spaces
+#### System
+* Device name is now displayed in browser tab when in login page
+### Fix
+#### Network
+* Fixed a connection issue with bridge/passthrough mode when reconnecting ethernet cable
+* Fixed long mobile operator list parsing for whitelist/blacklist functionality
+* Patched CVE-2023-32233 vulnerability
+* Fixed default networks in WAN firewall zone and possibility to add a network that is not yet created
+#### Services
+* Fixed connection establishment for RMS MQTT service
+* Implemented partial restart when connection with RMS server fails
+* Fixed device name resetting to default upon WebUI page refresh
+* Fixed being able to set device name without passing validations
+* Fixed WireGuard port change in firewall traffic rule when modifying instance port
+
+---
+
+## RUTX_R_00.07.04.3 | 2023.05.11
+
+### Improvement
+#### System
+* Removed SSH RSA key generation
+* Added SSH ECDSA key generation
+### Fix
+#### Network
+* Fixed an issue with mobile when Call Utilities configuration is invalid
+* Fixed an issue where sometimes PIN/PUK code was deleted when performing a SIM switch
+#### Services
+* Fixed incorrect mobile data usage provided to RMS service
+#### System
+* Fixed an issue on bootloader web recovery hanging with certain firmware sizes
+
+---
+
+## RUTX_R_00.07.04.2 | 2023.04.18
+
+### New
+* nftables support
+### Improvement
+#### Network
+* Added PDP profile registry and LTE SMS format functions & management for the Verizon network
+* Improved SIM detection algorithm
+* Improved Multi-APN connection establishment time
+#### WebUI
+* Improved Overview page performance
+#### System
+* Changed hostname to router name
+* Updated OpenSSL to version 1.1.1t
+* Updated CA certificates to version 20211016
+* Updated libiwinfo to version 2022-08-19
+### Fix
+#### Network
+* Fixed IPv4, IPv6 mobile connection restarts
+* Fixed operator scanning when mobile interface is disabled
+* Fixed data limit and tracking when software flow offloading is enabled
+* Added network reload call before bringing the mobile interface up
+* Fixed a segmentation fault issue which would occur occasionally when switching between SIM cards
+* Fixed Port-based VLAN ID calculation issue
+* Fixed Ethernet interfaces showing incorrect transferred data values
+* Fixed EEE disable issue that caused reduction in data transfer speed
+* Fixed PDP context authentication when using special characters
+#### Services
+* Fixed event text for configurable inputs/outputs on I/O Juggler
+* Fixed I/O PIN3 value not changing via MODBUS TCP
+* Added I/O status request error handling in various WebUI pages when the I/O service is booting up
+* Fixed wrong timezone returned issue in Operator Station Synchronization & Timezone Synchronization
+* Fixed MODBUS TCP Slave memory leak issue when requesting mobile parameters
+* Fixed OpenVPN enabling/disabling when using Password or TLS/Password authentication modes
+* Fixed OpenVPN keep alive setting migration issue
+* Fixed PPTP server name setting migration issue
+* Fixed missing WebUI issue caused by Email Relay installation
+* Fixed NTP's Operator Station Synchronization memory leak issue
+* Fixed test email validation
+#### System
+* Fixed libcares vulnerability CVE-2022-4904
+* Fixed frr vulnerability CVE-2022-37035
+* Removed ability for non root users to edit scripts that get executed as root
+
+---
+
+## RUTX_R_00.07.04.1 | 2023.03.24
+
+### Fix
+#### Network
+* Fixed Data Limit issue
+
+---
+
+## RUTX_R_00.07.04 | 2023.03.07
+
+> ⚠️
+> Note: Firmware version RUTX_R_00.07.04 was removed from downloads list due to issues with Mobile Data Limit functionality not working correctly when Software offloading is enabled.
+
+### Improvements
+#### WebUI
+* Improved data persistence between page refreshes
+* Improved page navigation behavior
+* Improved redirect logic to open configuration edit modals
+* Updated the 'Status -> Mobile' page
+* Updated interface card in the Overview page
+* Separated Sent and Received data bars on the chart in the Mobile Usage page
+#### Network
+* Made Software Flow Offloading Enabled by default
+* Added an info message displayed when a faulty SIM card is inserted
+* Added ResIOT operator's APNs to the APN database
+* Improved mobile connection re-establishment after reboot
+* Improved mobile connection recovery in cases where it was lost unexpectedly
+* Improved 'Deny data roaming' operation when switching between operators
+#### Services
+* Added MQTT support to I/O Juggler
+* Added support for new NMEA sentences: GARMC, GAGGA, GAGSA, GAVTG, GBGSV, GBGSA, GQGSV, GQGSA
+* Added an error message when trying to send an SMS from the 'Send Messages' page with no SIM card inserted
+* Changed the behavior of setting the 'Write to config' flag in the 'mobileoff' SMS rule
+* Added argument support for the 'Execute custom script' SMS rule
+* Added a frequency option 'schedule' Modbus Master
+* Added pagination to Events Reporting overview
+* Added limit to Events Reporting rule list
+* Added email logging for Events reporting
+* 'Sync with browser' button in the NTP page now also synchronizes the time zone
+* Added a limit of 30 for NTP instances
+* Made Networks selections in the 'Traffic Logging' page to display interface choices dynamically
+* Added "make before break" option to IPsec configuration
+* Added MODBUS TCP connection handling layer to MQTT-MODBUS Gateway
+* Improved MODBUS Master connection handling to reduce connection count
+* Updated modbus request error messages
+* Added OpenVPN server ip block support
+* Added MQTT support for MODBUS Master alarms
+* Added the possibility to get the device's Ethernet port data via SNMP
+* Improved error messages in the Serial Utilities page
+#### System
+* Updated bash to version 5.1.16
+* Added detailed FW update failure error message to Events Log
+* Improved firmware upload/validation error messages
+* Updated Turkish language support
+* Added protocol column to IP block page
+* Added "vpns.log" file to the Troubleshoot package
+* Added Wireguard tunnel information to the Troubleshoot package
+* Updated default admin group access rights
+* Updated DFOTA notification to show "More info" only when the update is forced
+### Fix
+#### WebUI
+* Fixed MAC address showing on mobile interfaces
+* Fixed mobile cell ID displaying in hexadecimal
+* Fixed mobile data limit card creation in the Overview page
+* Fixed modem widget disappearing from the Overview page
+* Fixed Services page not displaying data after Thingworx package is installed
+* Added DNP3 to the 'Status > Services' page
+#### Network
+* Fixed interface priority change issue
+* Fixed a Custom Firewall Rule editing issue
+* Fixed DMZ configuration saving while it is disabled
+* Fixed Port Scan script execution failure
+* Fixed Firewall zone duplication issue
+* Fixed call function when VoLTE is disabled
+* Fixed VoLTE control when IMS is not enabled
+* Fixed mobile IPv6 IP checking when the device didn't get a correct IP address
+* Fixed APN authentication when using empty credentials
+* Fixed manual APN selection from list
+#### Services
+* Fixed the listing of slow USB devices such as HDDs
+* Fixed disappearing GPS NMEA and HTTPS fields
+* Fixed unused NTRIP option deletion on NMEA source change
+* Fixed I/O Scheduler overlapping instances issue
+* Fixed Input/Output image pin colors
+* Fixed issue that causes ADC subscribers to receive notifications for when ACL is active
+* Fixed DNP3 serial master not working when Stop bits are set to 2
+* Fixed DNP3 requests not deleting along with instance
+* Fixed DNP3 memory leak occurring after spamming the test request button
+* Fixed Serial Over IP related Firewall rule setting
+* Added limitations on message size and quantity of email messages in Email to SMS
+* Fixed SMTP HELLO value parsing issue
+* Fixed SMS message window reset button
+* Fixed not being able to save empty 'Message text' field in Auto Reply
+* Fixed multi-part SMS concatenation
+* Fixed multi-part SMS processing
+* Fixed SMS error message on 'Mobile Data Reset' action
+* Fixed Data To Server JSON format %n, %N and %s flag issues
+* Fixed Events Reporting email data clean
+* Fixed Events Reporting missing config selections
+* Fixed GRE Tunnel's 'Tunnel source' field validation when the source is custom
+* Fixed IPsec instance deletion after removing DMVPN package
+* Fixed IPSec migration via Backup file when DMVPN is configured
+* Fixed IPsec naming issue when the includes an equals sign
+* Fixed L2TP client to use correct interface on failover events
+* Fixed L2TP over IPsec connection dropping issue when connecting from a Windows client
+* Fixed MODBUS database size limiting issue
+* Fixed MODBUS MQTT Gateway client ID input
+* Fixed MODBUS TCP Slave RSSI value
+* Fixed MODBUS test button returning errors when several non-connected devices are configured
+* Fixed NTP Etc/GMT+1 and Etc/GMT-1 time zones
+* Fixed OpenVPN password validation when no CA certificate is uploaded or 'custom' template is selected
+* Fixed OpenVPN Static Key configuration saving by making Static key upload required
+* Fixed OpenVPN TLS client creation issue while LAN is down
+* Fixed Package Manager displaying non-existent packages
+* Fixed Package Manager errors showing up after successful installations
+* Fixed Periodic Reboot entry duplication after a power cycle
+* Fixed PPTP 'Client to client' option not being applied after save
+* Fixed receiving excessive device state emails after a reboot is initialized over RMS
+* Fixed WebUI unavailability after unsuccessful package install
+#### System
+* Fixed vulnerabilities CVE-2022-3524, CVE-2022-3566, CVE-2022-3567, CVE-2022-39188, CVE-2022-45934, CVE-2022-47929
+* Fixed bash vulnerability CVE-2022-3715
+* Fixed CGI-IO file download vulnerability CVE-2022-38333
+* Fixed libxml2 vulnerability CVE-2022-40304
+* Fixed libcurl vulnerabilities CVE-2022-43551 and CVE-2022-43552
+* Improved file upload logic
+* Fixed GPL firmware compilation with selected Tinc package
+* Fixed OpenVPN Static Key migration via keep settings issue
+* Fixed NTP time zone name setting migration when the name contains whitespaces
+* Fixed language setting issue
+* Fixed integer validation on industrial services
+* Fixed LED indications when PDP type is IPv6
+* Fixed issues with PDP type and SMS limit period migration via keep settings
+* Fixed mobile network type LED indications when device is in Bridge or Passthrough modes
+* Fixed LAN port LEDs staying on after being disabled
+
+---
+
+## RUTX_R_00.07.03.4 | 2023.02.09
+
+### Fix
+#### Network
+* Fixed CVE-2023-32349 vulnerability
+* Changed generic modem restart method
+* Fixed mobile page VoLTE switching issues
+#### Services
+* Sanitized tcpdump storage location
+
+---
+
+## RUTX_R_00.07.03.3 | 2023.01.25
+
+### Fix
+#### Network
+* Updated init sequence
+
+---
+
+## RUTX_R_00.07.03.2 | 2023.01.13
+
+### New
+#### System
+* Japanese language
+### Improvements
+#### Network
+* Optimized mobile netifd script installation
+### Fix
+#### Network
+* Shortened modem hang monitor timeout
+* Fixed VLAN option setting when changing VLAN ID
+
+---
+
+## RUTX_R_00.07.03.1 | 2023.01.03
+
+### Improvements
+#### System
+* Remove front-end certificate validation
+#### Network
+* Optimized mobile netifd script installation
+### Fix
+#### Network
+* Fixed modem communication validation
+* Fixed connection establishment in IPv6 only mode
+#### Services
+* Fixed libxml2 vulnerability CVE-2022-40303
+* Fixed an IPsec Phase one & two setting migration issue
+* Returned missing udp_client_count option to Over IP mode
+* Fixed operator index in DNP3 outstation; added GPS resubscribe; fixed segfault when GPS is enabled
+#### System
+* Fixed JSON key parsing; keys can now be any printable character sequence
+* Fixed memory leak in 'session' module
+#### WebUI
+* Fixed file pretty name parsing
+
+---
+
+## RUTX_R_00.07.03 | 2022.12.16
+
+### New
+#### Network
+* Firewall DMZ page
+* Fixed CVE-2023-32349 vulnerability
+#### Services
+* Java package
+* SFTP server support
+* OPC UA client
+* NTRIP
+* Hotspot registered users management page
+#### System
+* Portuguese language
+* Spanish language
+* Turkish language
+* Email Relay package
+#### WebUI
+* New Web menu design
+### Improvements
+#### Network
+* Updated modem handling, attachment, tracking and connection establishment processes
+* Added the possibility to select multiple ports in all firewall port fields
+* Added 'Match' traffic by type option to firewall traffic rules
+* Added DNS servers and routing table fields to the Wireguard page
+* Improved generating network topology
+* Moved Relayd, UDP Relay & Static Leases to the Interfaces menu section
+* Update Firewall Traffic Rules page with DSCP and MARK options
+* Added keepalive, holdtime and connect timers to BGP configuration
+* Added 'Use gateway metric' to network protocols web interface
+* Added more DHCPv6 client events to system log
+* Moved IP Filter rules from Modbus TCP Gateway and Over IP services to Firewall page
+* Added option to select subnet parameters in mobile Passthrough/Bridge modes
+* Added WhereverSIM operator APN and fr.lebara.mobi APN to APN database
+* Added mobile connection state for IPv6
+* Added switch back to default SIM after SIM Switch service disable
+* Added wget tracking method to WAN Failover
+* Added interface checks to remove inaccurate Failover events from the Event Log
+#### Services
+* Added OpenVPN IPv6 Web support
+* Added format button for each USB device in USB Tools General page
+* Reduced waiting time during storage device setup for Memory Expansion
+* Optimized Storage Memory Expansion package size
+* Replaced ntfs-3g with kernel-mode driver
+* Added USB to Serial support for Modbus, MQTT Modbus Gateway, NTRIP, DNP3
+* Added CSP headers to Hotspot Landing Page
+* Added hotspot user script validation
+* Improved logging of disconnecting client devices
+* Added the possibility to switch profiles on GPS geofencing events
+* Added satellite count and accuracy columns to GPS Map page
+* Added execute custom script SMS Utilities rule
+* Added receiver and transceiver mode support to SMPP
+* Added timezone synchronization with GSM operator option to NTP Client
+* Updated Zerotier web interface
+* Added IPsec Flush connection option on tunnel initialization
+* Added MODBUS slave regfile validation
+* Added delay, number of timeouts, always reconnect options to MODBUS Master service
+* Added DMVPN Phase 2 and Phase 3 support
+* Added synchronization counting to NTP client
+* Expanded the data that is sent to the Cumulocity cloud with device log, mobile data usage nd GPS data
+* Added 'Unregister' button to RMS page
+* Added new data monitoring options to SNMP: configuration state of wireless, smart queues & VLANs
+* Updated Zerotier package to version 1.10.1
+* Added automatic package removal upon failed installation in Package Manager
+* Added option to describe custom routing table and MTU auto counting to Wireguard VPN
+* Added IP blocking to MQTT Bridge for failed login attempts to prevent bruteforce attacks
+* Updated sqm-scripts to version 1.5.1
+* Improved MODBUS Master service: added multiple datatypes, added multiple register reading for alarms
+* Added monthly reboot option to periodic reboot function
+* Added support for multiple custom option selection to SSTP configuration
+* Added PKCS12 certificate chain support to OpenVPN
+* Improved MQTT to support multiple port listening, multiple bridge connections, notification settings and added support for custom configuration file
+* Added QoS selection to MQTT Modbus Gateway
+* Improved RAM usage during upload and installation of packages via Package Manager
+* Updated curl to version 7.86.0
+* Added brute-force prevention measures to Post/Get
+* Added automatic private and public key generation to Wireguard VPN
+* Added multiple Remote source IP support to IPsec
+* Added the possibility to configure multiple IPsec phase 1 and phase 2 proposals
+* Added functionality to rotate log file when log is saved to Flash memory
+* Improved performance while fetching packages on repeat visits to the Package Manager page
+#### System
+* Added a 'test mail' button to the Administration -> Recipients page
+* Added option to clear blocked IPs in the Access Control page after reboot
+* Updated Web Request-Response core logic
+* Added certificate validation to all services that support certificate upload
+* Updated URL protocol validations
+* Removed profile update requests during Save & apply
+* Optimized profile switching logic
+#### WebUI
+* Added an indication to the Interfaces page that displays when data limit is enabled
+* Added bootloader version to the Device section in the System page
+* Added configuration page shortcuts to Overview page widgets
+* Added tooltip in Overview that show free, used and total RAM/Flash values on mouse cursor hover
+* Updated network interfaces protocols web interface
+* Updated 404 page to include navigation menu
+### Fix
+#### Network
+* Fixed jumbo frames MTU issue
+* Added the 'Any' choice to source & destination IP address field in NAT rule edit
+* Fixed NHRP web interface issues
+* Fixed WAN interface configuration interfering with LAN
+* Fixed mdcollect memory leak issue
+* Fixed data limit not resetting properly
+* Fixed incorrect mobile data usage calculations for multiple day periods
+* Fixed an Auto APN 'Keep settings' issue
+* Fixed data counting after mobile data limit has been reached
+* Fixed mobile band not setting correctly on first try
+* Fixed incorrect data limit conditions causing unwanted SIM switches
+* Fixed Passthrough DHCP lease time setting
+* Fixed mobile bridge mode issue when no DNS servers are supplied
+* Added new Operator Lists instance name validations
+* Fixed SIM Switch issue on newly created mobile interfaces
+* Fixed switch back to primary SIM rule disable when the default SIM is changed
+* Fixed incorrect SIM Switch behavior on low signal value
+* Fixed Wired WAN connectivity issue when Failover interfaces are disabled
+* Fixed Failover fallback issue
+#### Services
+* Fixed Printer service starting issue
+* Fixed Printer service boot issues
+* Fixed DLNA service reload issues on USB drive insert/remove
+* Fixed relay state switching
+* Fixed Save & Apply issue with ADC/ACL type condition on I/O Juggler
+* Added I/O restart on configuration profile change
+* Fixed I/O voltage range display for power socket pins
+* Fixed SMNP OID for I/O state
+* Fixed I/O Juggler SMS text message Save & Apply issue
+* Fixed Hotspot connected user list maximum upload/download value limits
+* Fixed incorrect connected Hotspot user information in RMS JSON
+* Fixed Delay field in GPS HTTPS/HTTP Server Settings section
+* Fixed AVL packet timestamp display
+* Fixed issue that prevented GPS map display after clearing cache
+* Removed unnecessary field from the Port Mirroring page
+* Fixed Events Reporting 'Changing to SIM1/SIM2' options
+* Fixed UCI SMS Rule return message to display new changes
+* Fixed DNP3 issues when asking for modem temperature
+* Fixed base64 encoding of SMS messages when forwarding to HTTP
+* Fixed SMS sending issues when using multiple APN
+* Added Gateway modem option to IP Block and WoL in SMS Rule edit
+* Fixed unblocking IP addresses with an SMS message
+* Fixed Mobile Utilities page not load properly on some occasions
+* Fixed dbus vulnerability CVE-2020-35512
+* Fixed dnsmasq vulnerability CVE-2022-0934
+* Fixed ext4 vulnerability CVE-2021-3428
+* Fixed kernel vulnerabilities CVE-2021-3669, CVE-2021-4203, CVE-2022-1353, CVE-2022-3435, CVE-2022-20008, CVE-2022-30594
+* Fixed libxm12 vulnerability CVE-2022-29824
+* Fixed Linux vulnerabilities CVE-2021-4148, CVE-2022-0480, CVE-2022-1055, CVE-2022-0886, CVE-2022-2663, CVE-2022-36879 for v5.4
+* Fixed MQTT DoS vulnerability CVE-2021-41039
+* Fixed privoxy vulnerability CVE-2021-44542
+* Fixed python3 vulnerability CVE-2022-42919
+* Fixed strongswan vulnerabilities CVE-2021-41991, CVE-2021-45079
+* Fixed uboot vulnerabilities CVE-2022-30552, CVE-2022-30790
+* Fixed switching between RMS connection types while the device is unregistered
+* Fixed reload issues in website blocking feature
+* Fixed IPsec PSK secret required field validation
+* Fixed bandwidth limiting after QoS is enabled for the first time
+* Fixed Dropbear issues when logging in over IPv6
+* Fixed Modbus status in Status -> Services page
+* Fixed Azure IoT Hub application issues when sending large volumes of data
+* Fixed Azure IoT Hub MQTT password validation
+* Fixed DMVPN configuration migration issue
+* Fixed DMVPN duplicate select options, added suffix to mobile interfaces to use IPv4
+* Fixed DMVPN IPsec connection issue
+* Fixed DMVPN mobile interface 'Keep settings' migration issue
+* Fixed Dynamic DNS long hostname text display issue
+* Fixed Events Reporting memory leak issue
+* Fixed Events Reporting not triggering after flipping an I/O slider
+* Fixed FOTA cron job not starting after factory reset
+* Fixed IPsec local firewall option parsing
+* Fixed IPsec tunnel creation issue when compatibility mode is used and the tunnel name contains an underscore
+* Fixed L2TP, PPTP, SSTP state display in the Status -> Services page
+* Fixed NTP pool hostname validation
+* Fixed OpenVPN certificate remove with Static key and TLS authentication methods
+* Fixed OpenVPN configuration saving issue when using HMAC key authentication
+* Fixed OpenVPN custom dev name transformation to correct format
+* Fixed OpenVPN device name setting logic when uploading config from file
+* Fixed OpenVPN instance status display
+* Fixed OpenVPN TAP (bridged) configuration detection
+* Fixed Qos configuration saving issue occurring after instance deletion
+* Fixed RMS JSON incorrect WAN state and IP information
+* Fixed RMS step access issue in the Setup Wizard page
+* Fixed SNMP issues after reboot while using a Hotspot
+* Fixed SNMP generating MIB files for devices in accordance with to their hardware
+* Fixed SNMP traps not working after SNMP is installed from server
+* Fixed SSTP client route creation issue
+* Fixed UPNP secure mode not turning off issue
+* Fixed Wireguard route to endpoint issue
+* Fixed manual package installation for queued packages
+* Fixed NAT Rules dependency from IPsec web instance
+* Returned usleep utility
+* Updated Australian and South African NordVPN server IP addresses
+#### System
+* Fixed LED operation while device is in bootloader state
+* Fixed certificate signing issues
+* Fixed Telnet, CLI access blocking after max invalid tries
+* Fixed FW upgrade with 'Keep settings' while low free space is available
+* Fixed backup file duplication issue
+* Fixed network device handling in system
+#### WebUI
+* Fixed Hotspot interface display
+* Fixed side widget accessibility during first login
+* Fixed file upload issues
+* Fixed drag and drop issue in the Traffic Rules page
+* Fixed protocol display in the overview of the Interfaces page
+* Fixed blocked IP settings migration during a FW upgrade with the 'Keep settings'
+* Fixed login errors after browser tab restoration
+* Fixed redirect to newly set IP address after Interface configuration
+* Fixed firmware upgrade verify spinner not closing
+* Fixed an issue with file upload via drag and drop
+
+---
+
+## RUTX_R_00.07.02.7 | 2022.09.12
+
+### Improvements:
+* Improved manual-auto connection mode
+### Fixes
+* Fixed AT command for SMS storage usage
+* Fixed CVE-2022-1012 memory leak vulnerability
+* Fixed CVE-2022-37434 kernel vulnerability
+* Fixed GPS constellation settings
+* Fixed interface option reset after VLAN ID change
+* Removed memory leak on port events
+
+---
+
+## RUTX_R_00.07.02.6 | 2022.08.24
+
+### Improvements:
+* Added 'home.vodafone.de' APN
+* Improved stability of device information storage
+### Fixes:
+* Added SMSC type omitting when empty SMSC number parsed in SMS PDU mode
+* Fixed Serial-symlink dmesg messages
+* Fixed VoLTE management
+* Fixed OpenVPN tls-auth and tls-crypt option names
+
+---
+
+## RUTX_R_00.07.02.5 | 2022.08.12
+
+### Improvements:
+* Updated curl to version 7.83.1
+* Updated firmware validation error messages
+* Added multiple source IP address support to the Port Forwards page
+* Increased custom APN Username & Password field maximum length to 64 symbols
+* Added auto switch to modem's SMS storage when SIM card storage doesn't exist
+* Improved mobile connection status handling
+* Optimized CORE distribution for packet handling
+### Fixes:
+* Lixed EEE link advertisment
+* Fixed CVE-2022-32205, CVE-2022-32206, CVE-2022-32207, CVE-2022-32208 curl vulnerabilities
+* Fixed CVE-2022-30065 busybox vulnerability
+* Fixed file upload path traversal
+* Removed Data to Server limit to proccess less than 10 instances
+* Fixed Data to Server 'out of memory' crashes when database is full or has a large amount of data
+* Fixed OpenVPN dev setting logic
+* Fixed OpenVPN updating from legacy issue that caused IPv6 not to work
+* Fixed MAC and leasetime setting for Bridge & Passthrough modes
+
+---
+
+## RUTX_R_00.07.02.4 | 2022.07.20
+
+### Improvements:
+* Added default password change warning message before firmware downgrade
+* Extended time period for device to make connection to operator
+* Reduced the number of modem reboots when changing mobile settings
+* Reduced excessive log output when no SIM card is inserted
+* Added modem restart prevention on modem init
+* Added disable RPLMN option in the SIM section of the SIM card config
+### Fixes:
+* Fixed CVE-2022-2068 vulnerability
+* Disabled autoconnect on stop-network call
+* Fixed possible I2C bus lock-up issue when upgrading firmware from 02.xx versions
+
+---
+
+## RUTX_R_00.07.02.2 | 2022.06.27
+
+### Improvements:
+* Updated FSTools package to version 2022-05-03
+* Added security headers to web requests
+* Added ping to DNS IPv6 support
+* Added modem reset to default state after device FW upgrade
+* Modem init now checks NVRAM sensitive commands before setting
+* GSM output was made consistent
+### Fixes:
+* Fixed CVE-2019-12900 libbz2 vulnerability
+* Fixed CVE-2022-23303 hostapd vulnerability
+* Fixed CVE-2022-29581 Linux kernel vulnerability
+* Fixed CVE-2022-29458 ncurses vulnerability
+* Fixed CVE-2022-1292 c_rehash script command injection vulnerability
+* Fixed behavior of some gsmctl commands
+* Fixed band locking issue
+
+---
+
+## RUTX_R_00.07.02.1 | 2022.06.06
+
+### Improvements:
+* Improved GSM related messages in Troubleshoot logs
+### Fixes:
+* Fixed IGMP Proxy menu item not appearing after package installation
+* Fixed default mobile network configuration generation
+* Fixed MODBUS write requests and Mobile Utils option setting
+
+---
+
+## RUTX_R_00.07.02 | 2022.05.23
+
+### New features
+* Overview side widget
+* IGMP Proxy
+* Privileged Access Management (PAM)
+* AWS Greengrass support
+* HTTPS certificate and key upload feature
+* SSH public keys edit box
+* License page
+* DNP3 data for Data to Server
+### Improvements
+* Updated busybox to version: 1.34.1
+* Updated curl to version 7.79.1
+* Added iptables filter package for string filtering
+* Added CHAP authentication for L2TP VPN
+* Added IPv6 support for L2TPv3 VPN
+* Added EAP-MSCHAPV2 authentication method for IPsec VPN
+* Added IPv6 support to Auto Reboot
+* Added 'Save to flash' and 'Test configuration' button to DNP3 configuration page
+* Updated SNMP version 5.9.1
+* Added OpenSSL authentication options to SNMPv3
+* Added support for OSPF redistribution options and OSPF neighbors
+* Added password field to BGP Peers page
+* Extended BGP "AS" field validation to accept integers up to 4294967295
+* Added "DHE+RSA" to OpenVPN cipher selections
+* Increased OpenVPN max password length from 128 bytes to 512 bytes
+* Made HMAC key direction initial value dependent on the role of the instance (client or server)
+* Made HMAC key and HMAC authentication key upload fields required
+* Added DES to IPsec encryption algorithms selections
+* Added special character support for CHAP secrets
+* Added validation requirements for PPTP user list username field
+* Added option to manually enter Public key in Wireguard configuration
+* Made generating Wireguard  keys possible only while in auto mode
+* Added Events Log database to troubleshoot archive
+* Added RFC1918 filter field
+* Added the possibility to unblock multiple blocked devices at once
+* Added 'Port' column to blocked login attempts table
+* Added Speedtest server refresh
+* Updated Speedtest server list
+* Added asterisk option to Site Blocking
+* Added MD5 and SHA256 checksums to package validation page
+* Changed certificate requirements to only require client key file if client certificate is used
+* Added pagination and data retention between table pages
+* Added pagination functionality to tables when there are more than 10 records
+* Improved table sorting by saving user provided sort settings in the browser
+* Improved drag and drop functionality
+* Added the possibility to drag and drop files onto upload components
+* Moved 'Root CA' from the 'Access Control' page to the 'Certificates' page
+* Added 'Strict-Transport-Security' response header for HTTPS
+* Added 'breadcrumbs' to modal windows
+* Improved initial WebUI loading after login
+* Added mobile bytes sent and bytes received SNMP OIDs
+* Added mobile LED turn off feature ('System -> Administration'  page)
+* Added 'iot.1nce.net', 'internet', 'VZWINTERNET' and Truphone APNs to APN database
+* Updated mobile usage data point calculation logic
+* Added the possibility to manually enter operator number
+* Improved obtain mobile cell ID process
+* Added modem restart if SIM card is removed during APN database fetching process
+* Added unauthorized call logging
+* Added space character support in SMS commands
+* Disabled SMS modem storage configuration form when SIM is not inserted
+* Changed SMS '%wi' parameter value to return IP address of any currently used WAN interface (not only wired)
+* Added external modem SMS limit Overview card and widget
+* Made in-use APNs visible next to mobile interface configurations (before clicking the 'Edit' button)
+* Added duplicate value check for list configuration options
+* Changed mobile card instance design
+* Fixed 'Mobile Data usage reset' SMS rule
+* Fixed the default state parameter of SMS list POST/GET command
+* Added AVL "Static Navigation" flag
+* Added GSV parsing for NMEA collecting
+* Added newline and GPS location actions to I/O Juggler
+* Added error code 5 for reserved SAMBA user names
+* Added Mobile data and SMS limit features for external modem
+* Added I/O SNMP trap
+* Added ISO 8601 time format to I/O Juggler's '%ts' parameter
+* Added device name parameter '%pc' to I/O Juggler
+* Added PPPoE VLAN priority support
+* Made VRRP ping section dependent on main instance
+* Added 'WAN to LAN' switch
+### Fixes
+* Fixed CVE-2021-20322, CVE-2021-4197, CVE-2022-1011, CVE-2022-0847 kernel vulnerabilities
+* Fixed CVE-2022-28391 busybox vulnerability
+* Fixed CVE-2018-16789 shellinabox vulnerability
+* Fixed CVE-2021-44543, CVE-2021-44542 privoxy vulnerabilities
+* Fixed CVE-2021-43618 GNU Multiple Precision Arithmetic Library vulnerability
+* Fixed zlib backport security issue
+* Fixed Wireguard firewall zone assignment
+* Fixed queued packages disappearing from list after FW upgrade with keep settings
+* Fixed error message display for multiple input validation rules
+* Fixed incorrect DHCP validation range for start and limit fields
+* Removed 'Bring up on boot' option from network interface configuration pages
+* Fixed coma-separated DHCP options disappearing after save
+* Fixed exclude and listen interfaces
+* Fixed 'Use broadcast flag' option saving
+* Fixed firewall zone assignment when creating new interfaces
+* Fixed OpenVPN 'Netmask' and 'IP address' field validations
+* Fixed OpenVPN TAP configuration saving issue
+* Fixed OpenVPN switching to TUN mode when uploading a configuration from file
+* Fixed dynamic BGP route state display
+* Fixed BGP peer enable in edit page
+* Fixed issue when no L2TP client instance could be bound to IPsec
+* Fixed firewall rule and zone behavior related to config section creation
+* Added default value for L2TPv3 netmask, which is now written to config after save
+* Fixed passthrough option saving to IPsec file
+* Fixed DMVPN issue where instance configuration could not be saved
+* Fixed Wireguard peer could not be saved issue
+* Fixed NTP client time synchronization after factory reset
+* Fixed device time display with selected time zone
+* Fixed MODBUS TCP indexation missing bracket issue
+* Fixed initial MODBUS TCP request count validation
+* Fixed PIN 3/4 direction switching over MODBUS TCP
+* Fixed MODBUS data to MQTT socket closing issue when connection fails
+* Fixed MODBUS alarm configuration deletion
+* Fixed DNP3 master not working after FW upgrade with 'keep settings'
+* Fixed DNP outstation not returning error messages
+* Added missing SNMP objects: mobile IP, data sent/received today
+* Fixed MQTT Publisher 'Remote address' field validation
+* Fixed long interface name support for Azure IoT Hub
+* Increased maximum Azure IoT Hub 'Connection String' length to 4096 characters
+* Fixed missing sent/received data issue
+* Fixed URL input field length validation
+* Fixed admin login issue after upload of backup from a device with older firmware versions
+* Fixed MAC address formatting in Events reporting messages
+* Fixed Events reporting DHCP lease message spam, when no new lease is added
+* Fixed logging crashing after downloading Troubleshoot file
+* Made Wake on LAN visible only on devices with Ethernet ports
+* Fixed Traffic log file transfer to FTP server
+* Fixed Web Filter service reloading after a host list file is uploaded
+* Fixed access denied messages when sending JSON-RPC requests from root user
+* Fixed error message display about duplicated intervals in Profile scheduler
+* Fixed FW upgrade with 'keep settings' migration issue for Access Control's 'Fail count' and 'Device port' fields
+* Corrected OSPF Routing card values, value positions and names
+* Fixed global secret instances not being removed when there are no IPsec instances
+* Fixed uploaded file remove icon not staying in position on hover
+* Fixed Overview card collapse issue that made it unresponsive after too many clicks
+* Removed WAN6 interface from the Overview page
+* Fixed mobile IPv6 display in Events Reporting status messages
+* Fixed Bridge mode when DNS2 is not available
+* Fixed PAP/CHAP username and password fields not saving in interface edit window
+* Fixed sending email without secure connection for providers that support such an option
+* Fixed 'N/A' parameter showing up in SMS Utilities monitoring status message
+* Fixed Call Utilities Events Log message for reboot rule
+* Fixed SMS command validation for no-authorization option
+* Fixed MODBUS SMS alarms 'Enable' option saving
+* Fixed running RMS with no SIM card inserted issue
+* Fixed firmware available on server version checking issue
+* Fixed CVE-2020-15078 openvpn vulnerability
+* Fixed storage calculation for packages
+* SMS Utilities: enhanced service security
+* Fixed firmware deletion after leaving the page
+* Fixed setup wizard redirect after LAN IP change
+* Fixed various validation bugs, typos, option hints & alignments
+* Fixed multiple IPv6 configuration field validations
+* Fixed unnecessary SIM switch issue when Multi-APN is configured
+* Fixed MODBUS TCP slave modem not starting after switching SIM cards
+* Added multiwan support for Wireguard default route
+* Fixed restoring GPS HTTPS options after FW upgrade with 'keep settings'
+* Fixed missing NMEA sentences
+* Fixed NMEA cache sentence calculation
+* Fixed 'outside/inside range' condition for AVL I/O Analog input trigger
+* Fixed I/O Juggler external modem recognition
+* Fixed flash driver reformatting after memory shrink
+* Fixed DLNA package installation issue
+* Changed Media Directories field to be required
+* Fixed SAMBA fields value display
+* Fixed relay output value display in I/O Juggler condition page
+* Fixed I/O Juggler's WiFi rule not enabling or disabling WiFi interfaces
+* Fixed I/O Juggler's double delete issue on I/O Juggler action and condition instances
+* Fixed I/O Juggler's incorrect I/O status messages
+
+---
+
+## RUTX_R_00.07.01.4 | 2022.02.25
+
+### Improvements
+* Increased Port Forwards rule max name length
+* Added a new '%it' parameter for UTC time in ISO 8601 format to I/O Juggler
+### Fixes
+* Added missing bracket to the end of MODBUS messages
+* Fixed preserving the contents of /etc/luci-uploads/ after FW upgrade with the 'Keep all settings' option
+* Fixed IPv4-Gateway column showing empty values in the Status -> Routes page
+* Fixed firewall extra option validation
+* Changed the logic of uploading files to the modem
+* Fixed usage of custom headers in I/O Juggler HTTP action
+* Fixed 'verify' option parsing for I/O Juggler
+* Fixed OpenVPN server configuration with password authentication
+* Fixed NTP interval length validation
+* Fixed network interface enable after Drag & Drop
+* Updated NTP client interval to 24h
+* Fixed connection to whitelist carriers
+* Fixed Passthrough mode when DHCP is disabled
+* Fixed 'Deny data roaming' feature
+* Fixed mobile blocking dependency on region
+* Disabled Ping To DNS functionality when Bridge/Passthrough mode is enabled
+
+---
+
+## RUTX_R_00.07.01.2 | 2022.01.04
+
+### New features
+* DFOTA modem upgrade system for Quectel modems
+### Improvements
+* Removed L2TP section title prefixes
+### Fixes
+* Fixed IPSec crashing issue using mobile
+* Fixed FW flashing when chip is in unknown state
+* Fixed CPU usage percentage display in the Overview page
+* Fixed FOTA timeout issue when server does not respond
+* Fixed installation of backup packages
+* Fixed mobile data limit display after profile change
+* Fixed Bridge mode without multi-APN
+* Fixed multi mobile interface checking
+* Fixed error handling when the modem is not responding
+* Prolonged autoconnect setting timeout
+
+---
+
+## RUTX_R_00.07.01 | 2021.11.18
+
+> ⚠️
+> Note: Firmware version RUTX_R_00.07.01 released on 2021.11.18 was removed due to an issue with IPsec tunnel while using mobile connection.
+
+### New features
+* Load Balancing Rules
+* RUTX series support without STM32
+* Tinc VPN
+* German language support
+* Manual-Auto operator select
+### Improvements
+* Updated base to OpenWrt version 21.02
+* Improved WebUI functionality when multiple browser tabs are open
+* Updated kernel to version 5.4.141
+* Updated mtd-utils to version 2.1.2
+* Updated busybox to version 1.33.1
+* Updated ubus to version 2021-06-3
+* Updated ubox to version 2020-10-25
+* Updated rpcd to version 2021-03-11
+* Updated opkg to version 2021-06-13
+* Updated fstools to version 2021-01-04
+* Updated wwan to version 2019-04-29
+* Updated ethtool to version 5.10
+* Updated uhttpd to version 2021-03-21
+* Updated ppp to version 2020-10-03
+* Updated odhcpd to version 2021-07-18
+* Updated hostapd to version 2020-06-08
+* Updated dropbear to version 2020.81
+* Updated dnsmasq to version 2.85
+* Updated netifd to version 2021-07-26
+* Updated firewall3 to version 2021-03-23
+* Updated libjson-c to version 0.15
+* Updated libevent2 to version 2.1.12
+* Updated mac80211 to version 5.10.42-1
+* Updated wireless-regdb to version 2021.04.21
+* Updated binutils to version 2.35.1
+* Updated gdb to version 10.1
+* Updated strace to version 5.10
+* Updated trace-cmd to version 2.9.1
+* Updated valgrind to version 3.16.1
+* Updated ath10k-ct-firmware to version 2020-11-08
+* Updated procd to version 2021-02-23
+* Updated iw to version 5.9.8
+* Updated iproute2 to version 5.11.0
+* Updated iptables to version 1.8.7
+* Updated nettle to version 3.6
+* Updated libpcap to version 1.9.1 rel3
+* Updated elfutils to version 0.180
+* Updated cryptodev-linux to version 1.11
+* Updated linux-firmware to version 20201118
+* Updated util-linux to version 2.36.1
+* Updated openwrt-keyring to version 2021-02-20
+* Updated mtd to version rel26
+* Updated fwtool to version 2019-11-12
+* Updated ca-certificates to version 20210119
+* Updated wireguard-tools to version 1.0.20210223
+* Updated iwinfo to version 2021-04-30
+* Updated ipset to version 7.6
+* Updated gre to version rel12
+* Updated wolfssl to version 4.7.0
+* Updated ustream-ssl to version 2020-12-10
+* Updated uclient to version 2021-05-14
+* Updated readline to version 8.1
+* Updated mbedtls to version 2.16.11
+* Updated libusb to version 1.0.24
+* Updated libunwind to version 1.5.0
+* Updated libubox to version 2021-05-16
+* Updated libnl-tiny to version 2020-08-05
+* Updated libnftnl to version 1.1.8
+* Updated libiconf-full to version 1.16
+* Updated libbsd to version 0.10.0
+* Updated gmp to version 6.2.1
+* Updated ulogd to version rel6
+* Updated sqm-scripts to version 1.5.0
+* Updated ntpclient to version rel14
+* Updated nmap to version 7.80
+* Updated curl to version 7.77.0
+* Updated zerotier to version 1.6.5
+* Updated xtables-addons to version 3.13
+* Updated xl2tpd to version 1.3.16
+* Updated stunnel to version 5.59
+* Updated strongswan to version 1.0.13
+* Updated sstp-client to version 1.0.13
+* Updated pptpd to version rel5
+* Updated openvpn to version 2.5.3 rel2
+* Updated ntpd to version rel3
+* Updated net-snmp to version rel2
+* Updated mosquitto to version 2.0.11
+* Updated miniupnpd to version 2.2.1 rel 3
+* Updated etherwake to version rel5
+* Updated libzip to version 1.7.3
+* Updated libgpg-error to version 1.39
+* Updated glib2 to version 2.66.4
+* Updated libnetfilter-conntrack to version 1.0.8
+* Updated libnetfilter-log to version rel3
+* Updated lzo to version rel4
+* Updated nghttp2 to version 1.43.0
+* Updated openvpn-easy-rsa to version 3.0.8 rel3
+* Updated iperf to version rel2
+* Updated iperf3 to version 3.10.1
+* Updated e2fsprogs to version 1.45.6
+* Updated fuse to version 2.9.9
+* Updated udprelay to version 2020-02-26
+* Updated qmicli to version 1.28.2
+* Updated pcre to version 8.45
+* Updated libsmpp34 to version 1.14.1
+* Updated libiwinfo to version 2.1
+* Added netifd library for additional information related to network interfaces
+* Updated openssl to version 1.1.1l
+* Updated privoxy to version 3.0.32
+* Added ACL reload method for sessions
+* Added 'Advertisement interval' field to the VRRP configuration window
+* Added a PPTP-to-WAN Zone Forwarding rule when default route is enabled on PPTP client
+* Added email user group validation for sendind test emails with Events reporting
+* Added an event logging feature for Ping Reboot events
+* Improved file/section deletion logic: now files are also deleted after deleting a related config section
+* Improved package deletion logic
+* Added the possibility to configure multiple reboot times in one Reboot Scheduler configuration instance
+* Updated 'External system log server' field validation to accept IPv6 addresses
+* Added redirect to Overview page after login
+* Added WebUI session timeout after user inactivity
+* Added placeholder text to dropdown menus
+* Improved multi-select design and functionality
+* Added Unix timestamp, local ISO time, UTC time to Modbus
+* Added info message when selected file cannot be uploaded
+* Improved IPsec throughtput
+* Added IPSec "Compatibility mode" configuration support
+* Made SNMP 'Community name' option editable
+* Added the option to delete configurations to the SMS Utilities 'UCI' rule
+* Added 'hour', 'week day', 'month day' slelection options to SMS Limit configuration
+* Added Lithuanian and Verizon APNs
+* Added modem selection for the 'Send SMS' option in Auto Reboot settings
+* Added the possibility to get total data usage value without specifying time interval via ubus
+* Added return SIM count command
+* Added new configuration options to the Failover feature
+* Changed Failover page availability from Advanced only both advanced and basic
+* Made Failover Interfaces table rows draggable when in 'Load Balancing' mode
+* Changed Failover page 'Ratio' fields to a smaller size
+* Added an indication to the GPS map when GPS service is disabled
+* Added external modem support for the 'Mobile Usage' graph
+* Added I/O support to SNMP
+* Removed ubus list method due to security reasons
+* Added MODBUS "%I, %T, %S, %r, %n" support to MODBUS Data Sender
+* Removed search engine site crawling
+* Improved IPSec "Local/Remote source" validation
+* Added Firewall "all" and "custom" protocol options
+* Added Backup file size limit of 2 MB
+* Improved basic/advanced mode changing
+* Improved Wireguard "IP Addresses" field validation
+* Added language download support from language selection section
+* Added PPTP "Client to client" configuration support
+* Made DDNS "username", "password", "host" fields optional
+* Added SSTP "Default route" configuration support
+* Added SMS Limit hour, week day and month day support
+* Added Passthrough "Leasetime" and "Unit" configuration support
+* Added Call Utilities "Active Timeout" configuration support
+* Added support for PL2303GC serial to USB chip
+* Added GPS AVL "Don't Contain Connection" and "Retry on Fail" configuration support
+### Fixes
+* Made RMS 'Connect' button disabled when a connection attempt is already in progress
+* Added validation for TLS Clients 'Private network' option
+* Fixed the validation range for MTU fields
+* Fixed removing firmware image file after leaving the fimware upgrade page
+* Fixed network selection list for Traffic Logging - added all available LAN networks
+* Fixed DHCP Options validation
+* Fixed configuration profile date display
+* Fixed blank page after invalid URL in login page
+* Fixed TR-069 related firewall rule loading
+* Fixed remote subnet netmask validation issues for the GRE Tunnel configuration
+* Fixed WebUI section toggle
+* Fixed package installation modal layout
+* Fixed current page values showing up in login page username field
+* Fixed the possibility to create section with a name that is already in use in the same config file
+* Fixed OpenVPN username and password deletion when deleting configuration instance
+* Fixed session closing issue for the user whose password was just changed
+* Updated MODBUS credential validation
+* Updated MQTT credential validation
+* Fixed DNS 'Rebind protection' setting when switch is disabled
+* Updated libgcrypt to version 1.9.3 to fix CVE-2021-33560
+* Fixed CVE-2021-33624, CVE-2021-29648 vulnerabilities
+* Fixed DHCP 'Lease time' and 'Unit' option saving over the Setup Wizard LAN page
+* Fixed Reboot Scheduler not removing crontab file after disabling the rule
+* Fixed OpenVPN 'Extra options' field validation to allow a space character
+* Added table drag and drop functionality to the Firewall's Traffic Rules page
+* Fixed DNP3 Outstation crash caused by non-void function returning no value
+* Fixed RMS 'Copy' button functionality
+* Fixed gsmd deamon crashing after modem restart
+* Fixed gsm memory leak
+* Fixed WCDMA band names for MEIG modules
+* Fixed SMS Gateway loading screen issue when sending an SMS message
+* Fixed mobile data database error after upgrading firmware with the 'Keep settings' option
+* Fixed rpcd memory leak issue
+* Fixed network information gathering
+* Fixed 3G LED not being active in 3G mode
+* Fixed data limit accuracy issue
+* Fixed SIM Switch back to default SIM crash loop when SIM1 is disabled
+* Removed unused SIM Switch struct objects
+* Fixed incorrect loading after saving Failover configuration
+* Fixed NTP GPS Synchronization swith to enable GPS service
+* Fixed I/O Juggler hour condition interval issue
+* Patched CVE-2021-40528 vulnerability
+* Patched CVE-2021-40490 vulnerability
+* Patched CVE-2020-16120 vulnerability
+* Fixed VLAN section creation
+* Returned Interfaces "Port priority" option
+* Fixed missing Content-Type header to initial WebUI response
+* Fixed RIP information parsing in status page
+* Fixed OpenVPN IPv6 netmask validation
+* Fixed SNMP Trap Settings Host/IP field validation
+* Fixed Cumulocity authentication reset
+* Fixed Events Reporting rule saving
+
+---
+
+## RUTX_R_00.07.00 | 2021.07.16
+
+### New features
+* New WebUI based on Vue.js 2.6.12
+* RutOS updated to OpenWrt 19.07.7 base
+* DNP3 Master and DNP3 Oustation
+* 'Restore to user's defaults' SMS Utilities rule
+### Improvements
+* Updated firewall to release 3
+* Updated kernel to version 4.14.221
+* Updated uhttpd to version 2020-10-01
+* Updated xtables-addons to release 9
+* Updated mwan to version 2.8.14
+* Updated pcre to version 8.44
+* Updated curl to version 7.74
+* Updated sqlite to version 3.33
+* Updated ncurses to version 6.2
+* Updated OpenSSL to version 1.1.1k
+* Added full MODBUS register address expansion specifier for Data to Server
+* Added full MODBUS register address legend
+* Added Client ID option for the MQTT protocol in Data to Server
+* Improved Data to Server sleeping accuracy
+* Improved Data to Server username validation; now space is allowed
+* Added firmware version OID to the SNMP service
+* Added IP address family option field to the SNMP page
+* Added SNMPv6 section to the SNMP Communities page
+* Renamed the 'System -> Users' page to 'System -> System Users'
+* Moved password changing option to the 'System -> System Users' page
+* Switched to ar8216 driver
+* Added IPsec XAUTH support
+* Improved OpenVPN updown, init scripts to write info about instance in JSON
+* Added AES-256-GCM encryption support to OpenVPN
+* Added extra configuration parameters to DMVPN
+* Added PSK conversion to DMVPN and single PSK types
+* Improved Package Manager package installation, deletion and dependencies
+* Improved Package Manager download process over FOTA
+* Added new Input/Output values manageable over RMS
+* Added IPv6 traffic logging
+* Made 'Network -> Failover' and 'Network -> Interfaces' page data draggable on multiple browsers
+* Added Input/Output Post/Get URL parameter t_time changing delay and time to seconds or miliseconds
+* Added message storage management by config value
+* Improved QMI error handling and status tracking
+* Turned on modem in preinit for correct power-on sequence
+* Added Post/Get feature to turn mobile data on/off
+* Added the possibility to use 2gonly/3gonly/4gonly arguments for cellular service command alongside current 2g/3g/lte arguments
+* Added "Phone number" and "Message" fields for "Send SMS" option
+* Added "Host to ping from SIM1" and "Host to ping from SIM2" fields
+* Added support for multiple USB to Serial adapters
+* Added option to switch back to primary SIM card after timeout
+* Improved I2C communication
+* Added peer groups to BGP access list dropdown
+* Added TCP MD5 authentication support for BGP
+### Fixes
+* Added glib2 patch to fix CVE-2019-13012 vulnerability
+* Added ntfs-3g patch to fix CVE-2019-9755 vulnerability
+* Added WolfSSL patch to fix CVE-2021-3336 vulnerability
+* Added Busybox patch to fix CVE-2018-1000500 vulnerability
+* Added netifd, odhcp6c IPv6 routing loop on point-to-point links patches to fix CVE-2021-22161 vulnerability
+* Fixed Android clients IPsec MTU/MSS size
+* Fixed wrong IPsec DPD value saving
+* Changed IPsec PSK maximum length to 128 symbols
+* Fixed SSTP remaining up after package removal
+* Fixed DMVPN crypto_proposal write to config
+* Fixed I/O Juggler's SMS sending to correct group
+* Fixed I/O Scheduler's relay state issue
+* Added I/O direction check while changing IOs via I/O Post/Get
+* Fixed float endianness mismatch on some devices MODBUS TCP Master, MODBUS Serial Master
+* Fixed UPnP issue that caused config changes to apply only after service restart
+* Fixed WebUI files caching when upgrading firmware
+* Fixed WebUI date display format
+* Fixed MODBUS returning incomplete MAC address data
+* Fixed GPS time synchronization for DST regions
+* Fixed depleting IPv6 RA timeout when the ISP doesn't send RA updates
+* Added "Transaction timed out" error handling
+* Fixed PPPOE connection loss when wrong session PADT packet arrives
+* Added gcont object tracking and info update if this service is restarted
+* Fixed default SMS storage
+* Fixed SMS warning sending after Mobile Data Limit change
+* Fixed DHCP relaying over mobile networks
+* Changed PIN code maximum length to 8 symbols
+* Fixed 'I/O status' message to include correct Input/Output name based on info in ubus ioman objects
+* Fixed 'Over IP' serial type's UDP issue in client mode
+* Fixed DLNA connections count total in statistics page
+* Fixed wrong VRRP IP address writing to file
+* Fixed DLNA connections count total in statistics page
+* Fixed JSON-RPC issue that caused incorrect state returns
+
+---
+
+## RUTX_R_00.02.06.1 | 2021.02.10
+
+### Fixes
+* Added dnsmasq patch CVE-2020-25681, CVE-2020-25682, CVE-2020-25683, CVE-2020-25684, CVE-2020-25685, CVE-2020-25686, CVE-2020-25687
+* Fixed SSH reachable over SIM IP in early boot
+* Fixed modem status after failed network scan
+* Fixed mbncfg function and PIN check logic
+* Fixed PPTP server interface naming
+* Fixed correct client PPTP interface name selection for route creation
+* Fixed adding helper to firewall's wan zone when enabling PPTP configuration
+* Added package size checking when manually installing a package
+* Fixed 'New Firmware Available' message display after firmware upgrade
+
+---
+
+## RUTX_R_00.02.06 | 2020.12.31
+
+### New features
+* External Quectel modem support
+* Operator Whitelist/Blacklist
+### Improvements
+* Updated base to OpenWrt 19.07.4
+* Added Phone Groups as possible SMS recipients to SMS Post/Get
+* Added PSK support for MQTT Broker/Publisher
+* Changed Output Scheduler structure
+* Removed limitation of one configuration per Input
+* Added multiple modem support for TR-069
+* Fixed parsing user uploaded custom OpenVPN configuration files containing carriage returns
+* Added iptables conntrack flush on WAN Failover if IPsec is enabled
+* Optimized package responsible for sending/receiving GRE Tunnel keepalive packets
+* Added extra error checking to Package Manager when downloading packages
+* Added data usage info for both SIM cards to RMS
+* Added logging to syslog when Ping/Wget Reboot "Action" is set to 'None'
+* Improved display of configuration tables when a lot of information is shown
+* Renamed MODBUS strings to uppercase
+* Added redirect to configuration page after a new configuration is created with the 'Add' button
+* Added option to create a Configuration Profile from current configuration
+* Added data validation to Profiles Scheduler fields
+* Replaced the Firewall 'Helpers' page with conntrack helper configuration for each firewall zone
+* Increased dynamic list maximum amount of values to 50
+* Added the possibility to save email accounts without entering email username and password
+* Unified device access password validations
+* Expanded DDNS validation for domain input to accept emails
+* Added SMS Utilities rule to reset mobile data usage for specified interface
+* Improved SMS Utilities VPN status rule to support custom configurations
+* Added SMS storage limit check after inserting a SIM card
+* Changed modem name from primary to internal if device has only one built-in modem
+* Improved SIM count check during init
+* Moved all USB related services to the 'Services -> USB Tools' page
+* Added 'General' page to 'Services -> USB Tools'; the page contains a list of all USB devices and the option to safely unmount the devices
+* Added 'passive-interface' and 'default-information' options to the OSPF configuration page
+* Added NHRP dynamic route status page
+* Split VLAN configuration page into two separate ones: 'Port Based' and 'Interface Based'
+### Fixes
+* Fixed IPsec Passthrough subnet/ip value parsing to make it dynamic for leftsubnet
+* Fixed occasions when error messages overlap buttons
+* Fixed I/O state saving after revert back to original state
+* Fixed IPsec connection after reboot
+* Fixed bridged interface configuration for L2TPv3
+* Removed trailing newlines in returned SNMP strings
+* Fixed Events Reporting waiting to send email before rebooting
+* Fixed MQTT MODBUS Gateway not working when topics have special characters
+* Swapped pin3 and pin4 values in MQTT Publisher
+* Added an 'IP4Table' option to advanced interface configuration
+* Fixed an issue where User Scripts were being deleted after device reboot
+* Fixed various WebUI validation bugs, typos, option hints & alignments
+* Fixed a bug that caused an internal sever error after logging in with a username that contained special characters
+* Fixed crashes that occur after configuration files are not correctly generated
+* Fixed a Firewall Port Forwarding bug which caused an internal sever error when no 'Protocol' was selected
+* Fixed changing WebUI mode bug while current page is accessed with POST method
+* Fixed password allowed lengths and tooltips
+* Fixed mountpoint display
+* Removed non-supported SMS Utilities rules
+* Fixed SMS sending to Phone Group on I/O event
+* Changed device name in 'Status' message to configured name instead of the default one
+* Added modem reinit after SIM card initialization failure
+* Fixed SMS Limit checking when messages exceed the set SMS limit
+* Moved 2-8 PDP contexts to 9-16 the 2-8 are necessary for SIM card MIB APNs
+* Changed mobile interface subnet to /32
+* Fixed modem SIM card checking
+* Fixed multi SMS handling on SMS Limit
+* Fixed Call Utilities multiple SMS sending per received call
+* Fixed SMS storage limit check on device reboot
+* Changed SNMP mSignal, mTemperature and numSatellities datatypes to correspond to devices' MIB files
+* Fixed erroneous data usage display of external modem after it's been disconnected
+
+---
+
+## RUTX_R_00.02.05.2 | 2020.11.19
+
+### Fixes
+* Randomized the global rate limiter to mitigate "SAD DNS" attack
+
+---
+
+## RUTX_R_00.02.05.1 | 2020.09.30
+
+### New features
+* DLNA media server
+* iptables NETMAP extension
+* "Flush connections on" option for WAN Failover
+* New firmware notifications
+* Updated header logo from 'Teltonika' to 'Teltonika | Networks'
+* USSD command support
+* Time sync via network operator's station
+* SQM QoS
+* USB Tools
+* USB to Serial adapter support
+* Auto format USB storage devices to NTFS
+* Storage Memory Expansion
+### Improvements
+* Improved WebUI page loading speed
+* Added Basic/Advanced mode selection in Setup Wizard
+* Added a dropdown with a search function for time zone selection
+* Added "copy to clipboard" button in Cloud Solutions next to MAC and Serial
+* Added option to send all Modbus records in one packet
+* Disabled IPV6 services on LAN by default
+* Added password hashing in Post/Get pages
+* Added a warning message about rebooting the device while certificate files are being generated
+* Added status option to uploaded custom OpenVPN configuration file
+* No longer showing "Enable OpenVPN config from file" option if "Enable external Services" is selected
+* Added some missing placeholder values
+* Added warning message about unsaved changes when leaving Auto Reboot, Periodic Reboot, Wireless pages
+* Added port selection to SSTP configuration
+* Changed Periodic Reboot service name to Reboot Scheduler
+* Added table row highlights on hover
+* Changed section name from 'Email users' to 'Email accounts' in the Recipients page
+* Added network interface automatic assignment to firewall zones when interface protocol is switched
+* Adjusted Azure validations
+* Adjusted Local/Remote subnet field validations
+* Adjusted Hotspot field validations
+* Unified VPN overview section option names and titles
+* Removed mandatory requirements for inter-zone forwarding source & destination options in Firewall zone configuration
+* Added placeholder values for drop down options in Routing pages
+* Increased maximum package upload size
+* Removed mobile interfaces from Hotspot configuration
+* Added "Passthrough subnets" option to IPsec configuration page
+* Added package size checking when installing packages via Package Manager
+* Optimized switching between Basic and Advanced WebUI modes
+* Added missing services to Events Reporting page when selected Event is "Config change"
+* Improved general web design, ordering and positioning
+* Added word wrap in the Unsaved Changes page
+* Centered 'Apply' button in the Profiles page
+* Hid network interfaces with DHCPv6 protocol in Overview page while in Basic WebUI mode
+* Changed tcpdump "Select storage" option value from 'Internal storage' to 'RAM memory' in the System → Administration → Troubleshoot page
+* Added more descriptive error messages when connection to FOTA server fails
+* Updated "Local address" hint in l2tpv3 page
+* Updated phone number placeholders to +37000000000
+* Updated SMS rule descriptions related to phone numbers and email accounts
+* Made SMS/Mobile data limit options always visible in Overview Setup page
+* Added indications for which antenna connector is connected to which modem
+* Adjusted Modem FW file validations
+* Added network selection option in Traffic logging page
+* Reworked Q-in-Q configuration page
+* Added loading spinner and a "No GPS signal" message to GPS Map page
+* Removed incorrect GPS analog input option from GPS HTTPS settings
+### Fixes
+* Fixed DDNS freeze issues
+* Fixed Firewall Traffic Rules Source and Destination address field validations
+* Started using more stable, builtin ar82xx switch driver
+* Symlinking tty devices in one place
+* Fixed period when sending packet curl timeouts in Modbus Data Sender
+* Fixed "active SIM" register value retrieval after regression in Modbus TCP Slave
+* Fixed Hotspot 'Trial access' function
+* Fixed OpenVPN TLS Cipher display and added a limit to number of ciphers
+* Fixed various WebUI validation bugs, typos & option hints
+* Fixed DHCP lease range validation and value saving in Interfaces page
+* Fixed error messages when creating interfaces with incorrect names
+* Fixed various section toggling bugs
+* Fixed username validation in SNMP page
+* Fixed certificate file importing bugs & common name display in Certificates Manager page
+* Fixed interface option related to IPv4 and IPv6 in Routing pages
+* Fixed OpenVPN multi-line command that adds client specific parameters
+* Fixed DHCP lease range validation in Basic mode
+* Fixed incorrect sorting in dynamic tables
+* Fixed routing table writing and deleting
+* Fixed incorrectly displayed type when no protocol is selected
+* Removed Wireguard interfaces from the Interfaces page
+* Fixed SNMP user access mode display in SNMPV3 Users Overview page
+* Fixed SNMP memory leak on chilli module
+* Fixed MD5 and SHA256 checksum calculations
+* Fixed DHCP-options field validation to allow separating parameters with commas
+* Fixed Package Manager side menu entry updates right after package upload
+* Fixed Wireguard port selection
+* Fixed VPN zone status display
+* Fixed lua errors when Start/End time option is empty
+* Fixed incorrectly displayed OpenVPN protocol
+* Fixed Lua errors in Profile Scheduler and Firewall Zones
+* Removed /log folder from Troubleshoot file directories
+* Fixed endless spinner when applying profiles
+* Fixed nil value in the Traffic Logging page
+* Fixed "Units" option dependency on "Enable DHCP" option in the Setup Wizard's LAN page
+* Fixed redirecting to login page after factory setting restore (reset)
+* Removed Unsaved Changes notification when downloading Troubleshoot/tcpdump files from the System → Administration → Troubleshoot page
+* Vulnerability fixes for Package Manager and Certificates Manager pages
+* Fixed Firewall zone placeholder (removed "-- Please select --" and left "Unspecified")
+* Fixed update from server option in the Firmware page
+* Added missing error messages when password is invalid in default password change page
+* Fixed "Lease time" option in the Setup Wizard's LAN page
+* Fixed error 500 when accessing Advanced pages while in Basic mode
+* Increased allowed character lengths for MQTT Broker and Data to Server
+* Fixed XSS vulnerabilities in package manager and package file upload pages
+* Fixed incorrect OpenVPN configuration saving
+* Fixed NHRP lua error
+* Removed "Wireguard" from Status → Services display if it is not installed
+* Fixed crashing issue when getting "SIM slot in use" satus value
+* Fixed sending status SMS to other number
+* Fixed "Change mobile settings" rule service setting
+* Fixed SMS Forwarding To HTTP "URL" option validation
+* Fixed Mobile Signal graph data display
+* Changed message type from 'error' to 'info' from Auto Reply page
+* Fixed manual operator selection validation
+* Fixed mobile interface authentication settings reset after selecting auto APN mode
+* Fixed libgsm password and serial authorization
+* Added workaround for mobile to switch LAN port throughput problem for ath79 target
+* Fixed Hotspot login page signup fields and notifications
+* Removed unnecessary default Hostname and URL values from GPS pages
+* Fixed AVL I/O incorrect option display in input rule configuration
+* Fixed "Enabled" option design in GPS Geofencing page
+* Fixed MAC address validation in Mobile Utilities page for Wake on LAN SMS rule
+* Removed Hotspot 2.0 page
+
+---
+
+## RUTX_R_00.02.04.3 | 2020.07.31
+
+### New features
+* Backup archive MD5 & SHA256 checksum calculation to help user identify altered backup archives
+* Package signature check to verify that a package comes from Teltonika
+### Improvements
+* Updated APN database
+* Fixes
+* Fixed CVE-2019-17367
+* Fixed hiding of configuration pages that users of a specific group don't have read access to
+* Fixed firmware upload script
+
+---
+
+## RUTX_R_00.02.04.1 | 2020.07.02
+
+### New features
+* Added 'Mobile Passthrough mode'
+* Added mobile signal real-time graph
+* Added USB Tools page with "USB to Serial" and "Printer Server" sections
+* Added mobile data usage charts
+* Added profile change action to "I/O Juggler"
+* Relay control to Call Utilities
+* 'Certificates' page for generating and managing TLS certificates
+* 'Drag & Drop' support for Overview page tables
+* 'Speed Test' feature
+* AVL I/O support
+* Added JSON formatting option to Data to Server
+* Added timeout and keep-connection options to Modbus TCP Slave
+* During this release a new package was released - WireGuard
+### Improvements
+* Improved mobile interface creation
+* Improved L2TPv3 functionality with VLAN
+* Improved 'Profile Scheduler' with minute accuracy
+* Reordered VPN configuration options
+* Standardized section header styles
+* Unified spelling of dropdown values
+* Added information about 'Package Manager' packages before updating firmware
+* Updated services management to Status → Services page
+* Improved performance of firmware upgrades from server
+* Improved security features related to file uploading and HTTP headers
+* Changed RAM/flash memory units from MiB to MB
+* Updated warning message and lease deletion message for static leasing
+* Moved 'Country code' option to general tab
+* General web responsiveness improvements
+### Fixes
+* Removed incorrect SMS character counter from SMS Utilities page
+* Fixed symlinking tty devices in one place
+* Fixed validations and option saving in OSPF page
+* Fixed various element positioning bugs on smaller screens
+* Fixed switching to advanced mode notification when accessing non existing pages
+* Fixed validations in Traffic Logging page
+* Fixed showing failover section only for interfaces with failover rules
+* Fixed static leases redirect after saving
+* Fixed empty dropdown values in 'I/O juggler' and 'Network Shares'
+* Fixed interface IP address validation in DDNS page
+* Fixed various spelling mistakes
+* Fixed broken address option in the 'Troubleshoot' page
+* Fixed dropdown select element double clicking issue
+* Fixed basic/advanced mode switching with Microsoft Edge browser
+* Fixed firmware upgrading bug when LAN interface with a changed name exists
+* Fixed redirecting to the 'Interfaces' page when mode is changed from basic to advanced and user is in the 'LAN' or 'WAN' pages
+* Fixed validation of custom header in 'Data To Server' page
+* Fixed "Type" option error in Failover page
+* Updated username and password validations
+* Fixed profile change action in 'I/O Juggler'
+* Fixed bidirectional GPIO change feature
+
+---
+
+## RUTX_R_00.02.03.4 | 2020.06.15
+
+### Fixes
+* Fixed modem option set in basic mode for mobile interfaces
+* Fixed libgsm connection state function
+* Fixed config generation script
+
+---
+
+## RUTX_R_00.02.03.1 | 2020.05.15
+
+### New features
+* Responsive WebUI design
+* New Access Control window for managing IP access
+* Attack Prevention page under Firewall settings
+* New IPv6 options in WAN, LAN and VPN pages
+* Progressive Web Application support and extra page caching when device is configured with a valid SSL certificate
+* OpenVPN configuration file upload functionality
+* Unsaved Changes page
+* Bridge mode display in Overview page
+* Input inversion buttons
+* Dynamic switch port display in side widget
+* Input/Output manipulator
+* Full unicode SMS support
+* IO control and status over SMS
+* MQTT Publisher: added support to send I/O values
+* Ability to install packages stored in backup file
+* IP unblock SMS rule
+* New Modbus TCP Slave register fields
+* New Modbus Alarm redundancy options
+* NTPD version 4.2.8p14
+### Improvements
+* Added HMAC configurations for OpenVPN
+* Added AES ciphers support for OpenVPN
+* Added MTU and gateway metric to mobile interfaces
+* Added DHCP lease range display in the Network → LAN page
+* Added warning messages when deleting interfaces/configurations
+* Added available FW on server status messages in FW upgrade page
+* Added mobile PIN code saving note
+* Changed UPnP redirect delete button style
+* Changed functionality of reset button in the Firewall → Custom Rules page. Now fully resets to default
+* Added hints on all value fields about field validation
+* Added pin information for iostatus SMS rule
+* Removed modem traps if no modem is present
+* Optimized section toggling logic, removing all toggling associated flags required prior optimization
+* Standardized section edit page headers in WebUI Services
+* Improved the look of error pages and messages
+* Updated Wiki links to wiki.teltonika-networks.com
+* Disabled 'Clear data limit' button for inactive interfaces
+* Reordered menu, moved 'Default configuration' to the Backup page, moved 'Diagnostics' to the Troubleshoot page
+* Added credentials input fields to Data to Server
+* Changed hint of 'Allow guest" in the Network Shares page
+* Updated Periodic Reboot service status in the Services page
+* Improved hint for incoming calls option
+* Changed OpenVPN LZO option to a dropdown with an extra 'none' option
+* Added suggestion to create a profile if there are no profiles created in the Profiles → Scheduler page
+* Filtered out unnecessary interfaces ending with _4 _6 in firewall page
+* Moved SIM switch to separate page and added check interval and retry count options
+* Changed side widget button color to blue to make it more visible
+* Added 'Dynamic List' option limit (20 elements)
+* Added info message to Events Reporting & Mobile Utilities rules, if selected recipient or sender is a group or no groups are created yet
+* Improved stm32 recv message handling
+* Modbus TCP test now allows reading more than 125 coils/inputs
+* Reworked NTP page, separating general options from NTP specific ones
+* Fixed grammar errors in Mobile page
+* Resolved using SHA512 bug for versions 02.01 or lower with additional (-b) parameter
+### Fixes
+* Added name validation in the Firewall → Port Forward page, fixed custom protocol value selection and display
+* Added validation for GRE 'Remote subnet IP' option
+* Added missing Mobile Data limit input validation
+* Fixed Schedulers' cells to be of equal width
+* Fixed uploading backup from lower firmware version
+* Fixed SSTP certificate upload function
+* Fixed IPsec 'Aggressive' setting value saving in config file
+* Fixed LAN settings static lease name validation
+* Fixed issue that sometimes caused failures when redirecting to Mobile interface edit page
+* Fixed descriptions in Access Control → Security page
+* Fixed HTTP login while HTTPS session is still active
+* Fixed real time CPU load in the Overview page
+* Fixed advanced static routing display for all routes
+* Fixed file upload error messages in backup page
+* Fixed 'Select' option for Firefox browser
+* Fixed RAM usage display in side widget
+* Fixed access to non existing pages
+* Fixed saving empty message field in Events Reporting rules
+* Fixed I/O socket pinout
+* Fixed showing correct APN settings when upgrading with the 'Keep all settings' option
+* Fixed Events Reporting send test email page display when email contains 2 new lines in a row
+* Fixed phrasing and grammatical mistakes in SMS messages tooltip
+* Fixed LAN Overview section display
+* Fixed early login page load after reboot or backup upload
+* Fixed Package Manager notification display
+* Fixed SMS rule display for different devices
+* Fixed PPTP and L2TP client configuration creation with same name
+* Fixed static route removal if corresponding interface is removed
+* Fixed Realtime Graphs → Traffic tab display
+* Fixed OpenVPN username and password writing to file
+* Fixed time zone sync between Setup Wizard & NTP pages
+* Fixed DHCP lease range validation
+* No longer write anything into Events Log when forcing reboot to prevent device hang-up
+* Fixed restore settings when upgrading from Yocto base firmware on TRB1 targets
+* Fixed launching stm32 autoflash script at early boot to avoid possible keep settings loss
+* Removed certain Events Reporting options on devices that don't have the corresponding functionality
+* Fixed recovery from lost connection for MQTT publisher, Modbus MQTT gateway
+
+---
+
+## RUTX_R_00.02.01.1 | 2020.01.15
+
+### New features:
+* Email to SMS
+* Static IP lease
+* SMS OTP and MAC auth in Hotspot
+* Hotspot logs
+* TOS in HotSpot
+* Custom URL parameters while using external landing page in Hotspot
+* Expiration time for Hotspot
+* Wireless status page
+* USB mount settings
+* Site blocking list from file
+* Events Reporting via Email
+* STunnel
+* Multi-User support
+* Mobile page
+* Operators control
+* Bluetooth passive device scanning
+* Hotspot 2.0
+* Modbus MQTT gateway
+* Package manager
+* RUT FOTA
+* TR-069
+### Improvements:
+* Deleted OpenVPN forward rule on instance deletion
+* Improved "SMS Forwarding to Email" field validations
+* Rename IPsec fields from right/left to remote/local
+* Bluetooth style improvements
+* Applied same style on all scheduler templates
+* Renamed "Setup Wizard" steps
+* Renamed "IPv4 and IPv6 routes" headings
+* Renamed "User groups" to "Users & Recipients"
+* Added "Clear data limit" on a specific date
+* Enable/Disable all SMS-Utilities rules at once
+### Fixes:
+* Fixed WAN mobile interfaces reload
+* Fixed parsing interface IP address in WAN
+* Fixed OSPF "Hello Interval" field hint
+* Fixed field validation on "Port Forward" create form
+* Fixed display build date
+* Removed "Bring up on boot" option
+* Fixed Mobile page with additional USB modem
+* Fixed creating SNAT rule without port
+* Fixed SDK archive name
+
+---
+
+## RUTX_R_00.02.00.2 | 2019.10.11
+
+### Fixes:
+* WiFi fix
+
+---
+
+## RUTX_R_00.02.00.1 | 2019.09.27
+
+### New features:
+* Auto APN
+* MQTT
+* Web Filter
+* Dynamic Routes
+* GRE over IPsec
+* Wireless Hotspot
+* VRRP
+* HTTP POST/GET
+* Network Shares
+* VLAN multiple tags functionality
+* SMS HTTP POST/GET
+* SMS Forwarding
+* Auto Reply
+* SMS storage
+* Switch back to primary SIM
+* Email groups
+* Default VPN firewall zones
+* Support for XT25F128B spi-nor memory
+* Support for Bluetooth
+### Improvements:
+* Updated Kernel to version 4.14.131
+* Updated Strongswan to version 5.8.0
+* Updated curl to version 7.60.0.4 (fixes CVE-2018-14618, CVE-2018-16839, CVE-2018-16840, CVE-2018-16842, CVE-2019-3823, CVE-2019-3822, CVE-2018-16890)
+* Updated mosquitto to version 1.5.8
+* Updated dnsmasq to version 2.80
+* Updated iptables to version 1.6.2
+* Updated openssl to version 1.0.2s
+* Updated zlib to version 1.2.11
+* Updated hostapd to the 2018-05-21 version (fixes CVE-2019-9494, CVE-2019-9495, CVE-2019-9496, CVE-2019-9497, CVE-2019-9498, CVE-2019-9499, CVE-2019-11555)
+* Updated fstools to the 2019-03-28 version
+* Updated procd to the 2018-03-28 version
+* Updated rpcd to the 2018-11-28 version
+* Updated ubox to the 2018-02-14 version
+* Updated ubus to the 2018-10-06 version
+* Updated uci to the 2019-05-17 version
+* Updated Firewall to the 2018-08-13 version
+* Updated netifd to the 2019-01-31 version
+* Updated uhttpd to the 2018-11-28 version
+* Switched to mac80211 WiFi driver
+* Updated IPsec page
+* Updated DMVPN page
+* Updated Overview configuration page
+### Fixes:
+* Fixed operator name parsing
+* Fixed serial reading
+* Fixed SIM card PIN code setting
+* Fixed I/O event handling
+* Fixed backup save after device restart
+* GPS init script fixes
+* IPsec page rework
+* Failover/Load Balancing mobile interface fixes
+* L2TP/PPTP/SSTP configuration fixes
+* TX power save setting fixes
+* Refactored profiles functionality
+* Added write to config option in Call Utilities
+* Wireless config migration fix
+* Firmware checksum fix
+
+---
+
+## RUTX_R_00.01.06 | 2019.07.24
+
+### New features:
+* Added Wake on LAN feature
+* Added SSTP VPN support
+* Added mobile bridge feature
+* Added Status → Network page
+* Added SIM Switch feature
+* Added SMS Limit feature
+* Added save and restore SIM PIN code from flash
+* Added feature to monitor switch port events
+* Added Events Reporting send to RMS functionality
+* Added FOTA support for RUTX08, RUTX10, RUTX11
+* Added Modbus TCP master function
+### Improvements
+* Added microcontroller version information
+* Updated Wireless page design and WiFi widget in overview page
+* Updated Overview widget style
+* Updated stm32 firmware
+* Updated LED logic
+* Changed check for new FW logic
+* WebUI style updates
+### Fixes:
+* Fixed multiwan function. Changed firewall traffic control to routing rules control
+* NTP time zone display fix
+* LED functionality fix
+* Changed time function used for rollback timestamps
+* Login form updated and other fixes
+* Fixed firmware update checksum mismatch
+* lua error on map when GPS is disabled fix
+* Firmware update percentage and check box fix
+* LAN interface creation with short names fix
+* WAN state and IP print fixes
+* OpenVPN new port save in firewall rule fix
+* RUT FOTA bug fixes
+
+---
+
+## RUTX_R_00.01.04.5 | 2019.06.14
+
+### Improvements:
+* Revert settings logic updated
+### Fix:
+* Firmware update checksum mismatch fix
+* DHCP dnsmasq fix
+* Wireless improvements and bug fixes
+* Increased RMS HTTP Proxy resource limit
+
+---
+
+## RUTX_R_00.01.04.1 | 2019.05.17
+
+### New features:
+* Add initial wireless support
+* Added SNMP support
+* Added Advanced Routing functionality
+* Added L2TP VPN
+* Added PPTP VPN
+### Improvements:
+* Added signal strength logging and reporting to Events Log
+* Added authentic firmware check
+* OpenSSL updated to version 1.0.2r
+### Fixes:
+* Wireless improvements and bug fixes
+* Fixed IPSec Phase 1 and Phase 2 keys lifetime not saving bug
+* Input Output improvements and bug fixes
+* Fixed router values sent from SMS utilities
+* WebUI style fixes
+* Fixed RMS proxy multiform submits
+
+---
+
+## RUTX_R_00.01.03 | 2019.04.25
+
+### New features:
+* Adapted WebUI for RUTX08
+* Added DMVPN support
+* Added HTTP support
+* Added SMS message input field validation and counter
+* Added UPnP support
+* Added GRE Tunnel support
+* Implemented dynamic routing with BGP, OSPF, RIP, EIGRP and NHRP protocols
+* Added manual network band lock support
+* Added Events Log
+* Added Events Reporting
+### Improvements
+* Updated OpenVPN client count to 20
+* WebUI style updates
+### Fixes:
+* Profile scheduler fixes
+* Mobile service crash fix
+* Ping Reboot IP field validation fix
+* LED functionality related fixes
+
+---
+
+## RUTX_R_00.01.02 | 2019.03.19
+
+### New features:
+* Added configuration profiles
+* Updated WebUI style
+* Added Reboot button
+### Improvements:
+* curl updated to version 7.64.0
+* openssl updated to version 1.0.2q
+* dropbear updated to version 2018.76
+* busybox updated to version 1.28.3
+* ustream-ssl updated to latest version
+* OpenVPN updated to version 2.4.6
+* OpenVPN-Easy-RSA updated to version 3.0.4
+* ubus updated to version 2018-10-06
+* uhttpd updated to version 2018-11-28
+* NTP updated to version 4.2.8p12
+### Fixes:
+* Root CA validation and page style fixes
+* Hardware compatibility check fix
+* DDNS force IP renew fix
+* Site Blocking enable column fix
+* Don't show rules in Load Balancing mode when in failover page fix
+
+---
+
+## RUTX_R_00.01.01 | 2019.02.05
+
+### New features:
+* Initial firmware release
+
+---
+

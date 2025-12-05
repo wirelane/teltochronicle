@@ -28,6 +28,12 @@ All processing is performed by the `teltochronicle.py` tool.
 - [Markdown](models/RUT950/RUT950.md)
 - [JSON](models/RUT950/RUT950.json)
 
+### RUTX09
+- [Repo](models/RUTX09/repo)
+- [SDKs](models/RUTX09/sdks)
+- [Markdown](models/RUTX09/RUTX09.md)
+- [JSON](models/RUTX09/RUTX09.json)
+
 ## Pulling from the Upstream Repository (with Git LFS and Submodules)
 
 > Make sure that you have Git LFS installed and set up with `git lfs install`.

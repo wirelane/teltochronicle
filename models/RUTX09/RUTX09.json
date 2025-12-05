@@ -1,0 +1,800 @@
+{
+  "model": "RUTX09",
+  "product_code": "RUTX",
+  "stable_firmware": "RUTX_R_00.07.18.3",
+  "latest_firmware": "RUTX_R_00.07.19.4",
+  "firmwares": [
+    {
+      "version": "RUTX_R_00.07.19.4",
+      "gpl_version": "RUTX_R_GPL_00.07.19.4",
+      "unified_full": "00.07.19.4",
+      "unified_short": "7.19.4",
+      "release_date": "2025.12.05",
+      "warning": null
+    },
+    {
+      "version": "RUTX_R_00.07.19.2",
+      "gpl_version": "RUTX_R_GPL_00.07.19.2",
+      "unified_full": "00.07.19.2",
+      "unified_short": "7.19.2",
+      "release_date": "2025.11.26",
+      "warning": null
+    },
+    {
+      "version": "RUTX_R_00.07.19.1",
+      "gpl_version": "RUTX_R_GPL_00.07.19.1",
+      "unified_full": "00.07.19.1",
+      "unified_short": "7.19.1",
+      "release_date": "2025.11.12",
+      "warning": null
+    },
+    {
+      "version": "RUTX_R_00.07.19",
+      "gpl_version": "RUTX_R_GPL_00.07.19",
+      "unified_full": "00.07.19",
+      "unified_short": "7.19",
+      "release_date": "2025.11.06",
+      "warning": null
+    },
+    {
+      "version": "RUTX_R_00.07.18.3",
+      "gpl_version": "RUTX_R_GPL_00.07.18.3",
+      "unified_full": "00.07.18.3",
+      "unified_short": "7.18.3",
+      "release_date": "2025.10.30",
+      "warning": null
+    },
+    {
+      "version": "RUTX_R_00.07.18.2",
+      "gpl_version": "RUTX_R_GPL_00.07.18.2",
+      "unified_full": "00.07.18.2",
+      "unified_short": "7.18.2",
+      "release_date": "2025.10.22",
+      "warning": null
+    },
+    {
+      "version": "RUTX_R_00.07.18.1",
+      "gpl_version": "RUTX_R_GPL_00.07.18.1",
+      "unified_full": "00.07.18.1",
+      "unified_short": "7.18.1",
+      "release_date": "2025.10.13",
+      "warning": null
+    },
+    {
+      "version": "RUTX_R_00.07.18",
+      "gpl_version": "RUTX_R_GPL_00.07.18",
+      "unified_full": "00.07.18",
+      "unified_short": "7.18",
+      "release_date": "2025.10.01",
+      "warning": "Note: This firmware version has been withdrawn due to an issue with incorrect mobile operator selection under specific conditions."
+    },
+    {
+      "version": "RUTX_R_00.07.17.5",
+      "gpl_version": "RUTX_R_GPL_00.07.17.5",
+      "unified_full": "00.07.17.5",
+      "unified_short": "7.17.5",
+      "release_date": "2025.09.30",
+      "warning": null
+    },
+    {
+      "version": "RUTX_R_00.07.17.4",
+      "gpl_version": "RUTX_R_GPL_00.07.17.4",
+      "unified_full": "00.07.17.4",
+      "unified_short": "7.17.4",
+      "release_date": "2025.09.17",
+      "warning": null
+    },
+    {
+      "version": "RUTX_R_00.07.17.3",
+      "gpl_version": "RUTX_R_GPL_00.07.17.3",
+      "unified_full": "00.07.17.3",
+      "unified_short": "7.17.3",
+      "release_date": "2025.09.05",
+      "warning": null
+    },
+    {
+      "version": "RUTX_R_00.07.17.2",
+      "gpl_version": "RUTX_R_GPL_00.07.17.2",
+      "unified_full": "00.07.17.2",
+      "unified_short": "7.17.2",
+      "release_date": "2025.09.02",
+      "warning": null
+    },
+    {
+      "version": "RUTX_R_00.07.17.1",
+      "gpl_version": "RUTX_R_GPL_00.07.17.1",
+      "unified_full": "00.07.17.1",
+      "unified_short": "7.17.1",
+      "release_date": "2025.08.19",
+      "warning": null
+    },
+    {
+      "version": "RUTX_R_00.07.17",
+      "gpl_version": "RUTX_R_GPL_00.07.17",
+      "unified_full": "00.07.17",
+      "unified_short": "7.17",
+      "release_date": "2025.08.12",
+      "warning": "Note: This firmware was removed due an issue with Failover functionality."
+    },
+    {
+      "version": "RUTX_R_00.07.16.6",
+      "gpl_version": "RUTX_R_GPL_00.07.16.6",
+      "unified_full": "00.07.16.6",
+      "unified_short": "7.16.6",
+      "release_date": "2025.09.17",
+      "warning": null
+    },
+    {
+      "version": "RUTX_R_00.07.16.3",
+      "gpl_version": "RUTX_R_GPL_00.07.16.3",
+      "unified_full": "00.07.16.3",
+      "unified_short": "7.16.3",
+      "release_date": "2025.07.28",
+      "warning": null
+    },
+    {
+      "version": "RUTX_R_00.07.16.2",
+      "gpl_version": "RUTX_R_GPL_00.07.16.2",
+      "unified_full": "00.07.16.2",
+      "unified_short": "7.16.2",
+      "release_date": "2025.07.24",
+      "warning": null
+    },
+    {
+      "version": "RUTX_R_00.07.16.1",
+      "gpl_version": "RUTX_R_GPL_00.07.16.1",
+      "unified_full": "00.07.16.1",
+      "unified_short": "7.16.1",
+      "release_date": "2025.07.17",
+      "warning": null
+    },
+    {
+      "version": "RUTX_R_00.07.15.4",
+      "gpl_version": "RUTX_R_GPL_00.07.15.4",
+      "unified_full": "00.07.15.4",
+      "unified_short": "7.15.4",
+      "release_date": "2025.07.11",
+      "warning": null
+    },
+    {
+      "version": "RUTX_R_00.07.15.2",
+      "gpl_version": "RUTX_R_GPL_00.07.15.2",
+      "unified_full": "00.07.15.2",
+      "unified_short": "7.15.2",
+      "release_date": "2025.06.27",
+      "warning": null
+    },
+    {
+      "version": "RUTX_R_00.07.15.1",
+      "gpl_version": "RUTX_R_GPL_00.07.15.1",
+      "unified_full": "00.07.15.1",
+      "unified_short": "7.15.1",
+      "release_date": "2025.06.17",
+      "warning": null
+    },
+    {
+      "version": "RUTX_R_00.07.15",
+      "gpl_version": "RUTX_R_GPL_00.07.15",
+      "unified_full": "00.07.15",
+      "unified_short": "7.15",
+      "release_date": "2025.06.06",
+      "warning": null
+    },
+    {
+      "version": "RUTX_R_00.07.14.3",
+      "gpl_version": "RUTX_R_GPL_00.07.14.3",
+      "unified_full": "00.07.14.3",
+      "unified_short": "7.14.3",
+      "release_date": "2025.05.26",
+      "warning": null
+    },
+    {
+      "version": "RUTX_R_00.07.14.2",
+      "gpl_version": "RUTX_R_GPL_00.07.14.2",
+      "unified_full": "00.07.14.2",
+      "unified_short": "7.14.2",
+      "release_date": "2025.05.09",
+      "warning": "Note: If a system upgrade with keep settings is performed from R_00.07.14 or R_00.07.14.1 to this version, follow the instructions described under those firmware versions below to resolve Data Limit and traffic monitoring issues."
+    },
+    {
+      "version": "RUTX_R_00.07.14.1",
+      "gpl_version": "RUTX_R_GPL_00.07.14.1",
+      "unified_full": "00.07.14.1",
+      "unified_short": "7.14.1",
+      "release_date": "2025.05.06",
+      "warning": "Note: This firmware version has been withdrawn due to an issue affecting the Data Limit, traffic monitoring functionalities.\nNote: If a system upgrade with keep settings was already performed from R_00.07.14 to this version, previous Data Limit tracking and traffic monitoring information cannot be restored. However, to keep current traffic monitoring history after next update, the command found in the Note below must be executed in CLI.\nNote: If a system upgrade with keep settings is performed from this firmware version to newer and R_00.07.14 was never used, following command must be executed in CLI before upgrade to resolve Data Limit and traffic monitoring issues.\n\nmkdir -p /usr/local/lib/upgrade/keep.d && echo /usr/local/usr/lib/mdcollectd/mdcollectd.db_new.gz > /usr/local/lib/upgrade/keep.d/mdcollect"
+    },
+    {
+      "version": "RUTX_R_00.07.14",
+      "gpl_version": "RUTX_R_GPL_00.07.14",
+      "unified_full": "00.07.14",
+      "unified_short": "7.14",
+      "release_date": "2025.04.24",
+      "warning": "Note: This firmware version has been withdrawn due to an issue affecting the Data Limit, traffic monitoring functionalities.\nNote: If a system upgrade with keep settings is performed from this firmware version to newer, following command must be executed in CLI before upgrade to resolve Data Limit and traffic monitoring issues.\n\nmkdir -p /usr/local/lib/upgrade/keep.d && echo /usr/local/usr/lib/mdcollectd/mdcollectd.db_new.gz > /usr/local/lib/upgrade/keep.d/mdcollect"
+    },
+    {
+      "version": "RUTX_R_00.07.13.4",
+      "gpl_version": "RUTX_R_GPL_00.07.13.4",
+      "unified_full": "00.07.13.4",
+      "unified_short": "7.13.4",
+      "release_date": "2025.04.04",
+      "warning": null
+    },
+    {
+      "version": "RUTX_R_00.07.13.3",
+      "gpl_version": "RUTX_R_GPL_00.07.13.3",
+      "unified_full": "00.07.13.3",
+      "unified_short": "7.13.3",
+      "release_date": "2025.03.21",
+      "warning": null
+    },
+    {
+      "version": "RUTX_R_00.07.13.2",
+      "gpl_version": "RUTX_R_GPL_00.07.13.2",
+      "unified_full": "00.07.13.2",
+      "unified_short": "7.13.2",
+      "release_date": "2025.03.18",
+      "warning": null
+    },
+    {
+      "version": "RUTX_R_00.07.13.1",
+      "gpl_version": "RUTX_R_GPL_00.07.13.1",
+      "unified_full": "00.07.13.1",
+      "unified_short": "7.13.1",
+      "release_date": "2025.03.06",
+      "warning": null
+    },
+    {
+      "version": "RUTX_R_00.07.13",
+      "gpl_version": "RUTX_R_GPL_00.07.13",
+      "unified_full": "00.07.13",
+      "unified_short": "7.13",
+      "release_date": "2025.03.03",
+      "warning": "Note: This firmware was removed due an issue with Auto Reboot functionality performing unnecessary device reboot."
+    },
+    {
+      "version": "RUTX_R_00.07.12.3",
+      "gpl_version": "RUTX_R_GPL_00.07.12.3",
+      "unified_full": "00.07.12.3",
+      "unified_short": "7.12.3",
+      "release_date": "2025.02.14",
+      "warning": null
+    },
+    {
+      "version": "RUTX_R_00.07.12",
+      "gpl_version": "RUTX_R_GPL_00.07.12",
+      "unified_full": "00.07.12",
+      "unified_short": "7.12",
+      "release_date": "2025.01.20",
+      "warning": null
+    },
+    {
+      "version": "RUTX_R_00.07.11.3",
+      "gpl_version": "RUTX_R_GPL_00.07.11.3",
+      "unified_full": "00.07.11.3",
+      "unified_short": "7.11.3",
+      "release_date": "2024.12.17",
+      "warning": null
+    },
+    {
+      "version": "RUTX_R_00.07.11.2",
+      "gpl_version": "RUTX_R_GPL_00.07.11.2",
+      "unified_full": "00.07.11.2",
+      "unified_short": "7.11.2",
+      "release_date": "2024.12.09",
+      "warning": null
+    },
+    {
+      "version": "RUTX_R_00.07.11.1",
+      "gpl_version": "RUTX_R_GPL_00.07.11.1",
+      "unified_full": "00.07.11.1",
+      "unified_short": "7.11.1",
+      "release_date": "2024.12.02",
+      "warning": null
+    },
+    {
+      "version": "RUTX_R_00.07.11",
+      "gpl_version": "RUTX_R_GPL_00.07.11",
+      "unified_full": "00.07.11",
+      "unified_short": "7.11",
+      "release_date": "2024.11.25",
+      "warning": null
+    },
+    {
+      "version": "RUTX_R_00.07.10.2",
+      "gpl_version": "RUTX_R_GPL_00.07.10.2",
+      "unified_full": "00.07.10.2",
+      "unified_short": "7.10.2",
+      "release_date": "2024.11.04",
+      "warning": null
+    },
+    {
+      "version": "RUTX_R_00.07.10",
+      "gpl_version": "RUTX_R_GPL_00.07.10",
+      "unified_full": "00.07.10",
+      "unified_short": "7.10",
+      "release_date": "2024.10.10",
+      "warning": null
+    },
+    {
+      "version": "RUTX_R_00.07.09.4",
+      "gpl_version": "RUTX_R_GPL_00.07.09.4",
+      "unified_full": "00.07.09.4",
+      "unified_short": "7.9.4",
+      "release_date": "2024.10.02",
+      "warning": null
+    },
+    {
+      "version": "RUTX_R_00.07.09.3",
+      "gpl_version": "RUTX_R_GPL_00.07.09.3",
+      "unified_full": "00.07.09.3",
+      "unified_short": "7.9.3",
+      "release_date": "2024.09.27",
+      "warning": null
+    },
+    {
+      "version": "RUTX_R_00.07.09.1",
+      "gpl_version": "RUTX_R_GPL_00.07.09.1",
+      "unified_full": "00.07.09.1",
+      "unified_short": "7.9.1",
+      "release_date": "2024.09.13",
+      "warning": null
+    },
+    {
+      "version": "RUTX_R_00.07.09",
+      "gpl_version": "RUTX_R_GPL_00.07.09",
+      "unified_full": "00.07.09",
+      "unified_short": "7.9",
+      "release_date": "2024.09.03",
+      "warning": null
+    },
+    {
+      "version": "RUTX_R_00.07.08.3",
+      "gpl_version": "RUTX_R_GPL_00.07.08.3",
+      "unified_full": "00.07.08.3",
+      "unified_short": "7.8.3",
+      "release_date": "2024.08.23",
+      "warning": null
+    },
+    {
+      "version": "RUTX_R_00.07.08.2",
+      "gpl_version": "RUTX_R_GPL_00.07.08.2",
+      "unified_full": "00.07.08.2",
+      "unified_short": "7.8.2",
+      "release_date": "2024.08.12",
+      "warning": null
+    },
+    {
+      "version": "RUTX_R_00.07.08.1",
+      "gpl_version": "RUTX_R_GPL_00.07.08.1",
+      "unified_full": "00.07.08.1",
+      "unified_short": "7.8.1",
+      "release_date": "2024.08.06",
+      "warning": "Note: This firmware version was removed due to an issue with FOTA firmware download."
+    },
+    {
+      "version": "RUTX_R_00.07.08",
+      "gpl_version": "RUTX_R_GPL_00.07.08",
+      "unified_full": "00.07.08",
+      "unified_short": "7.8",
+      "release_date": "2024.07.18",
+      "warning": "Note: This firmware version was removed due to an issue with FOTA firmware download."
+    },
+    {
+      "version": "RUTX_R_00.07.07.3",
+      "gpl_version": "RUTX_R_GPL_00.07.07.3",
+      "unified_full": "00.07.07.3",
+      "unified_short": "7.7.3",
+      "release_date": "2024.06.25",
+      "warning": null
+    },
+    {
+      "version": "RUTX_R_00.07.07.2",
+      "gpl_version": "RUTX_R_GPL_00.07.07.2",
+      "unified_full": "00.07.07.2",
+      "unified_short": "7.7.2",
+      "release_date": "2024.06.12",
+      "warning": null
+    },
+    {
+      "version": "RUTX_R_00.07.07.1",
+      "gpl_version": "RUTX_R_GPL_00.07.07.1",
+      "unified_full": "00.07.07.1",
+      "unified_short": "7.7.1",
+      "release_date": "2024.05.03",
+      "warning": null
+    },
+    {
+      "version": "RUTX_R_00.07.06.10",
+      "gpl_version": "RUTX_R_GPL_00.07.06.10",
+      "unified_full": "00.07.06.10",
+      "unified_short": "7.6.10",
+      "release_date": "2024.04.04",
+      "warning": null
+    },
+    {
+      "version": "RUTX_R_00.07.06.8",
+      "gpl_version": "RUTX_R_GPL_00.07.06.8",
+      "unified_full": "00.07.06.8",
+      "unified_short": "7.6.8",
+      "release_date": "2024.03.25",
+      "warning": null
+    },
+    {
+      "version": "RUTX_R_00.07.06.6",
+      "gpl_version": "RUTX_R_GPL_00.07.06.6",
+      "unified_full": "00.07.06.6",
+      "unified_short": "7.6.6",
+      "release_date": "2024.03.04",
+      "warning": null
+    },
+    {
+      "version": "RUTX_R_00.07.06.5",
+      "gpl_version": "RUTX_R_GPL_00.07.06.5",
+      "unified_full": "00.07.06.5",
+      "unified_short": "7.6.5",
+      "release_date": "2024.02.21",
+      "warning": null
+    },
+    {
+      "version": "RUTX_R_00.07.06.3",
+      "gpl_version": "RUTX_R_GPL_00.07.06.3",
+      "unified_full": "00.07.06.3",
+      "unified_short": "7.6.3",
+      "release_date": "2024.01.17",
+      "warning": null
+    },
+    {
+      "version": "RUTX_R_00.07.06.1",
+      "gpl_version": "RUTX_R_GPL_00.07.06.1",
+      "unified_full": "00.07.06.1",
+      "unified_short": "7.6.1",
+      "release_date": "2024.01.04",
+      "warning": null
+    },
+    {
+      "version": "RUTX_R_00.07.06",
+      "gpl_version": "RUTX_R_GPL_00.07.06",
+      "unified_full": "00.07.06",
+      "unified_short": "7.6",
+      "release_date": "2023.12.20",
+      "warning": null
+    },
+    {
+      "version": "RUTX_R_00.07.05.4",
+      "gpl_version": "RUTX_R_GPL_00.07.05.4",
+      "unified_full": "00.07.05.4",
+      "unified_short": "7.5.4",
+      "release_date": "2023.11.09",
+      "warning": null
+    },
+    {
+      "version": "RUTX_R_00.07.05.3",
+      "gpl_version": "RUTX_R_GPL_00.07.05.3",
+      "unified_full": "00.07.05.3",
+      "unified_short": "7.5.3",
+      "release_date": "2023.10.30",
+      "warning": null
+    },
+    {
+      "version": "RUTX_R_00.07.05",
+      "gpl_version": "RUTX_R_GPL_00.07.05",
+      "unified_full": "00.07.05",
+      "unified_short": "7.5",
+      "release_date": "2023.10.19",
+      "warning": null
+    },
+    {
+      "version": "RUTX_R_00.07.04.5",
+      "gpl_version": "RUTX_R_GPL_00.07.04.5",
+      "unified_full": "00.07.04.5",
+      "unified_short": "7.4.5",
+      "release_date": "2023.07.24",
+      "warning": null
+    },
+    {
+      "version": "RUTX_R_00.07.04.4",
+      "gpl_version": "RUTX_R_GPL_00.07.04.4",
+      "unified_full": "00.07.04.4",
+      "unified_short": "7.4.4",
+      "release_date": "2023.06.26",
+      "warning": null
+    },
+    {
+      "version": "RUTX_R_00.07.04.3",
+      "gpl_version": "RUTX_R_GPL_00.07.04.3",
+      "unified_full": "00.07.04.3",
+      "unified_short": "7.4.3",
+      "release_date": "2023.05.11",
+      "warning": null
+    },
+    {
+      "version": "RUTX_R_00.07.04.2",
+      "gpl_version": "RUTX_R_GPL_00.07.04.2",
+      "unified_full": "00.07.04.2",
+      "unified_short": "7.4.2",
+      "release_date": "2023.04.18",
+      "warning": null
+    },
+    {
+      "version": "RUTX_R_00.07.04.1",
+      "gpl_version": "RUTX_R_GPL_00.07.04.1",
+      "unified_full": "00.07.04.1",
+      "unified_short": "7.4.1",
+      "release_date": "2023.03.24",
+      "warning": null
+    },
+    {
+      "version": "RUTX_R_00.07.04",
+      "gpl_version": "RUTX_R_GPL_00.07.04",
+      "unified_full": "00.07.04",
+      "unified_short": "7.4",
+      "release_date": "2023.03.07",
+      "warning": "Note: Firmware version RUTX_R_00.07.04 was removed from downloads list due to issues with Mobile Data Limit functionality not working correctly when Software offloading is enabled."
+    },
+    {
+      "version": "RUTX_R_00.07.03.4",
+      "gpl_version": "RUTX_R_GPL_00.07.03.4",
+      "unified_full": "00.07.03.4",
+      "unified_short": "7.3.4",
+      "release_date": "2023.02.09",
+      "warning": null
+    },
+    {
+      "version": "RUTX_R_00.07.03.3",
+      "gpl_version": "RUTX_R_GPL_00.07.03.3",
+      "unified_full": "00.07.03.3",
+      "unified_short": "7.3.3",
+      "release_date": "2023.01.25",
+      "warning": null
+    },
+    {
+      "version": "RUTX_R_00.07.03.2",
+      "gpl_version": "RUTX_R_GPL_00.07.03.2",
+      "unified_full": "00.07.03.2",
+      "unified_short": "7.3.2",
+      "release_date": "2023.01.13",
+      "warning": null
+    },
+    {
+      "version": "RUTX_R_00.07.03.1",
+      "gpl_version": "RUTX_R_GPL_00.07.03.1",
+      "unified_full": "00.07.03.1",
+      "unified_short": "7.3.1",
+      "release_date": "2023.01.03",
+      "warning": null
+    },
+    {
+      "version": "RUTX_R_00.07.03",
+      "gpl_version": "RUTX_R_GPL_00.07.03",
+      "unified_full": "00.07.03",
+      "unified_short": "7.3",
+      "release_date": "2022.12.16",
+      "warning": null
+    },
+    {
+      "version": "RUTX_R_00.07.02.7",
+      "gpl_version": "RUTX_R_GPL_00.07.02.7",
+      "unified_full": "00.07.02.7",
+      "unified_short": "7.2.7",
+      "release_date": "2022.09.12",
+      "warning": null
+    },
+    {
+      "version": "RUTX_R_00.07.02.6",
+      "gpl_version": "RUTX_R_GPL_00.07.02.6",
+      "unified_full": "00.07.02.6",
+      "unified_short": "7.2.6",
+      "release_date": "2022.08.24",
+      "warning": null
+    },
+    {
+      "version": "RUTX_R_00.07.02.5",
+      "gpl_version": "RUTX_R_GPL_00.07.02.5",
+      "unified_full": "00.07.02.5",
+      "unified_short": "7.2.5",
+      "release_date": "2022.08.12",
+      "warning": null
+    },
+    {
+      "version": "RUTX_R_00.07.02.4",
+      "gpl_version": "RUTX_R_GPL_00.07.02.4",
+      "unified_full": "00.07.02.4",
+      "unified_short": "7.2.4",
+      "release_date": "2022.07.20",
+      "warning": null
+    },
+    {
+      "version": "RUTX_R_00.07.02.2",
+      "gpl_version": "RUTX_R_GPL_00.07.02.2",
+      "unified_full": "00.07.02.2",
+      "unified_short": "7.2.2",
+      "release_date": "2022.06.27",
+      "warning": null
+    },
+    {
+      "version": "RUTX_R_00.07.02.1",
+      "gpl_version": "RUTX_R_GPL_00.07.02.1",
+      "unified_full": "00.07.02.1",
+      "unified_short": "7.2.1",
+      "release_date": "2022.06.06",
+      "warning": null
+    },
+    {
+      "version": "RUTX_R_00.07.02",
+      "gpl_version": "RUTX_R_GPL_00.07.02",
+      "unified_full": "00.07.02",
+      "unified_short": "7.2",
+      "release_date": "2022.05.23",
+      "warning": null
+    },
+    {
+      "version": "RUTX_R_00.07.01.4",
+      "gpl_version": "RUTX_R_GPL_00.07.01.4",
+      "unified_full": "00.07.01.4",
+      "unified_short": "7.1.4",
+      "release_date": "2022.02.25",
+      "warning": null
+    },
+    {
+      "version": "RUTX_R_00.07.01.2",
+      "gpl_version": "RUTX_R_GPL_00.07.01.2",
+      "unified_full": "00.07.01.2",
+      "unified_short": "7.1.2",
+      "release_date": "2022.01.04",
+      "warning": null
+    },
+    {
+      "version": "RUTX_R_00.07.01",
+      "gpl_version": "RUTX_R_GPL_00.07.01",
+      "unified_full": "00.07.01",
+      "unified_short": "7.1",
+      "release_date": "2021.11.18",
+      "warning": "Note: Firmware version RUTX_R_00.07.01 released on 2021.11.18 was removed due to an issue with IPsec tunnel while using mobile connection."
+    },
+    {
+      "version": "RUTX_R_00.07.00",
+      "gpl_version": "RUTX_R_GPL_00.07.00",
+      "unified_full": "00.07.00",
+      "unified_short": "7",
+      "release_date": "2021.07.16",
+      "warning": null
+    },
+    {
+      "version": "RUTX_R_00.02.06.1",
+      "gpl_version": "RUTX_R_GPL_00.02.06.1",
+      "unified_full": "00.02.06.1",
+      "unified_short": "2.6.1",
+      "release_date": "2021.02.10",
+      "warning": null
+    },
+    {
+      "version": "RUTX_R_00.02.06",
+      "gpl_version": "RUTX_R_GPL_00.02.06",
+      "unified_full": "00.02.06",
+      "unified_short": "2.6",
+      "release_date": "2020.12.31",
+      "warning": null
+    },
+    {
+      "version": "RUTX_R_00.02.05.2",
+      "gpl_version": "RUTX_R_GPL_00.02.05.2",
+      "unified_full": "00.02.05.2",
+      "unified_short": "2.5.2",
+      "release_date": "2020.11.19",
+      "warning": null
+    },
+    {
+      "version": "RUTX_R_00.02.05.1",
+      "gpl_version": "RUTX_R_GPL_00.02.05.1",
+      "unified_full": "00.02.05.1",
+      "unified_short": "2.5.1",
+      "release_date": "2020.09.30",
+      "warning": null
+    },
+    {
+      "version": "RUTX_R_00.02.04.3",
+      "gpl_version": "RUTX_R_GPL_00.02.04.3",
+      "unified_full": "00.02.04.3",
+      "unified_short": "2.4.3",
+      "release_date": "2020.07.31",
+      "warning": null
+    },
+    {
+      "version": "RUTX_R_00.02.04.1",
+      "gpl_version": "RUTX_R_GPL_00.02.04.1",
+      "unified_full": "00.02.04.1",
+      "unified_short": "2.4.1",
+      "release_date": "2020.07.02",
+      "warning": null
+    },
+    {
+      "version": "RUTX_R_00.02.03.4",
+      "gpl_version": "RUTX_R_GPL_00.02.03.4",
+      "unified_full": "00.02.03.4",
+      "unified_short": "2.3.4",
+      "release_date": "2020.06.15",
+      "warning": null
+    },
+    {
+      "version": "RUTX_R_00.02.03.1",
+      "gpl_version": "RUTX_R_GPL_00.02.03.1",
+      "unified_full": "00.02.03.1",
+      "unified_short": "2.3.1",
+      "release_date": "2020.05.15",
+      "warning": null
+    },
+    {
+      "version": "RUTX_R_00.02.01.1",
+      "gpl_version": "RUTX_R_GPL_00.02.01.1",
+      "unified_full": "00.02.01.1",
+      "unified_short": "2.1.1",
+      "release_date": "2020.01.15",
+      "warning": null
+    },
+    {
+      "version": "RUTX_R_00.02.00.2",
+      "gpl_version": "RUTX_R_GPL_00.02.00.2",
+      "unified_full": "00.02.00.2",
+      "unified_short": "2.2",
+      "release_date": "2019.10.11",
+      "warning": null
+    },
+    {
+      "version": "RUTX_R_00.02.00.1",
+      "gpl_version": "RUTX_R_GPL_00.02.00.1",
+      "unified_full": "00.02.00.1",
+      "unified_short": "2.1",
+      "release_date": "2019.09.27",
+      "warning": null
+    },
+    {
+      "version": "RUTX_R_00.01.06",
+      "gpl_version": "RUTX_R_GPL_00.01.06",
+      "unified_full": "00.01.06",
+      "unified_short": "1.6",
+      "release_date": "2019.07.24",
+      "warning": null
+    },
+    {
+      "version": "RUTX_R_00.01.04.5",
+      "gpl_version": "RUTX_R_GPL_00.01.04.5",
+      "unified_full": "00.01.04.5",
+      "unified_short": "1.4.5",
+      "release_date": "2019.06.14",
+      "warning": null
+    },
+    {
+      "version": "RUTX_R_00.01.04.1",
+      "gpl_version": "RUTX_R_GPL_00.01.04.1",
+      "unified_full": "00.01.04.1",
+      "unified_short": "1.4.1",
+      "release_date": "2019.05.17",
+      "warning": null
+    },
+    {
+      "version": "RUTX_R_00.01.03",
+      "gpl_version": "RUTX_R_GPL_00.01.03",
+      "unified_full": "00.01.03",
+      "unified_short": "1.3",
+      "release_date": "2019.04.25",
+      "warning": null
+    },
+    {
+      "version": "RUTX_R_00.01.02",
+      "gpl_version": "RUTX_R_GPL_00.01.02",
+      "unified_full": "00.01.02",
+      "unified_short": "1.2",
+      "release_date": "2019.03.19",
+      "warning": null
+    },
+    {
+      "version": "RUTX_R_00.01.01",
+      "gpl_version": "RUTX_R_GPL_00.01.01",
+      "unified_full": "00.01.01",
+      "unified_short": "1.1",
+      "release_date": "2019.02.05",
+      "warning": null
+    }
+  ]
+}
