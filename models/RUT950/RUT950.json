@@ -1,0 +1,352 @@
+{
+  "model": "RUT950",
+  "product_code": "RUT9",
+  "stable_firmware": "RUT9_R_00.07.06.20",
+  "latest_firmware": "RUT9_R_00.07.06.20",
+  "firmwares": [
+    {
+      "version": "RUT9_R_00.07.06.20",
+      "gpl_version": "RUT9_R_GPL_00.07.06.20",
+      "unified_full": "00.07.06.20",
+      "unified_short": "7.6.20",
+      "release_date": "2025.09.22",
+      "warning": null
+    },
+    {
+      "version": "RUT9_R_00.07.06.19",
+      "gpl_version": "RUT9_R_GPL_00.07.06.19",
+      "unified_full": "00.07.06.19",
+      "unified_short": "7.6.19",
+      "release_date": "2025.07.27",
+      "warning": null
+    },
+    {
+      "version": "RUT9_R_00.07.06.18",
+      "gpl_version": "RUT9_R_GPL_00.07.06.18",
+      "unified_full": "00.07.06.18",
+      "unified_short": "7.6.18",
+      "release_date": "2025.04.09",
+      "warning": null
+    },
+    {
+      "version": "RUT9_R_00.07.06.17",
+      "gpl_version": "RUT9_R_GPL_00.07.06.17",
+      "unified_full": "00.07.06.17",
+      "unified_short": "7.6.17",
+      "release_date": "2025.01.14",
+      "warning": null
+    },
+    {
+      "version": "RUT9_R_00.07.06.16",
+      "gpl_version": "RUT9_R_GPL_00.07.06.16",
+      "unified_full": "00.07.06.16",
+      "unified_short": "7.6.16",
+      "release_date": "2024.09.06",
+      "warning": null
+    },
+    {
+      "version": "RUT9_R_00.07.06.15",
+      "gpl_version": "RUT9_R_GPL_00.07.06.15",
+      "unified_full": "00.07.06.15",
+      "unified_short": "7.6.15",
+      "release_date": "2024.08.27",
+      "warning": null
+    },
+    {
+      "version": "RUT9_R_00.07.06.14",
+      "gpl_version": "RUT9_R_GPL_00.07.06.14",
+      "unified_full": "00.07.06.14",
+      "unified_short": "7.6.14",
+      "release_date": "2024.08.09",
+      "warning": null
+    },
+    {
+      "version": "RUT9_R_00.07.06.13",
+      "gpl_version": "RUT9_R_GPL_00.07.06.13",
+      "unified_full": "00.07.06.13",
+      "unified_short": "7.6.13",
+      "release_date": "2024.07.08",
+      "warning": null
+    },
+    {
+      "version": "RUT9_R_00.07.06.12",
+      "gpl_version": "RUT9_R_GPL_00.07.06.12",
+      "unified_full": "00.07.06.12",
+      "unified_short": "7.6.12",
+      "release_date": "2024.06.20",
+      "warning": null
+    },
+    {
+      "version": "RUT9_R_00.07.06.11",
+      "gpl_version": "RUT9_R_GPL_00.07.06.11",
+      "unified_full": "00.07.06.11",
+      "unified_short": "7.6.11",
+      "release_date": "2024.05.07",
+      "warning": null
+    },
+    {
+      "version": "RUT9_R_00.07.06.10",
+      "gpl_version": "RUT9_R_GPL_00.07.06.10",
+      "unified_full": "00.07.06.10",
+      "unified_short": "7.6.10",
+      "release_date": "2024.04.04",
+      "warning": null
+    },
+    {
+      "version": "RUT9_R_00.07.06.8",
+      "gpl_version": "RUT9_R_GPL_00.07.06.8",
+      "unified_full": "00.07.06.8",
+      "unified_short": "7.6.8",
+      "release_date": "2024.03.25",
+      "warning": "Firmware R_00.07.06.8 was removed due to an issue with inefficient memory allocation for LED control."
+    },
+    {
+      "version": "RUT9_R_00.07.06.6",
+      "gpl_version": "RUT9_R_GPL_00.07.06.6",
+      "unified_full": "00.07.06.6",
+      "unified_short": "7.6.6",
+      "release_date": "2024.03.04",
+      "warning": null
+    },
+    {
+      "version": "RUT9_R_00.07.06.5",
+      "gpl_version": "RUT9_R_GPL_00.07.06.5",
+      "unified_full": "00.07.06.5",
+      "unified_short": "7.6.5",
+      "release_date": "2024.02.21",
+      "warning": null
+    },
+    {
+      "version": "RUT9_R_00.07.06.3",
+      "gpl_version": "RUT9_R_GPL_00.07.06.3",
+      "unified_full": "00.07.06.3",
+      "unified_short": "7.6.3",
+      "release_date": "2024.01.17",
+      "warning": null
+    },
+    {
+      "version": "RUT9_R_00.07.06.1",
+      "gpl_version": "RUT9_R_GPL_00.07.06.1",
+      "unified_full": "00.07.06.1",
+      "unified_short": "7.6.1",
+      "release_date": "2024.01.04",
+      "warning": null
+    },
+    {
+      "version": "RUT9_R_00.07.06",
+      "gpl_version": "RUT9_R_GPL_00.07.06",
+      "unified_full": "00.07.06",
+      "unified_short": "7.6",
+      "release_date": "2023.12.20",
+      "warning": null
+    },
+    {
+      "version": "RUT9_R_00.07.05.4",
+      "gpl_version": "RUT9_R_GPL_00.07.05.4",
+      "unified_full": "00.07.05.4",
+      "unified_short": "7.5.4",
+      "release_date": "2023.11.09",
+      "warning": null
+    },
+    {
+      "version": "RUT9_R_00.07.05",
+      "gpl_version": "RUT9_R_GPL_00.07.05",
+      "unified_full": "00.07.05",
+      "unified_short": "7.5",
+      "release_date": "2023.10.09",
+      "warning": null
+    },
+    {
+      "version": "RUT9_R_00.07.04.5",
+      "gpl_version": "RUT9_R_GPL_00.07.04.5",
+      "unified_full": "00.07.04.5",
+      "unified_short": "7.4.5",
+      "release_date": "2023.07.24",
+      "warning": null
+    },
+    {
+      "version": "RUT9_R_00.07.04.4",
+      "gpl_version": "RUT9_R_GPL_00.07.04.4",
+      "unified_full": "00.07.04.4",
+      "unified_short": "7.4.4",
+      "release_date": "2023.06.26",
+      "warning": "Note: Firmware version RUT9_R_00.07.04.4 released on 2023.06.26 was removed due to an issue on certain modems with failing initial mobile connection after upgrading from RUT9_R_00.07.02.5 or lower."
+    },
+    {
+      "version": "RUT9_R_00.07.04.3",
+      "gpl_version": "RUT9_R_GPL_00.07.04.3",
+      "unified_full": "00.07.04.3",
+      "unified_short": "7.4.3",
+      "release_date": "2023.05.11",
+      "warning": null
+    },
+    {
+      "version": "RUT9_R_00.07.04.2",
+      "gpl_version": "RUT9_R_GPL_00.07.04.2",
+      "unified_full": "00.07.04.2",
+      "unified_short": "7.4.2",
+      "release_date": "2023.04.04",
+      "warning": null
+    },
+    {
+      "version": "RUT9_R_00.07.04.1",
+      "gpl_version": "RUT9_R_GPL_00.07.04.1",
+      "unified_full": "00.07.04.1",
+      "unified_short": "7.4.1",
+      "release_date": "2023.03.24",
+      "warning": null
+    },
+    {
+      "version": "RUT9_R_00.07.04",
+      "gpl_version": "RUT9_R_GPL_00.07.04",
+      "unified_full": "00.07.04",
+      "unified_short": "7.4",
+      "release_date": "2023.03.07",
+      "warning": null
+    },
+    {
+      "version": "RUT9_R_00.07.03.4",
+      "gpl_version": "RUT9_R_GPL_00.07.03.4",
+      "unified_full": "00.07.03.4",
+      "unified_short": "7.3.4",
+      "release_date": "2023.02.09",
+      "warning": null
+    },
+    {
+      "version": "RUT9_R_00.07.03.3",
+      "gpl_version": "RUT9_R_GPL_00.07.03.3",
+      "unified_full": "00.07.03.3",
+      "unified_short": "7.3.3",
+      "release_date": "2023.01.25",
+      "warning": null
+    },
+    {
+      "version": "RUT9_R_00.07.03.2",
+      "gpl_version": "RUT9_R_GPL_00.07.03.2",
+      "unified_full": "00.07.03.2",
+      "unified_short": "7.3.2",
+      "release_date": "2023.01.13",
+      "warning": null
+    },
+    {
+      "version": "RUT9_R_00.07.03.1",
+      "gpl_version": "RUT9_R_GPL_00.07.03.1",
+      "unified_full": "00.07.03.1",
+      "unified_short": "7.3.1",
+      "release_date": "2023.01.03",
+      "warning": null
+    },
+    {
+      "version": "RUT9_R_00.07.03",
+      "gpl_version": "RUT9_R_GPL_00.07.03",
+      "unified_full": "00.07.03",
+      "unified_short": "7.3",
+      "release_date": "2022.12.16",
+      "warning": null
+    },
+    {
+      "version": "RUT9_R_00.07.02.7",
+      "gpl_version": "RUT9_R_GPL_00.07.02.7",
+      "unified_full": "00.07.02.7",
+      "unified_short": "7.2.7",
+      "release_date": "2022.09.12",
+      "warning": null
+    },
+    {
+      "version": "RUT9_R_00.07.02.6",
+      "gpl_version": "RUT9_R_GPL_00.07.02.6",
+      "unified_full": "00.07.02.6",
+      "unified_short": "7.2.6",
+      "release_date": "2022.08.24",
+      "warning": null
+    },
+    {
+      "version": "RUT9_R_00.07.02.5",
+      "gpl_version": "RUT9_R_GPL_00.07.02.5",
+      "unified_full": "00.07.02.5",
+      "unified_short": "7.2.5",
+      "release_date": "2022.08.12",
+      "warning": null
+    },
+    {
+      "version": "RUT9_R_00.07.02.4",
+      "gpl_version": "RUT9_R_GPL_00.07.02.4",
+      "unified_full": "00.07.02.4",
+      "unified_short": "7.2.4",
+      "release_date": "2022.07.20",
+      "warning": null
+    },
+    {
+      "version": "RUT9_R_00.07.02.3",
+      "gpl_version": "RUT9_R_GPL_00.07.02.3",
+      "unified_full": "00.07.02.3",
+      "unified_short": "7.2.3",
+      "release_date": "2022.06.27",
+      "warning": null
+    },
+    {
+      "version": "RUT9_R_00.07.02.1",
+      "gpl_version": "RUT9_R_GPL_00.07.02.1",
+      "unified_full": "00.07.02.1",
+      "unified_short": "7.2.1",
+      "release_date": "2022.06.06",
+      "warning": null
+    },
+    {
+      "version": "RUT9_R_00.07.02",
+      "gpl_version": "RUT9_R_GPL_00.07.02",
+      "unified_full": "00.07.02",
+      "unified_short": "7.2",
+      "release_date": "2022.05.23",
+      "warning": null
+    },
+    {
+      "version": "RUT9_R_00.07.01.4",
+      "gpl_version": "RUT9_R_GPL_00.07.01.4",
+      "unified_full": "00.07.01.4",
+      "unified_short": "7.1.4",
+      "release_date": "2022.02.25",
+      "warning": null
+    },
+    {
+      "version": "RUT9_R_00.07.01.2",
+      "gpl_version": "RUT9_R_GPL_00.07.01.2",
+      "unified_full": "00.07.01.2",
+      "unified_short": "7.1.2",
+      "release_date": "2022.01.04",
+      "warning": null
+    },
+    {
+      "version": "RUT9_R_00.07.01.1",
+      "gpl_version": "RUT9_R_GPL_00.07.01.1",
+      "unified_full": "00.07.01.1",
+      "unified_short": "7.1.1",
+      "release_date": "2021.11.22",
+      "warning": "Note: Firmware version RUT9_R_00.07.01.1 released on 2021.11.22 was removed due to an issue with IPsec tunnel while using mobile connection."
+    },
+    {
+      "version": "RUT9_R_00.07.01",
+      "gpl_version": "RUT9_R_GPL_00.07.01",
+      "unified_full": "00.07.01",
+      "unified_short": "7.1",
+      "release_date": "2021.11.18",
+      "warning": "Note: Firmware version RUT9_R_00.07.01 released on 2021.11.18 was removed due to an issue with keep settings functionality."
+    },
+    {
+      "version": "RUT9_R_00.07.00.2",
+      "gpl_version": "RUT9_R_GPL_00.07.00.2",
+      "unified_full": "00.07.00.2",
+      "unified_short": "7.2",
+      "release_date": "2021.10.19",
+      "warning": null
+    },
+    {
+      "version": "RUT9_R_00.07.00",
+      "gpl_version": "RUT9_R_GPL_00.07.00",
+      "unified_full": "00.07.00",
+      "unified_short": "7",
+      "release_date": "2021.07.16",
+      "warning": null
+    }
+  ]
+}

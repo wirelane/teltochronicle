@@ -1,0 +1,6 @@
+[submodule "models/RUT951/repo"]
+	path = models/RUT951/repo
+	url = git@github.com:wirelane/teltonika-gpl-sdk-rut951.git
+[submodule "models/RUT950/repo"]
+	path = models/RUT950/repo
+	url = git@github.com:wirelane/teltonika-gpl-sdk-rut950.git
