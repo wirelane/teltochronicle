@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import os
 import re
+import sys
 import json
 import shutil
 import tarfile
@@ -476,6 +477,59 @@ def download_sdk_if_needed(
 # Git helpers (per repo)
 # =====================================================================
 
+def is_git_repo(path: str) -> bool:
+    """
+    Return True if 'path' is a valid Git repository (including submodules),
+    determined by invoking 'git rev-parse --is-inside-work-tree'.
+
+    This is more robust than checking only for .git/ because submodules may
+    use a .git file that points elsewhere.
+    """
+    if not os.path.isdir(path):
+        return False
+
+    # We intentionally suppress stderr to avoid noise.
+    result = subprocess.run(
+        ["git", "rev-parse", "--is-inside-work-tree"],
+        cwd=path,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.DEVNULL,
+        text=True,
+        check=False
+    )
+    return result.returncode == 0 and result.stdout.strip() == "true"
+
+
+def get_current_branch(repo_root: str) -> str | None:
+    """
+    Return the current Git branch name for the repository at 'path'.
+    Returns None if the repo is in a detached HEAD state or if the
+    branch cannot be determined.
+
+    Uses: git rev-parse --abbrev-ref HEAD
+    """
+    try:
+        result = subprocess.run(
+            ["git", "rev-parse", "--abbrev-ref", "HEAD"],
+            cwd=repo_root,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.DEVNULL,
+            text=True,
+            check=True
+        )
+
+        branch = result.stdout.strip()
+
+        # Detached HEAD state returns literally: "HEAD"
+        if branch == "HEAD" or not branch:
+            return None
+
+        return branch
+
+    except Exception:
+        return None
+
+
 def repo_has_tag(repo_path: str, tag: str) -> bool:
     result = subprocess.run(
         ["git", "tag", "--list", tag],
@@ -488,8 +542,20 @@ def repo_has_tag(repo_path: str, tag: str) -> bool:
 
 
 def branch_exists(repo_path: str, branch: str) -> bool:
+    # check for a local branch first
     result = subprocess.run(
         ["git", "rev-parse", "--verify", f"refs/heads/{branch}"],
+        cwd=repo_path,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        text=True,
+    )
+    if result.returncode == 0:
+        return True
+    
+    # but we are in doubt also fine with a remote branch
+    result = subprocess.run(
+        ["git", "rev-parse", "--verify", f"refs/remotes/origin/{branch}"],
         cwd=repo_path,
         stdout=subprocess.PIPE,
         stderr=subprocess.PIPE,
@@ -576,7 +642,7 @@ def commit_and_tag_repo(repo_path: str, gpl_version: str, release_date: datetime
 
 _branch_re = re.compile(r"^v([0-9]+)\.([0-9]+)$")
 
-def get_minor_branches(repo_root: str):
+def get_sorted_minor_branches(repo_root: str):
     result = subprocess.run(
         ["git", "branch", "--format", "%(refname:short)"],
         cwd=repo_root,
@@ -599,6 +665,11 @@ def get_minor_branches(repo_root: str):
     return branches
 
 
+def reset_branch_to_start_point(repo_root: str, branch: str, start_point: str):
+    subprocess.run(["git", "branch", "-f", branch, start_point], cwd=repo_root, check=True)
+    print(f"[OK]   {branch} → {start_point}")
+
+
 def update_branch_head_to_version(repo_root: str, branch: str, version: str):
 
     info = derive_sdk_path_parts(version)
@@ -606,22 +677,9 @@ def update_branch_head_to_version(repo_root: str, branch: str, version: str):
         raise ValueError('malformed firmware version string')
     
     tag = info['gpl_version']
-
-    result = subprocess.run(
-        ["git", "branch", "--contains", f"tags/{tag}"],
-        cwd=repo_root,
-        stdout=subprocess.PIPE,
-        text=True,
-        check=True
-    )
-
-    # do not care if the branch is prefixed with * if it is the
-    # currently active branch, we just need any branch
-    branch_for_tag = result.stdout.splitlines()[0][1:].strip()
-    assert branch_for_tag is not None
-
-    subprocess.run(["git", "branch", "-f", branch, branch_for_tag], cwd=repo_root, check=True)
-    print(f"[OK]   {branch} → {branch_for_tag} ({tag})")
+    assert repo_has_tag(repo_root, tag)
+    
+    reset_branch_to_start_point(repo_root, branch, tag)
 
 
 def create_or_checkout_minor_branch(repo_root: str, minor: str) -> str:
@@ -634,10 +692,11 @@ def create_or_checkout_minor_branch(repo_root: str, minor: str) -> str:
     branch_name = f"v{minor}"
 
     if branch_exists(repo_root, branch_name):
-        checkout_branch(repo_root, branch_name)
+        if get_current_branch(repo_root) != branch_name:
+            checkout_branch(repo_root, branch_name)
         return branch_name
 
-    branches = get_minor_branches(repo_root)
+    branches = get_sorted_minor_branches(repo_root)
     if branches:
         base = branches[-1]
         print(f"[INFO] Creating new branch {branch_name} from {base}.")
@@ -653,8 +712,8 @@ def create_or_checkout_minor_branch(repo_root: str, minor: str) -> str:
 # =====================================================================
 # Import SDKs into git (sorted by date) for one model
 # =====================================================================
-
 def import_sdks_into_git(firmwares: dict, stable_latest: dict, sdks_root: str, repo_root: str):
+
     for release_date, version, data in sorted_firmwares_by_date(firmwares):
         warning = data["warning"].strip()
         if warning:
@@ -673,10 +732,7 @@ def import_sdks_into_git(firmwares: dict, stable_latest: dict, sdks_root: str, r
         if not unified_short:
             print(f"[WARN] {version}: Could not determine short unified firmware version.")
             continue
-
-        minor = get_minor_from_unified_short(unified_short)
-        branch_name = f"v{minor}"
-
+        
         sdk_path = os.path.join(sdks_root, f"{gpl_version}.tar.gz")
         if not os.path.exists(sdk_path):
             print(f"[SKIP] {version}: SDK file not found ({sdk_path}).")
@@ -686,9 +742,10 @@ def import_sdks_into_git(firmwares: dict, stable_latest: dict, sdks_root: str, r
             print(f"[SKIP] {version}: Git tag '{gpl_version}' already exists.")
             continue
 
-        create_or_checkout_minor_branch(repo_root, minor)
+        minor = get_minor_from_unified_short(unified_short)
+        minor_branch = create_or_checkout_minor_branch(repo_root, minor)
 
-        print(f"[INFO] {version}: Importing SDK {gpl_version} into branch {branch_name}.")
+        print(f"[INFO] {version}: Importing SDK {gpl_version} into branch {minor_branch}.")
 
         clear_repo_worktree(repo_root)
         if not extract_sdk_into_repo(repo_root, sdk_path):
@@ -705,6 +762,7 @@ def import_sdks_into_git(firmwares: dict, stable_latest: dict, sdks_root: str, r
 
     update_branch_head_to_version(repo_root, 'master', latest_fw)
     update_branch_head_to_version(repo_root, 'stable', stable_fw)
+
 
 # =====================================================================
 # Per-model processing
@@ -818,16 +876,35 @@ def process_model(model: str, product_code: str):
         )
 
     # 7) Import SDKs to model-specific git repo
-    if not os.path.isdir(os.path.join(repo_root, ".git")):
+    if not is_git_repo(repo_root):
         subprocess.run(["git", "init"], cwd=repo_root, check=True)
 
     import_sdks_into_git(firmwares, stable_latest, sdks_root, repo_root)
 
 
-def main():
-    for model, product_code in MODEL_CONFIG.items():
-        process_model(model, product_code)
+def main() -> int:
+
+    if len(sys.argv) not in [1, 2]:
+        print("[ERROR] must have exactly one argument with the model to process or none.")
+        return 1
+
+    # allow only to process model given as first argument on the command line.
+    if len(sys.argv) == 2:
+        model = sys.argv[1]
+
+        if model not in MODEL_CONFIG:
+            print("[ERROR] unknown model given as first argument")
+            return 1
+
+        process_model(model, MODEL_CONFIG[model])
+
+    # otherwise process all models by default
+    else:
+        for model, product_code in MODEL_CONFIG.items():
+            process_model(model, product_code)
+    
+    return 0
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())

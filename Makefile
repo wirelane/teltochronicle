@@ -20,7 +20,7 @@ commit:
 
 # Push all submodules: branches and tags
 submodule-push:
-	git submodule foreach 'git push --all'
+	git submodule foreach 'git push --force --all'
 	git submodule foreach 'git push --tags'
 
 # Push main repository
@@ -36,11 +36,20 @@ pull:
 	git lfs fetch
 	git lfs pull
 
+	@echo "Checking if submodules are clean"
+	git submodule foreach '[ -z "$$(git status --porcelain)" ]' || { echo "Unclean submodules -> refusing to continue"; exit 1; }
+
 	@echo "Updating submodules..."
 	git submodule update --init --recursive
 
-	@echo "Fetching upstream commits in submodules..."
-	git submodule foreach 'git pull'
+	@echo "Fast-forwarding all remote branches in all submodules..."
+	git submodule foreach '\
+	  for b in $$(git for-each-ref --format="%(refname:short)" refs/heads); do \
+	    ( [ $$b == master ] || [ $$b == stable ] ) && continue; \
+	    git checkout "$$b" || exit 1; \
+	    git pull --ff-only || exit 1; \
+	  done \
+	'
 
 	@echo "Upstream sync complete."
 
