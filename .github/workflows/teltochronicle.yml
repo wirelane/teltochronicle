@@ -1,0 +1,45 @@
+name: Teltochronicle Nightly Update
+
+on:
+  schedule:
+    - cron: "0 3 * * *"   # every day at 03:00 UTC
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    environment: Deploy
+
+    steps:
+      - name: Install SSH key
+        uses: webfactory/ssh-agent@v0.9.0
+        with:
+          ssh-private-key: |
+            ${{ secrets.TELTOCHRONICLE_DEPLOY_KEY }}
+            ${{ secrets.RUT951_DEPLOY_KEY }}
+            ${{ secrets.RUT950_DEPLOY_KEY }}
+            ${{ secrets.RUTX09_DEPLOY_KEY }}
+
+      - name: Add GitHub to known_hosts
+        run: |
+          mkdir -p ~/.ssh
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
+          chmod 600 ~/.ssh/known_hosts
+
+      - name: Checkout repository (with submodules)
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Install git LFS
+        run: git lfs install
+
+      - name: Run repository update
+        run: make all
+
