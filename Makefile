@@ -4,6 +4,22 @@
 # submodule histories, and push everything.
 # ------------------------------------------------------------
 
+# Beware that GNU Make and git still use sh by default, so make sure
+# to remain POSIX-compliant in doubt - as things were not annoying enough already.
+# see https://github.com/git/git/blob/f0ef5b6d9bcc258e4cbef93839d1b7465d5212b9/run-command.c#L283
+
+# For Ubuntu this unfortunately still means that sh will get you in contact with dash
+# by default - and particularly dash is really something else.
+
+# Fortunately, at least in GNU make, the SHELL environment variable is respected, so
+# we can override the SHELL for this Makefile and all sub-instances of make as seen
+# below -  if it should become necessary.
+#export SHELL := /usr/bin/env bash
+
+# However, due to the fact that we're not really getting around sh/dash here anyways,
+# we will finally accept defeat and remain POSIX-compliant here, so in order to
+# not cause even more confusion.
+
 PYTHON ?= python3
 
 # Main update target: runs teltochronicle to fetch metadata & SDKs
@@ -49,7 +65,7 @@ pull-submodules:
 	@echo "Fast-forwarding all remote branches in all submodules..."
 	git submodule foreach '\
 	  for b in $$(git for-each-ref --format="%(refname:short)" refs/heads); do \
-	    ( [ "$$b" == "master" ] || [ "$$b" == "stable" ] ) && continue; \
+	    ( [ "$$b" = "master" ] || [ "$$b" = "stable" ] ) && continue; \
 	    git checkout "$$b" || exit 1; \
 	    git pull --ff-only || exit 1; \
 	  done \
