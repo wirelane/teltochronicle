@@ -12,7 +12,8 @@ jobs:
 
     steps:
       - name: Install SSH key
-        uses: webfactory/ssh-agent@v0.9.0
+        # see https://github.com/webfactory/ssh-agent/issues/184#issuecomment-2830671989
+        uses: webfactory/ssh-agent@v0.9.1
         with:
           ssh-private-key: |
             ${{ secrets.TELTOCHRONICLE_DEPLOY_KEY }}
