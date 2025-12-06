@@ -57,7 +57,9 @@ pull-lfs:
 # Pull submodules
 pull-submodules:
 	@echo "Checking if submodules are clean"
-	git submodule foreach '[ -z "$$(git status --porcelain)" ]' || { echo "Unclean submodules -> refusing to continue"; exit 1; }
+	git submodule foreach '\
+	  [ -z "$$(git status --porcelain)" ]' \
+	    || { echo "Unclean submodules -> refusing to continue -> consider target reset-submodules"; exit 1; }
 
 	@echo "Updating submodules..."
 	git submodule update --init --recursive
@@ -69,6 +71,17 @@ pull-submodules:
 	    git checkout "$$b" || exit 1; \
 	    git pull --ff-only || exit 1; \
 	  done \
+	'
+
+# Aggressively reset all submodules back to the remote state.
+reset-submodules:
+	git submodule foreach '\
+		git fetch origin --prune --prune-tags --tags; \
+		git checkout --detach origin/HEAD ; \
+		for b in $$(git for-each-ref --format="%(refname:short)" refs/heads); do \
+			git branch -D -f $$b; \
+		done ; \
+		git clean -xfd ; \
 	'
 
 # Pull all upstream changes for main repo + LFS + submodules
@@ -115,4 +128,4 @@ add-model: update
 	\
 	echo "Submodule successfully added for model $(MODEL)."
 
-.PHONY: update stage commit push-submodules push-repo all prepare pull pull-repo pull-lfs pull-submodules add-model
+.PHONY: update stage commit push-submodules push-repo all prepare pull pull-repo pull-lfs pull-submodules reset-submodules add-model
