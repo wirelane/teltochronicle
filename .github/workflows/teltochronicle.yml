@@ -15,6 +15,10 @@ jobs:
         # see https://github.com/webfactory/ssh-agent/issues/184#issuecomment-2830671989
         uses: webfactory/ssh-agent@v0.9.1
         with:
+          # Make sure that the deploy key for each repository contains the repository url, e.g.
+          # git@github.com:owner/repo.git, so that the correct deploy key can be mapped to
+          # each submodule.
+          # see https://github.com/webfactory/ssh-agent?tab=readme-ov-file#support-for-github-deploy-keys
           ssh-private-key: |
             ${{ secrets.TELTOCHRONICLE_DEPLOY_KEY }}
             ${{ secrets.RUT951_DEPLOY_KEY }}

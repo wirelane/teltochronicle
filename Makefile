@@ -25,7 +25,7 @@ push-submodules:
 
 # Push main repository
 push-repo:
-	git push 
+	git push
 
 # Pull main repo
 pull-repo:
@@ -49,7 +49,7 @@ pull-submodules:
 	@echo "Fast-forwarding all remote branches in all submodules..."
 	git submodule foreach '\
 	  for b in $$(git for-each-ref --format="%(refname:short)" refs/heads); do \
-	    ( [ $$b == master ] || [ $$b == stable ] ) && continue; \
+	    ( [ "$$b" == "master" ] || [ "$$b" == "stable" ] ) && continue; \
 	    git checkout "$$b" || exit 1; \
 	    git pull --ff-only || exit 1; \
 	  done \
