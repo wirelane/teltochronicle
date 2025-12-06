@@ -27,19 +27,23 @@ jobs:
           chmod 600 ~/.ssh/known_hosts
 
       - name: Checkout repository (with submodules)
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           submodules: recursive
           fetch-depth: 0
+          # we're dealing with LFS manually
+          lfs: false
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: "3.11"
 
       - name: Install git LFS
         run: git lfs install
 
+      - name: Make sure that submodules are up-to-date
+        run: make pull-submodules
+
       - name: Run repository update
         run: make all
-

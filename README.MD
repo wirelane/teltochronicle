@@ -34,6 +34,20 @@ All processing is performed by the `teltochronicle.py` tool.
 - [SDKs](models/RUTX09/sdks)
 - [JSON](models/RUTX09/RUTX09.json)
 
+## Cloning from the Repository without fetching Git LFS content
+
+In order to avoid downloading the entire SDK archive history from Git LFS and
+only fetch metadata as well as all submodule repositories, use the following command:
+
+```
+GIT_LFS_SKIP_SMUDGE=1 git clone https://github.com/wirelane/teltochronicle.git
+cd teltochronicle
+make pull-submodules
+```
+
+Teltochronicle is capable or recognizing Git LFS pointers if necessary and then
+fetching the files from LFS on an as-needed basis (assuming you have Git LFS installed - see below).
+
 ## Pulling from the Upstream Repository (with Git LFS and Submodules)
 
 > Make sure that you have Git LFS installed and set up with `git lfs install`.

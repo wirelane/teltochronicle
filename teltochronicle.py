@@ -635,6 +635,66 @@ def commit_and_tag_repo(repo_path: str, gpl_version: str, release_date: datetime
     print(f"[OK]   {gpl_version}: Committed and tagged.")
     return True
 
+def is_lfs_pointer_file(path: str) -> bool:
+    """
+    Return True if the file at 'path' is a Git LFS pointer file.
+    A valid LFS pointer file looks like:
+
+        version https://git-lfs.github.com/spec/v1
+        oid sha256:<SHA256>
+        size <size>
+
+    Detection is based on this exact format.
+    """
+
+    # Pointer files are tiny; skip large files without reading
+    try:
+        if os.path.getsize(path) > 1024:  # pointer files are usually <200 bytes
+            return False
+    except OSError:
+        return False
+
+    try:
+        with open(path, "r", encoding="utf-8", errors="replace") as f:
+            lines = f.read().splitlines()
+    except Exception:
+        return False
+
+    if len(lines) < 2:
+        return False
+
+    # Check required fields
+    if lines[0].strip() != "version https://git-lfs.github.com/spec/v1":
+        return False
+
+    has_oid = any(line.startswith("oid sha256:") for line in lines)
+    has_size = any(line.startswith("size ") for line in lines)
+
+    return has_oid and has_size
+
+import subprocess
+
+def resolve_lfs_pointer(repo_root: str, file_path: str) -> bool:
+    """
+    Replace a Git LFS pointer file with its actual binary content using:
+        git lfs pull --include=<relative-path-to-repo-root>
+    Returns True on success, False on failure.
+    """
+    try:
+        subprocess.run(
+            ["git", "lfs", "pull", "--include", file_path],
+            cwd=repo_root,
+            check=True,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            text=True
+        )
+        return True
+
+    except subprocess.CalledProcessError as e:
+        print(f"[ERROR] Failed to pull LFS object for {file_path}")
+        print(e.stderr or e.stdout)
+        return False
 
 # =====================================================================
 # Branch selection (vX.Y) + master/stable per repo
@@ -741,6 +801,12 @@ def import_sdks_into_git(firmwares: dict, stable_latest: dict, sdks_root: str, r
         if repo_has_tag(repo_root, gpl_version):
             print(f"[SKIP] {version}: Git tag '{gpl_version}' already exists.")
             continue
+
+        if is_lfs_pointer_file(sdk_path):
+            print(f"[INFO] {sdk_path}: not yet downloaded from Git LFS -> downloading.")
+            # we're working inside the main repository here, not the SDK submodule repository
+            if not resolve_lfs_pointer('.', sdk_path):
+                continue
 
         minor = get_minor_from_unified_short(unified_short)
         minor_branch = create_or_checkout_minor_branch(repo_root, minor)

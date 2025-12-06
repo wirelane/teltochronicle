@@ -19,23 +19,27 @@ commit:
 	git commit -m "Update firmware metadata, SDK archives and submodule state" || echo "Nothing to commit."
 
 # Push all submodules: branches and tags
-submodule-push:
+push-submodules:
 	git submodule foreach 'git push --force --all'
 	git submodule foreach 'git push --tags'
 
 # Push main repository
-push:
+push-repo:
 	git push 
 
-#Pull all upstream changes for main repo + LFS + submodules.
-pull:
+# Pull main repo
+pull-repo:
 	@echo "Pulling main repository..."
 	git pull
 
+# Pull LFS objects
+pull-lfs:
 	@echo "Updating git LFS objects..."
 	git lfs fetch
 	git lfs pull
 
+# Pull submodules
+pull-submodules:
 	@echo "Checking if submodules are clean"
 	git submodule foreach '[ -z "$$(git status --porcelain)" ]' || { echo "Unclean submodules -> refusing to continue"; exit 1; }
 
@@ -51,11 +55,12 @@ pull:
 	  done \
 	'
 
+# Pull all upstream changes for main repo + LFS + submodules
+pull: pull-repo pull-lfs pull-submodules
 	@echo "Upstream sync complete."
 
-
-# Full automated pipeline: update everything & push
-all: update stage commit submodule-push push
+# Full automated pipeline: update everything & push main repo
+all: update stage commit push-submodules push-repo
 	@echo "All tasks complete."
 
 # Prepare updates without pushing
@@ -94,4 +99,4 @@ add-model: update
 	\
 	echo "Submodule successfully added for model $(MODEL)."
 
-.PHONY: update stage commit submodule-push push all prepare pull add-model
+.PHONY: update stage commit push-submodules push-repo all prepare pull pull-repo pull-lfs pull-submodules add-model
