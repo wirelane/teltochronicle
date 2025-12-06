@@ -35,12 +35,17 @@ jobs:
           # we're dealing with LFS manually
           lfs: false
 
+      - name: Configure Git identity for commits
+        run: |
+          git config --global user.name  "Teltochronicle Nightly Update Bot"
+          git config --global user.email "no-reply@wirelane.com"
+
       - name: Set up Python
         uses: actions/setup-python@v6
         with:
           python-version: "3.11"
 
-      - name: Install git LFS
+      - name: Install Git LFS
         run: git lfs install
 
       - name: Make sure that submodules are up-to-date
