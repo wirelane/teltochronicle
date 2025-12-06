@@ -34,6 +34,12 @@ jobs:
           fetch-depth: 0
           # we're dealing with LFS manually
           lfs: false
+          # use SSH for checking out submodules
+          ssh-key: |
+            ${{ secrets.TELTOCHRONICLE_DEPLOY_KEY }}
+            ${{ secrets.RUT951_DEPLOY_KEY }}
+            ${{ secrets.RUT950_DEPLOY_KEY }}
+            ${{ secrets.RUTX09_DEPLOY_KEY }}
 
       - name: Configure Git identity for commits
         run: |
