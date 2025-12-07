@@ -45,7 +45,7 @@ cd teltochronicle
 make pull-submodules
 ```
 
-Teltochronicle is capable or recognizing Git LFS pointers if necessary and then
+Teltochronicle is capable of recognizing Git LFS pointers if necessary and then
 fetching the files from LFS on an as-needed basis (assuming you have Git LFS installed - see below).
 
 ## Pulling from the Upstream Repository (with Git LFS and Submodules)
