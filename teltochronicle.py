@@ -140,7 +140,7 @@ class StableLatestParser(HTMLParser):
             key = "latest"
         else:
             return
-        
+
         # Convert filename to firmware version by stripping last "_..."
         # e.g. RUT9M_R_00.07.18.3_WEBUI.bin -> RUT9M_R_00.07.18.3
         fw_version, _ = filename.rsplit("_", 1)
@@ -924,9 +924,14 @@ def process_model(model: str, product_code: str):
         for version, fw in firmwares.items():
             heading_line = fw["heading"].strip() or version
             md_out.write(f"## {heading_line}\n\n")
-            warning = fw["warning"].strip()
+            warning: str = fw["warning"].strip()
             if warning:
-                md_out.write("> ⚠️\n" f"> {warning}\n\n")
+                quoted_warning_lines = [ f'> {line}\n>\n' for line in warning.splitlines()]
+
+                md_out.write("> ⚠️\n")
+                md_out.write(">\n")
+                md_out.write("".join(quoted_warning_lines))
+                md_out.write(f"\n\n")
             md = tree_to_markdown(fw["tree"], heading_level_base=3)
             if md:
                 md_out.write(md)
