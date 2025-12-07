@@ -477,27 +477,63 @@ def download_sdk_if_needed(
 # Git helpers (per repo)
 # =====================================================================
 
-def is_git_repo(path: str) -> bool:
+def is_git_working_tree_root(path: str) -> bool:
     """
-    Return True if 'path' is a valid Git repository (including submodules),
-    determined by invoking 'git rev-parse --is-inside-work-tree'.
+    Return True if 'path' is a valid Git repository root.
 
-    This is more robust than checking only for .git/ because submodules may
-    use a .git file that points elsewhere.
+    One needs to be careful here to avoid an edge case when working
+    with nested, uninitialized repositories, e.g. submodules that have not
+    been checked out yet, since we are working inside a working tree then, but
+    not the working tree of the submodule...
     """
     if not os.path.isdir(path):
         return False
 
     # We intentionally suppress stderr to avoid noise.
     result = subprocess.run(
-        ["git", "rev-parse", "--is-inside-work-tree"],
+        ["git", "rev-parse", "--show-toplevel"],
         cwd=path,
         stdout=subprocess.PIPE,
         stderr=subprocess.DEVNULL,
         text=True,
         check=False
     )
-    return result.returncode == 0 and result.stdout.strip() == "true"
+
+    working_tree_root = result.stdout.strip()
+
+    if result.returncode != 0 or len(working_tree_root) == 0:
+        # not a git repository or something else broken
+        return False
+
+    # account for symlinks or other weirdness
+    real_working_tree_root = os.path.realpath(working_tree_root)
+    real_path = os.path.realpath(path)
+
+    return real_working_tree_root == real_path
+
+
+def is_git_submodule(path: str, repo_root: str) -> bool:
+    realpath = os.path.realpath(path)
+
+    # We intentionally suppress stderr to avoid noise.
+    result = subprocess.run(
+        ["git", "submodule", "status", path],
+        cwd=repo_root,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.DEVNULL,
+        text=True,
+        check=False
+    )
+
+    if result.returncode != 0:
+        return False
+
+    realpath_submodules = [
+        os.path.realpath(line.strip().split(' ')[1])
+            for line in result.stdout.splitlines()
+    ]
+
+    return realpath in realpath_submodules
 
 
 def get_current_branch(repo_root: str) -> str | None:
@@ -634,6 +670,7 @@ def commit_and_tag_repo(repo_path: str, gpl_version: str, release_date: datetime
     subprocess.run(["git", "tag", gpl_version], cwd=repo_path, check=True, env=git_env)
     print(f"[OK]   {gpl_version}: Committed and tagged.")
     return True
+
 
 def is_lfs_pointer_file(path: str) -> bool:
     """
@@ -842,6 +879,7 @@ def fetch(url: str) -> str:
 def process_model(model: str, product_code: str):
     print(f"\n==== Processing model {model} (product_code={product_code}) ====")
 
+    main_repo_root = "."
     model_dir = os.path.join("models", model)
     sdks_root = os.path.join(model_dir, "sdks")
     repo_root = os.path.join(model_dir, "repo")
@@ -942,8 +980,12 @@ def process_model(model: str, product_code: str):
         )
 
     # 7) Import SDKs to model-specific git repo
-    if not is_git_repo(repo_root):
-        subprocess.run(["git", "init"], cwd=repo_root, check=True)
+    if not is_git_working_tree_root(repo_root):
+        if not is_git_submodule(repo_root, main_repo_root):
+            subprocess.run(["git", "init"], cwd=repo_root, check=True)
+        else:
+            print(f"[ERROR] {version}: Submodule {repo_root} has not been checked out yet.")
+            return
 
     import_sdks_into_git(firmwares, stable_latest, sdks_root, repo_root)
 
