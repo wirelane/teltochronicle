@@ -171,7 +171,10 @@
 ## RUTX_R_00.07.18 | 2025.10.01
 
 > ⚠️
+>
 > Note: This firmware version has been withdrawn due to an issue with incorrect mobile operator selection under specific conditions.
+>
+
 
 ### New
 #### Network
@@ -309,7 +312,10 @@
 ## RUTX_R_00.07.17 | 2025.08.12
 
 > ⚠️
+>
 > Note: This firmware was removed due an issue with Failover functionality.
+>
+
 
 ### New
 #### Network
@@ -706,7 +712,10 @@
 ## RUTX_R_00.07.14.2 | 2025.05.09
 
 > ⚠️
+>
 > Note: If a system upgrade with keep settings is performed from R_00.07.14 or R_00.07.14.1 to this version, follow the instructions described under those firmware versions below to resolve Data Limit and traffic monitoring issues.
+>
+
 
 ### Fix
 #### Network
@@ -721,11 +730,18 @@
 ## RUTX_R_00.07.14.1 | 2025.05.06
 
 > ⚠️
+>
 > Note: This firmware version has been withdrawn due to an issue affecting the Data Limit, traffic monitoring functionalities.
-Note: If a system upgrade with keep settings was already performed from R_00.07.14 to this version, previous Data Limit tracking and traffic monitoring information cannot be restored. However, to keep current traffic monitoring history after next update, the command found in the Note below must be executed in CLI.
-Note: If a system upgrade with keep settings is performed from this firmware version to newer and R_00.07.14 was never used, following command must be executed in CLI before upgrade to resolve Data Limit and traffic monitoring issues.
+>
+> Note: If a system upgrade with keep settings was already performed from R_00.07.14 to this version, previous Data Limit tracking and traffic monitoring information cannot be restored. However, to keep current traffic monitoring history after next update, the command found in the Note below must be executed in CLI.
+>
+> Note: If a system upgrade with keep settings is performed from this firmware version to newer and R_00.07.14 was never used, following command must be executed in CLI before upgrade to resolve Data Limit and traffic monitoring issues.
+>
+> 
+>
+> mkdir -p /usr/local/lib/upgrade/keep.d && echo /usr/local/usr/lib/mdcollectd/mdcollectd.db_new.gz > /usr/local/lib/upgrade/keep.d/mdcollect
+>
 
-mkdir -p /usr/local/lib/upgrade/keep.d && echo /usr/local/usr/lib/mdcollectd/mdcollectd.db_new.gz > /usr/local/lib/upgrade/keep.d/mdcollect
 
 ### Fix
 #### System
@@ -739,10 +755,16 @@ mkdir -p /usr/local/lib/upgrade/keep.d && echo /usr/local/usr/lib/mdcollectd/mdc
 ## RUTX_R_00.07.14 | 2025.04.24
 
 > ⚠️
+>
 > Note: This firmware version has been withdrawn due to an issue affecting the Data Limit, traffic monitoring functionalities.
-Note: If a system upgrade with keep settings is performed from this firmware version to newer, following command must be executed in CLI before upgrade to resolve Data Limit and traffic monitoring issues.
+>
+> Note: If a system upgrade with keep settings is performed from this firmware version to newer, following command must be executed in CLI before upgrade to resolve Data Limit and traffic monitoring issues.
+>
+> 
+>
+> mkdir -p /usr/local/lib/upgrade/keep.d && echo /usr/local/usr/lib/mdcollectd/mdcollectd.db_new.gz > /usr/local/lib/upgrade/keep.d/mdcollect
+>
 
-mkdir -p /usr/local/lib/upgrade/keep.d && echo /usr/local/usr/lib/mdcollectd/mdcollectd.db_new.gz > /usr/local/lib/upgrade/keep.d/mdcollect
 
 ### New
 #### Network
@@ -906,7 +928,10 @@ mkdir -p /usr/local/lib/upgrade/keep.d && echo /usr/local/usr/lib/mdcollectd/mdc
 ## RUTX_R_00.07.13 | 2025.03.03
 
 > ⚠️
+>
 > Note: This firmware was removed due an issue with Auto Reboot functionality performing unnecessary device reboot.
+>
+
 
 ### New
 #### Network
@@ -1628,7 +1653,10 @@ mkdir -p /usr/local/lib/upgrade/keep.d && echo /usr/local/usr/lib/mdcollectd/mdc
 ## RUTX_R_00.07.08.1 | 2024.08.06
 
 > ⚠️
+>
 > Note: This firmware version was removed due to an issue with FOTA firmware download.
+>
+
 
 ### Improvements
 #### Network
@@ -1652,7 +1680,10 @@ mkdir -p /usr/local/lib/upgrade/keep.d && echo /usr/local/usr/lib/mdcollectd/mdc
 ## RUTX_R_00.07.08 | 2024.07.18
 
 > ⚠️
+>
 > Note: This firmware version was removed due to an issue with FOTA firmware download.
+>
+
 
 ### New
 #### Network
@@ -2747,7 +2778,10 @@ mkdir -p /usr/local/lib/upgrade/keep.d && echo /usr/local/usr/lib/mdcollectd/mdc
 ## RUTX_R_00.07.04 | 2023.03.07
 
 > ⚠️
+>
 > Note: Firmware version RUTX_R_00.07.04 was removed from downloads list due to issues with Mobile Data Limit functionality not working correctly when Software offloading is enabled.
+>
+
 
 ### Improvements
 #### WebUI
@@ -3463,7 +3497,10 @@ mkdir -p /usr/local/lib/upgrade/keep.d && echo /usr/local/usr/lib/mdcollectd/mdc
 ## RUTX_R_00.07.01 | 2021.11.18
 
 > ⚠️
+>
 > Note: Firmware version RUTX_R_00.07.01 released on 2021.11.18 was removed due to an issue with IPsec tunnel while using mobile connection.
+>
+
 
 ### New features
 * Load Balancing Rules
