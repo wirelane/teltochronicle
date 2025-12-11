@@ -3,7 +3,15 @@
 ## Overview
 
 - Stable firmware: `RUTX_R_00.07.18.3`
-- Latest firmware: `RUTX_R_00.07.19.4`
+- Latest firmware: `RUTX_R_00.07.19.5`
+
+---
+
+## RUTX_R_00.07.19.5 | 2025.12.10
+
+### Fix
+#### System
+* RutOS: fixed WAN ethernet LED
 
 ---
 
