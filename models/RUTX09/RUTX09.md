@@ -3,7 +3,96 @@
 ## Overview
 
 - Stable firmware: `RUTX_R_00.07.18.3`
-- Latest firmware: `RUTX_R_00.07.19.5`
+- Latest firmware: `RUTX_R_00.07.20`
+
+---
+
+## RUTX_R_00.07.20 | 2025.12.16
+
+### New
+#### Network
+* Mobile: added "mobileinternet.tele2.lt" APN for "Tele2" operator to APN database
+#### Services
+* Data to Server: added IEC 60870-5 Client as an input
+* IEC 60870-5 Client: added IEC 60870-5-104 Client
+* IEC 60870-5 Server: added IEC101 and IEC104 support
+#### System
+* Package Manager: added CIFS/SMBFS filesystem support
+### Improvements
+#### Network
+* 802.1X Client: updated 802.1x validation so that 802.1x client can no longer be enabled on a port that is disabled
+* DHCP server: improved "DHCPv6-Mode" field's option names and hints
+* Mobile: improved log message when no primary SIM is set
+* Mobile: improved DFOTA log message when checking for updates
+* Mobile: added creation of mobile network interface on eSIM profile installation if one does not exist
+* Mobile: added "Switch to next SIM" button in 'Status -> Mobile' page
+* Mobile: improved mobile data connection establishment time
+* Mobile: improved mobile connection bring up behavior when the "Service option not subscribed" error is received
+* Multi WAN: added IPv4 and IPv6 WAN interface coexistence warning
+* Network: improved interface creation and deletion speed in some situations
+* Network: improved "Force link" field hint
+* Network: fixed "Force link" field to respect default value when changing interface protocol
+* SSHFS: updated setting fields to be shown when service is disabled
+* SSHFS: added directory as prefix to "Mount point" field
+* ethtool: updated version to 6.10
+#### Services
+* AWS IoT Core: updated orange error status to be red
+* Azure IoT Hub: updated status columns to use text badges instead of circle icons
+* Data to Server: updated input sections to be toggleable
+* Data to Server: added certificates to global certificate manager
+* Data to Server: increased the limit for Modbus data filtering entries
+* Event juggler: added certificates to global certificate manager
+* I/O Juggler: added certificates to global certificate manager
+* I/O Status: moved all custom I/O configuration from table to the edit
+* I/O Status: updated all I/O pinout and Power pinout icons
+* L2TP: improved adding custom options to the configuration
+* MQTT Broker: added certificates to global certificate manager
+* MQTT Broker Bridge: added certificates to global certificate manager
+* MQTT Publisher: added certificates to global certificate manager
+* SD & USB Tools: added additional mounting behavior options
+* SMPP: added certificates to global certificate manager
+* SNMP: added additional info to Trap message
+#### System
+* Certificates: changed SCEP enrollment to try AES first and fall back to 3DES
+* RutOS: updated login banner to include internal API usage
+* Kernel: updated version to 6.6.115
+### Fix
+#### Network
+* Firewall: removed low contrast zone colors
+* Mobile: fixed failure to create network interface configuration section for a new eSIM profile
+* Mobile: fixed SMS Limit excessive logging
+* Network: fixed PPPoE client options not being removed after switching to other protocol
+* Network: fixed routing table rules not matching interface metric order
+* Realtime Traffic: fixed traffic history not showing up in some cases
+* Realtime Traffic: fixed plot background rendering when switching between plots
+* Realtime Traffic: fixed plot popover position on Firefox 143 and later
+#### Services
+* Azure IoT Hub: fixed empty status hint
+* DNP3 Client: fixed display issues with long request names
+* DNP3 Outstation: fixed display issues with long request names
+* Dynamic DNS: fixed bind-nsupdate method not working on multi-level subdomains
+* Event juggler: fixed HTTP action request type
+* Hotspot: fixed session data delete when deleting user
+* L2TP: fixed log display in WebUI
+* Modbus Client: fixed duplicate query parameters validation in database entries endpoint
+* Modbus Client: fixed display issues with long request names
+* Modbus Server: fixed display issues with long request names
+* MQTT Broker: fixed 'Allow persistence' option
+* OPC UA Client: fixed duplicate query parameters validation in database entries endpoint
+* OPC UA Client: fixed API error when 'server_node' option had an incorrect type in group values test endpoint
+* OpenVPN: fixed status in Static Key Authentication mode
+* OpenVPN: fixed handling of 'user' and 'group' parameters
+* RMS: fixed connection status jumping between "Connecting" and "Connected" states
+* SD & USB Tools: fixed API error when 'fs' option was not provided for safe_remove, format endpoints
+* SMS Utilities: fixed script action execution when arguments are provided
+#### System
+* Certificates: fixed importing DER keys to TPM
+* RutOS: fixed rare UCI deadlock causing system hangs
+* Speed Test: fixed selecting WAN interface when using servers with IPv6 support
+* System Users: fixed redundant /etc/group member creation
+* WebUI: fixed target area that triggers hint text
+### CVE Patches
+* CVE-2025-46394 - 3.3 (LOW)
 
 ---
 
