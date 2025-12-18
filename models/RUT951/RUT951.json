@@ -74,7 +74,7 @@
       "unified_full": "00.07.18",
       "unified_short": "7.18",
       "release_date": "2025.10.01",
-      "warning": "Note: This firmware version has been withdrawn due to an issue with incorrect mobile operator selection under specific conditions."
+      "warning": "Note: To ensure optimal performance, this firmware version has been removed after identifying a situation where the mobile operator might be selected incorrectly under specific circumstances."
     },
     {
       "version": "RUT9M_R_00.07.17.5",
@@ -122,7 +122,7 @@
       "unified_full": "00.07.17",
       "unified_short": "7.17",
       "release_date": "2025.08.12",
-      "warning": "Note: This firmware was removed due an issue with Failover functionality."
+      "warning": "Note: To ensure optimal performance, this firmware version has been removed after identifying a situation where the Failover functionality may not operate as expected."
     },
     {
       "version": "RUT9M_R_00.07.16.6",
@@ -218,7 +218,7 @@
       "unified_full": "00.07.14.1",
       "unified_short": "7.14.1",
       "release_date": "2025.05.06",
-      "warning": "Note: This firmware version has been withdrawn due to an issue affecting the Data Limit, traffic monitoring functionalities.\nNote: If a system upgrade with keep settings was already performed from R_00.07.14 to this version, previous Data Limit tracking and traffic monitoring information cannot be restored. However, to keep current traffic monitoring history after next update, the command found in the Note below must be executed in CLI.\nNote: If a system upgrade with keep settings is performed from this firmware version to newer and R_00.07.14 was never used, following command must be executed in CLI before upgrade to resolve Data Limit and traffic monitoring issues.\n\nmkdir -p /usr/local/lib/upgrade/keep.d && echo /usr/local/usr/lib/mdcollectd/mdcollectd.db_new.gz > /usr/local/lib/upgrade/keep.d/mdcollect"
+      "warning": "Note: To ensure optimal performance, this firmware version has been removed after identifying a situation where Data Limit and traffic monitoring features may not behave as intended.\nNote: If a system upgrade with keep settings was already performed from R_00.07.14 to this version, previous Data Limit tracking and traffic monitoring information cannot be restored. However, to keep current traffic monitoring history after next update, the command found in the Note below must be executed in CLI.\nNote: If a system upgrade with keep settings is performed from this firmware version to newer and R_00.07.14 was never used, following command must be executed in CLI before upgrade to resolve Data Limit and traffic monitoring issues.\n\nmkdir -p /usr/local/lib/upgrade/keep.d && echo /usr/local/usr/lib/mdcollectd/mdcollectd.db_new.gz > /usr/local/lib/upgrade/keep.d/mdcollect"
     },
     {
       "version": "RUT9M_R_00.07.14",
@@ -226,7 +226,7 @@
       "unified_full": "00.07.14",
       "unified_short": "7.14",
       "release_date": "2025.04.24",
-      "warning": "Note: This firmware version has been withdrawn due to an issue affecting the Data Limit, traffic monitoring functionalities.\nNote: If a system upgrade with keep settings is performed from this firmware version to newer, following command must be executed in CLI before upgrade to resolve Data Limit and traffic monitoring issues.\n\nmkdir -p /usr/local/lib/upgrade/keep.d && echo /usr/local/usr/lib/mdcollectd/mdcollectd.db_new.gz > /usr/local/lib/upgrade/keep.d/mdcollect"
+      "warning": "Note: To ensure optimal performance, this firmware version has been removed after identifying a situation where Data Limit and traffic monitoring features may not behave as intended.\nNote: If a system upgrade with keep settings is performed from this firmware version to newer, following command must be executed in CLI before upgrade to resolve Data Limit and traffic monitoring issues.\n\nmkdir -p /usr/local/lib/upgrade/keep.d && echo /usr/local/usr/lib/mdcollectd/mdcollectd.db_new.gz > /usr/local/lib/upgrade/keep.d/mdcollect"
     },
     {
       "version": "RUT9M_R_00.07.13.4",
@@ -266,7 +266,7 @@
       "unified_full": "00.07.13",
       "unified_short": "7.13",
       "release_date": "2025.03.03",
-      "warning": "Note: This firmware was removed due an issue with Auto Reboot functionality performing unnecessary device reboot."
+      "warning": "Note: To ensure optimal performance, this firmware version has been removed after identifying a situation where the Auto Reboot feature may trigger unnecessary device restarts under certain conditions."
     },
     {
       "version": "RUT9M_R_00.07.12.3",
