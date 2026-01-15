@@ -95,10 +95,12 @@ pull-submodules:
 		  echo $$b; \
 	    git symbolic-ref HEAD refs/heads/$$b; \
 	    git merge --ff-only "$$b" || exit 1; \
-	  done; \
-	  git checkout master \
+	  done \
 	'
 	@echo
+
+	@echo "Reset submodules to expected state..."
+	@git submodule update --recursive
 
 # Aggressively reset all submodules back to the remote state.
 reset-submodules:
