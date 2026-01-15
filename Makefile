@@ -36,7 +36,7 @@ commit:
 
 # Push all submodules: branches and tags
 push-submodules:
-	git submodule foreach 'git push --force --all'
+	git submodule foreach 'git push --all'
 	git submodule foreach 'git push --tags'
 
 # Push main repository
@@ -57,21 +57,48 @@ pull-lfs:
 # Pull submodules
 pull-submodules:
 	@echo "Checking if submodules are clean"
-	git submodule foreach '\
+	@git submodule foreach '\
 	  [ -z "$$(git status --porcelain)" ]' \
 	    || { echo "Unclean submodules -> refusing to continue -> consider target reset-submodules"; exit 1; }
 
-	@echo "Updating submodules..."
-	git submodule update --init --recursive
+	@echo
 
-	@echo "Fast-forwarding all remote branches in all submodules..."
-	git submodule foreach '\
-	  for b in $$(git for-each-ref --format="%(refname:short)" refs/heads); do \
-	    ( [ "$$b" = "master" ] || [ "$$b" = "stable" ] ) && continue; \
-	    git checkout "$$b" || exit 1; \
-	    git pull --ff-only || exit 1; \
+	@echo "Updating submodules..."
+	@git submodule update --init --recursive
+
+	@echo
+
+	@echo "Fetching remote in submodules..."
+	@git submodule foreach 'git fetch'
+
+	@echo
+
+	@echo "Making sure that all remote branches exists in all submodules..."
+	@git submodule foreach '\
+	  for b in \
+      $$(git for-each-ref --format="%(refname:strip=-1)" \
+          --exclude="**/HEAD" refs/remotes/origin); \
+  	do \
+	    git show-ref --verify --quiet refs/heads/$$b && continue; \
+	    git branch "$$b" "origin/$$b" || exit 1; \
 	  done \
 	'
+
+	@echo
+
+	@echo "Fast-forwarding all remote branches in all submodules..."
+	@git submodule foreach '\
+	  for b in \
+      $$(git for-each-ref --format="%(refname:strip=-1)" refs/heads \
+          --exclude="**/master" --exclude="**/stable" | sort -u -V); \
+  	do \
+		  echo $$b; \
+	    git symbolic-ref HEAD refs/heads/$$b; \
+	    git merge --ff-only "$$b" || exit 1; \
+	  done; \
+	  git checkout master \
+	'
+	@echo
 
 # Aggressively reset all submodules back to the remote state.
 reset-submodules:
