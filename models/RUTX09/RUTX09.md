@@ -3,7 +3,15 @@
 ## Overview
 
 - Stable firmware: `RUTX_R_00.07.19.4`
-- Latest firmware: `RUTX_R_00.07.20.1`
+- Latest firmware: `RUTX_R_00.07.20.3`
+
+---
+
+## RUTX_R_00.07.20.3 | 2026.01.23
+
+### Fix
+#### Services
+* Data to Server: fixed IEC 60870 data sender plugin failing to load
 
 ---
 
