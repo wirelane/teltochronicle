@@ -7,3 +7,6 @@
 [submodule "models/RUTX09/repo"]
 	path = models/RUTX09/repo
 	url = git@github.com:wirelane/teltonika-gpl-sdk-rutx09.git
+[submodule "models/RUT956/repo"]
+	path = models/RUT956/repo
+	url = git@github.com:wirelane/teltonika-gpl-sdk-rut956.git

@@ -22,6 +22,7 @@ BASE_SDK_URL = "https://firmware.teltonika-networks.com"
 # model_name -> product_code
 MODEL_CONFIG = {
     "RUT951": "RUT9M",
+    "RUT956": "RUT9M",
     "RUT950": "RUT9",
     "RUTX09": "RUTX",
     # Add more here as needed
@@ -1020,7 +1021,7 @@ def main() -> int:
     else:
         for model, product_code in MODEL_CONFIG.items():
             process_model(model, product_code)
-    
+
     return 0
 
 
