@@ -7,7 +7,7 @@ import shutil
 import tarfile
 import tempfile
 import subprocess
-import urllib.request
+from urllib.request import urlopen, Request
 from urllib.error import HTTPError, URLError
 from html.parser import HTMLParser
 from datetime import datetime
@@ -25,6 +25,10 @@ MODEL_CONFIG = {
     "RUT950": "RUT9",
     "RUTX09": "RUTX",
     # Add more here as needed
+}
+
+REQUEST_HEADERS = {
+    'User-Agent': 'teltochronicle'
 }
 
 def get_base_wiki_url(model: str):
@@ -452,7 +456,8 @@ def download_sdk_if_needed(
     print(f"[INFO] {version}: Downloading SDK from {url}")
 
     try:
-        with urllib.request.urlopen(url) as resp, open(dest_file, "wb") as f:
+        with urlopen(Request(url, headers=REQUEST_HEADERS)) as resp, \
+                open(dest_file, "wb") as f:
             f.write(resp.read())
         print(f"[OK]   {version}: Downloaded successfully.")
 
@@ -872,7 +877,7 @@ def import_sdks_into_git(firmwares: dict, stable_latest: dict, sdks_root: str, r
 # =====================================================================
 
 def fetch(url: str) -> str:
-    with urllib.request.urlopen(url) as resp:
+    with urlopen(Request(url, headers=REQUEST_HEADERS)) as resp:
         return resp.read().decode(errors="ignore")
 
 
