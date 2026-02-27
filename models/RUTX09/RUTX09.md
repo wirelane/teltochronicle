@@ -3,7 +3,15 @@
 ## Overview
 
 - Stable firmware: `RUTX_R_00.07.20.3`
-- Latest firmware: `RUTX_R_00.07.21`
+- Latest firmware: `RUTX_R_00.07.21.1`
+
+---
+
+## RUTX_R_00.07.21.1 | 2026.02.26
+
+### Fix
+#### System
+* Site manager: fixed missing config files in SDK
 
 ---
 

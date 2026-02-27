@@ -2,15 +2,23 @@
   "model": "RUT956",
   "product_code": "RUT9M",
   "stable_firmware": "RUT9M_R_00.07.20.3",
-  "latest_firmware": "RUT9M_R_00.07.21",
+  "latest_firmware": "RUT9M_R_00.07.21.1",
   "firmwares": [
+    {
+      "version": "RUT9M_R_00.07.21.1",
+      "gpl_version": "RUT9M_R_GPL_00.07.21.1",
+      "unified_full": "00.07.21.1",
+      "unified_short": "7.21.1",
+      "release_date": "2026.02.26",
+      "warning": null
+    },
     {
       "version": "RUT9M_R_00.07.21",
       "gpl_version": "RUT9M_R_GPL_00.07.21",
       "unified_full": "00.07.21",
       "unified_short": "7.21",
       "release_date": "2026.02.17",
-      "warning": null
+      "warning": "Note: To ensure optimal performance, this firmware version has been removed due to an issue where the device may become unresponsive after a power cycle."
     },
     {
       "version": "RUT9M_R_00.07.20.3",

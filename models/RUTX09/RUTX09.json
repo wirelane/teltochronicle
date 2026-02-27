@@ -2,8 +2,16 @@
   "model": "RUTX09",
   "product_code": "RUTX",
   "stable_firmware": "RUTX_R_00.07.20.3",
-  "latest_firmware": "RUTX_R_00.07.21",
+  "latest_firmware": "RUTX_R_00.07.21.1",
   "firmwares": [
+    {
+      "version": "RUTX_R_00.07.21.1",
+      "gpl_version": "RUTX_R_GPL_00.07.21.1",
+      "unified_full": "00.07.21.1",
+      "unified_short": "7.21.1",
+      "release_date": "2026.02.26",
+      "warning": null
+    },
     {
       "version": "RUTX_R_00.07.21",
       "gpl_version": "RUTX_R_GPL_00.07.21",
