@@ -3,7 +3,24 @@
 ## Overview
 
 - Stable firmware: `RUTX_R_00.07.20.3`
-- Latest firmware: `RUTX_R_00.07.21.1`
+- Latest firmware: `RUTX_R_00.07.21.2`
+
+---
+
+## RUTX_R_00.07.21.2 | 2026.03.06
+
+### New
+#### Network
+* Mobile: added eSIM activation through proxy server
+### Improvements
+#### System
+* Site manager: added configurable DHCP option for client discovery
+* Site manager: added access control loss warning
+### Fix
+#### Network
+* Network: fixed an edge-case network hang after device reboot
+#### Services
+* Data to Server: fixed memory leak when using IEC 60870 5 as input and using output with custom format
 
 ---
 
