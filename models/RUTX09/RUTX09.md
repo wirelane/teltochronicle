@@ -3,7 +3,16 @@
 ## Overview
 
 - Stable firmware: `RUTX_R_00.07.20.3`
-- Latest firmware: `RUTX_R_00.07.21.2`
+- Latest firmware: `RUTX_R_00.07.21.3`
+
+---
+
+## RUTX_R_00.07.21.3 | 2026.03.24
+
+### Fix
+#### System
+* Backup: fixed eSIM interface generation after uploading a backup
+* Reset Settings: fixed reset not responding
 
 ---
 
