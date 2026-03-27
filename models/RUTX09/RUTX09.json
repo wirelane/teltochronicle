@@ -1,7 +1,7 @@
 {
   "model": "RUTX09",
   "product_code": "RUTX",
-  "stable_firmware": "RUTX_R_00.07.20.3",
+  "stable_firmware": "RUTX_R_00.07.21.3",
   "latest_firmware": "RUTX_R_00.07.22",
   "firmwares": [
     {

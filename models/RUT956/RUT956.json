@@ -1,7 +1,7 @@
 {
   "model": "RUT956",
   "product_code": "RUT9M",
-  "stable_firmware": "RUT9M_R_00.07.20.3",
+  "stable_firmware": "RUT9M_R_00.07.21.3",
   "latest_firmware": "RUT9M_R_00.07.22",
   "firmwares": [
     {
