@@ -3,7 +3,24 @@
 ## Overview
 
 - Stable firmware: `RUTX_R_00.07.21.3`
-- Latest firmware: `RUTX_R_00.07.22`
+- Latest firmware: `RUTX_R_00.07.22.1`
+
+---
+
+## RUTX_R_00.07.22.1 | 2026.04.13
+
+### Improvements
+#### System
+* ustream-ssl: updated version to 2026-03-01
+### Fix
+#### Services
+* IEC 60870-5 Client: fixed missing serial support validation checks
+* IEC 60870-5 Server: fixed package dependency issues and missing serial support validation checks
+* Modbus Client: fixed test requests due to missing broadcast option
+* RMS: fixed configuration permission issues that caused connection problems
+#### System
+* Backup: fixed custom uci-default script execution
+* Backup: fixed ability to reset user password to device default password
 
 ---
 
