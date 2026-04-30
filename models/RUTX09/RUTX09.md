@@ -2,7 +2,7 @@
 
 ## Overview
 
-- Stable firmware: `RUTX_R_00.07.21.3`
+- Stable firmware: `RUTX_R_00.07.22.1`
 - Latest firmware: `RUTX_R_00.07.23`
 
 ---
