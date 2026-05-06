@@ -3,7 +3,16 @@
 ## Overview
 
 - Stable firmware: `RUTX_R_00.07.22.1`
-- Latest firmware: `RUTX_R_00.07.23`
+- Latest firmware: `RUTX_R_00.07.23.1`
+
+---
+
+## RUTX_R_00.07.23.1 | 2026.05.05
+
+### Fix
+#### Network
+* Mobile: fixed data connection issue with operators whose MNC is "00"
+* QOS: fixed incorrect QoS being applied to interfaces after changing interface metric
 
 ---
 
