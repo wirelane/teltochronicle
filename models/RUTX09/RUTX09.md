@@ -3,7 +3,19 @@
 ## Overview
 
 - Stable firmware: `RUTX_R_00.07.22.1`
-- Latest firmware: `RUTX_R_00.07.23.1`
+- Latest firmware: `RUTX_R_00.07.23.2`
+
+---
+
+## RUTX_R_00.07.23.2 | 2026.05.18
+
+### Fix
+#### Network
+* Network: fixed interface and DHCP desynchronization after interface name change
+#### Services
+* IPsec: fixed xauth not working in certain conditions
+### CVE Patches
+* CVE-2026-31431 - 7.8 (HIGH)
 
 ---
 
