@@ -1,7 +1,7 @@
 {
   "model": "RUT951",
   "product_code": "RUT9M",
-  "stable_firmware": "RUT9M_R_00.07.22.1",
+  "stable_firmware": "RUT9M_R_00.07.22.3",
   "latest_firmware": "RUT9M_R_00.07.23.2",
   "firmwares": [
     {
@@ -26,6 +26,14 @@
       "unified_full": "00.07.23",
       "unified_short": "7.23",
       "release_date": "2026.04.24",
+      "warning": null
+    },
+    {
+      "version": "RUT9M_R_00.07.22.3",
+      "gpl_version": "RUT9M_R_GPL_00.07.22.3",
+      "unified_full": "00.07.22.3",
+      "unified_short": "7.22.3",
+      "release_date": "2026.05.19",
       "warning": null
     },
     {
