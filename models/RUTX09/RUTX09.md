@@ -3,7 +3,17 @@
 ## Overview
 
 - Stable firmware: `RUTX_R_00.07.22.3`
-- Latest firmware: `RUTX_R_00.07.23.2`
+- Latest firmware: `RUTX_R_00.07.23.3`
+
+---
+
+## RUTX_R_00.07.23.3 | 2026.05.21
+
+### Fix
+#### Network
+* Network: fixed validation error when changing interface devices and enabling WAN to LAN at the same time
+### CVE Patches
+* CVE-2026-8914 - 8.5 (HIGH)
 
 ---
 
