@@ -3,7 +3,19 @@
 ## Overview
 
 - Stable firmware: `RUTX_R_00.07.22.3`
-- Latest firmware: `RUTX_R_00.07.23.3`
+- Latest firmware: `RUTX_R_00.07.23.4`
+
+---
+
+## RUTX_R_00.07.23.4 | 2026.05.29
+
+### CVE Patches
+* CVE-2026-2291 - 7.3 (HIGH)
+* CVE-2026-4890 - 7.5 (HIGH)
+* CVE-2026-4891 - 5.3 (MEDIUM)
+* CVE-2026-4892 - 8.4 (HIGH)
+* CVE-2026-4893 - 5.3 (MEDIUM)
+* CVE-2026-5172 - 7.3 (HIGH)
 
 ---
 
