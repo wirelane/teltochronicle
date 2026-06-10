@@ -3,7 +3,17 @@
 ## Overview
 
 - Stable firmware: `RUTX_R_00.07.22.3`
-- Latest firmware: `RUTX_R_00.07.23.4`
+- Latest firmware: `RUTX_R_00.07.23.5`
+
+---
+
+## RUTX_R_00.07.23.5 | 2026.06.09
+
+### Fix
+#### Network
+* Mobile: fixed application segmentation fault with low signal reconnect enabled
+#### System
+* Backup: fixed backup generation for child endpoints
 
 ---
 
