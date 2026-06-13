@@ -2,7 +2,7 @@
 
 ## Overview
 
-- Stable firmware: `RUTX_R_00.07.22.3`
+- Stable firmware: `RUTX_R_00.07.22.4`
 - Latest firmware: `RUTX_R_00.07.23.5`
 
 ---
@@ -154,6 +154,14 @@
 * CVE-2025-61106 - 7.5 (HIGH)
 * CVE-2025-61107 - 7.5 (HIGH)
 * CVE-2026-30874 - 1.8 (LOW)
+
+---
+
+## RUTX_R_00.07.22.4 | 2026.06.12
+
+### Improvements
+#### System
+* Backup: restored backup generation to backup without API
 
 ---
 
