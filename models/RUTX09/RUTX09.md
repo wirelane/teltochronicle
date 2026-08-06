@@ -2,8 +2,196 @@
 
 ## Overview
 
-- Stable firmware: `RUTX_R_00.07.22.4`
-- Latest firmware: `RUTX_R_00.07.23.5`
+- Stable firmware: `RUTX_R_00.07.24.1`
+- Latest firmware: `RUTX_R_00.07.24.1`
+
+---
+
+## RUTX_R_00.07.24.1 | 2026.07.20
+
+### New
+#### Network
+* Iperf: added iperf to Package Manager
+* Mobile: added "internet.telenor.se" APN for operator "Telenor" into APN database
+* Mobile: added "services.telenor.se" APN for operator "Telenor" into APN database
+* Mobile: added "comgate.m2m" APN for operator "KPN" into APN databse
+#### Services
+* Stress-ng: added stress-ng to Package Manager
+### Improvements
+#### Network
+* Mobile: increased "iot.t-mobile.com" APN priority for T-Mobile operator with 311-882 MCC-MNC
+#### System
+* Integrity: improved the time it takes to generate integrity database on first boot
+### Fix
+#### Services
+* Event juggler: fixed SMS sending failures when messages are sent in rapid succession
+#### System
+* Troubleshoot: fixed logs from flash inclusion
+
+---
+
+## RUTX_R_00.07.24 | 2026.07.08
+
+### New
+#### Network
+* Mobile: added "soracom.io" APN for "NTT Docomo" and "KDDI" operators to the APN database
+* Mobile: added "internet" APN for "Bite" operator to APN database
+### Improvements
+#### Network
+* Dynamic routes: removed redundant interfaces from dropdown
+* Dynamic routes: moved instance naming into edit modals for OSPF
+* Firewall: increased maximum allowed length for "extra" field in traffic rules to 256 characters
+* Internet Status: refactored the web page to leverage caching, improving responsiveness
+* Mobile: updated blocklist and allowlist operator selection modes to use the lists in the user-defined order
+* Mobile: added "Ignore Home Operator Priority" toggle for blocklist and allowlist network selection modes
+* Mobile: changed User Equipment Usage Setting to data centric mode for additional modem models
+* Mobile: added APN priority control for mobile operator
+* Mobile: added ICCID display when SIM card is inserted but not yet unlocked with PIN
+* Realtime Traffic: improved ubus method input validation
+* Static Routes: added default table for IPv4 static routes in API
+#### Services
+* Data to Server: added SFTP and FTPS support for FTP output
+* Data to Server: added SFTP strict host key checking support for FTP output
+* Data to Server: added name and MAC code for MQTT topic wildcards
+* DMVPN: updated default ipsec crypto proposal
+* DNP3 Client: added IP address and port filtering options for database API requests
+* Event juggler: added name, serial code, MAC code for MQTT topic wildcards
+* IEC 60870-5 Client: added configuration support for app layer, link layer and APCI parameters
+* IEC 60870-5 Server: added new time_tag option in for server_instance, information object data types support with time_tag value
+* IEC 60870-5 Server: added new information object data types (time tag variants) for information object tags
+* IEC 60870-5 Server: added configuration support for app layer, link layer and APCI parameters
+* IPsec: updated default crypto proposal
+* Modbus Client: added IP address filtering options for database API requests
+* Modbus Client: added constants for MAC, serial and device name in the alarm MQTT action topic
+* MQTT Modbus Gateway: added certificates to global certificate manager
+* Over IP: added certificates to global certificate manager
+* Over IP: added serial inactivity timeout option
+* SMS Forwarding: added authentication retries for sender email account
+* SNMP: added download icon for the MIB file download button
+* SNMP: set default system name to represent the same value as device's hostname
+* Tinc: updated interface and host settings to support custom dynamic names
+* Tinc: updated port management to ensure only active instances occupy network ports
+* TR-069: added parameter name and parameter value validation when calling "SetParameterValues" command
+* TR-069: added Device.IP.Diagnostics.TraceRoute object based on "TR-181 Issue 2 Amendment 20", with implementation-specific deviations
+* TR-069: improved TR-069 connection initiation speed to the ACS
+* Traffic Logging: added SFTP strict host key checking support for FTP uploads
+* Wake on LAN: added bulk action for delete and wake device
+#### System
+* 2FA: improved log messages
+* Backup: added backup generation type selection
+* dropbear: updated version to 2025.89
+* SQLite3: updated version to 3.50.4
+### Fix
+#### Network
+* Devices: fixed validation when applying backup
+* DHCP server: fixed DHCP server lease time range validation
+* DHCP server: fixed IPv4 Static Leases page crash when mobile interface is disabled
+* DHCP server: fixed missing validation for passthrough mode IP address in IPv4 Static Leases
+* DHCP server: fixed IP range validation for disabled IPv4 server
+* Dynamic routes: fixed multiple "OSPF" issues related to labels, help texts and placeholders
+* Dynamic routes: fixed "NBMA" help text
+* Dynamic routes: fixed config generation for multiple networks, redistribution options and IPv4 setups when using allow VPN
+* Dynamic routes: fixed NHRP validation errors during backup upload
+* Firewall: fixed traffic rules with TCPMSS target creation
+* Firewall: fixed low TCP throughput when software flow offloading is used over certain interfaces
+* Firewall: fixed zones backup applying for "in" and "out" API options
+* Mobile: fixed SIM switch "On data connection fail" rule triggering unexpectedly when no SIM card is inserted
+* Network: fixed incorrect bridge ports show for interface
+* Ports Settings: fixed "advert" option validation in API
+* VLAN: fixed multiple POST request for /port_based_vlan/config/
+#### Services
+* Cloud of Things: fixed firmware reading from the file
+* DLMS: fixed incorrect translations
+* DLMS: fixed missing field validation for DLMS COSEM values and DLMS COSEM groups
+* DMVPN: fixed endpoint to return correct remote IP address
+* DNP3 Client: fixed validations for API database queries
+* DNP3 Outstation: fixed deadlock occurring when reading objects defined from data sources
+* EoIP: fixed backup to work correctly
+* Event juggler: fixed static IO name mapping
+* Event juggler: fixed GSM events to send a message for all newly matched ranges, instead of only the first one that matched
+* GPS: fixed geofencing configuration validation
+* GPS: fixed I/O input validation errors during backup upload
+* Hotspot: fixed Hotspot interfaces to be ignored in DHCP config
+* IEC 60870-5 Client: fixed test and scan request body validation
+* IEC 60870-5 Client: fixed device validation
+* IEC 60870-5 Client: fixed inconsistent server address requirement checks
+* IEC 60870-5 Client: fixed required field validation when feature is disabled, added inline serial device hint in serial device configuration modal
+* IEC 60870-5 Client: fixed excessive logging on database query API requests
+* IEC 60870-5 Client: fixed validations for API database queries
+* IEC 60870-5 Client: fixed information object value parsing when using different IO types
+* IEC 60870-5 Client: fixed default timeout t0 and max ASDU size definitions
+* IEC 60870-5 Server: fixed required field validation when feature is disabled
+* IEC 60870-5 Server: fixed error when time_tag option was omitted
+* IEC 60870-5 Server: fixed information object issue where multiple string values could not be used
+* IEC 60870-5 Server: fixed incorrect seconds parsing for time tag
+* IEC 60870-5 Server: fixed default timeout t0 and max ASDU size definitions
+* Impulse Counter: fixed I/O input validation errors during backup upload
+* IPsec: fixed remote endpoints using FQDNs
+* Mobile Utilities: fixed connection loss issue when the "gps_on" rule is executed
+* Modbus Client: fixed incorrect Modbus client data source 64bit value calculation
+* Modbus Client: fixed I/O input validation errors during backup upload
+* Modbus Server: fixed data source issue where reading out of data source range was allowed
+* Modbus TCP over Serial Gateway: fixed single ID option not working
+* MQTT Modbus Gateway: fixed TLS certificates read permission issue
+* MQTT Modbus Gateway: fixed application crash on restart
+* OPC UA Server: fixed service port issue causing the port to always be set to 4840
+* OpenConnect: fixed status endpoint
+* OpenConnect: fixed service not starting after reboot
+* OpenConnect: fixed validation errors when uploading backup
+* OSPF: fixed name overwriting and validation errors during backup upload
+* Over IP: fixed close connections feature for client and server modes
+* RMS: fixed 'rms_status' rule response when the RMS service is disabled
+* SMS Utilities: fixed response message
+* SMS Utilities: fixed SIM switch functionality
+* SMS Utilities: fixed OpenVPN instance validation before enabling it
+* SMS Utilities: fixed WebUI is not accessible via public IP after SMS "webon" command
+* SMS Utilities: fixed device is not accessible via public IP over ssh after SMS "sshon" command
+* SMS Utilities: fixed not updating SSH package local access and ssh wan access configuration parameters after "sshon"/"sshoff" commands
+* SMS Utilities: fixed not updating HTTP package local access configuration parameters after "webon"/"weboff" commands
+* SNMP: fixed minor webui validation bug
+* UPnP: fixed model, serial and uuid field validations
+* Zerotier: fixed backup to work correctly
+#### System
+* 2FA: fixed OTP code invalidation after successful authentication
+* 2FA: fixed issues with symbols in usernames
+* API Core: fixed endpoints added through SDK not being loaded
+* Auto Reboot: fixed sending ping/wget SMS from chosen modem
+* Backup: fixed uploading older backups with storage memory expansion enabled
+* NTP Client: fixed NTP packet size check to verify that received packet size is at least 48 bytes (standard NTP packet size without optional fields)
+* NTP Client: fixed time sync, when there is no mobile connection
+* Site Manager: fixed keepalive issue where unpaired devices would disappear
+* Site Manager: fixed sync issue where devices would get stuck after pairing
+* Update Firmware: fixed keep-settings behavior for SDK when read-only filesystem is disabled
+### CVE Patches
+* CVE-2026-0989 - 3.7 (LOW)
+* CVE-2026-0990 - 5.9 (MEDIUM)
+* CVE-2026-0992 - 2.9 (LOW)
+* CVE-2026-4519 - 3.3 (LOW)
+* CVE-2026-5720 - 7.1 (HIGH)
+* CVE-2026-31431 - 7.8 (HIGH)
+* CVE-2026-40385 - 7.1 (HIGH)
+* CVE-2026-40386 - 7.1 (HIGH)
+
+---
+
+## RUTX_R_00.07.23.7 | 2026.06.26
+
+### Improvements
+#### System
+* openssl: updated version to 3.0.21
+### Fix
+#### Network
+* Mobile: fixed 'Status -> Mobile' page to correctly display band and carrier aggregation information
+#### System
+* API Core: fixed regression which didn't allow saving options with unicode characters
+
+---
+
+## RUTX_R_00.07.23.6 | 2026.06.15
+
+### Improvements
+#### System
+* Backup: restored backup generation to backup without API
 
 ---
 
